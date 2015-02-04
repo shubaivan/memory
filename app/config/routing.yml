@@ -1,3 +1,3 @@
-app:
-    resource: @AppBundle/Controller/
-    type:     annotation
+memory_video:
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix:   /
