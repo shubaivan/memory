@@ -7,11 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-    /**
-     * @Route("/app/example", name="homepage")
-     */
     public function indexAction()
     {
-        return $this->render('default/index.html.twig');
+        $videos = $this->getDoctrine()->getRepository('AppBundle:Video')->findAll();
+        return $this->render('AppBundle::index.html.twig', array('videos' => $videos));
     }
 }
