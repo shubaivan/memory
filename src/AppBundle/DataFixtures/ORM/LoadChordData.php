@@ -8,7 +8,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Chord;
 use Symfony\Component\Yaml\Yaml;
 
-class LoadChordsData extends AbstractFixture implements OrderedFixtureInterface
+class LoadChordData extends AbstractFixture implements OrderedFixtureInterface
 {
     /**
      * {@inheritDoc}

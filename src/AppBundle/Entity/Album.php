@@ -3,7 +3,6 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Class Country
@@ -44,7 +43,7 @@ class Album
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -54,7 +53,7 @@ class Album
     /**
      * Set year
      *
-     * @param integer $year
+     * @param  integer $year
      * @return Album
      */
     public function setYear($year)
@@ -67,7 +66,7 @@ class Album
     /**
      * Get year
      *
-     * @return integer 
+     * @return integer
      */
     public function getYear()
     {
@@ -77,7 +76,7 @@ class Album
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return Album
      */
     public function setName($name)
@@ -90,7 +89,7 @@ class Album
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -100,7 +99,7 @@ class Album
     /**
      * Add video
      *
-     * @param \AppBundle\Entity\Video $video
+     * @param  \AppBundle\Entity\Video $video
      * @return Album
      */
     public function addVideo(\AppBundle\Entity\Video $video)
@@ -123,7 +122,7 @@ class Album
     /**
      * Get video
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getVideo()
     {

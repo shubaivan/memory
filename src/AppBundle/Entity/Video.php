@@ -72,7 +72,7 @@ class Video
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -82,7 +82,7 @@ class Video
     /**
      * Set title
      *
-     * @param string $title
+     * @param  string $title
      * @return Video
      */
     public function setTitle($title)
@@ -95,7 +95,7 @@ class Video
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -105,7 +105,7 @@ class Video
     /**
      * Set author
      *
-     * @param string $author
+     * @param  string $author
      * @return Video
      */
     public function setAuthor($author)
@@ -118,7 +118,7 @@ class Video
     /**
      * Get author
      *
-     * @return string 
+     * @return string
      */
     public function getAuthor()
     {
@@ -128,7 +128,7 @@ class Video
     /**
      * Set year
      *
-     * @param integer $year
+     * @param  integer $year
      * @return Video
      */
     public function setYear($year)
@@ -141,7 +141,7 @@ class Video
     /**
      * Get year
      *
-     * @return integer 
+     * @return integer
      */
     public function getYear()
     {
@@ -151,7 +151,7 @@ class Video
     /**
      * Set slug
      *
-     * @param string $slug
+     * @param  string $slug
      * @return Video
      */
     public function setSlug($slug)
@@ -164,7 +164,7 @@ class Video
     /**
      * Get slug
      *
-     * @return string 
+     * @return string
      */
     public function getSlug()
     {
@@ -174,7 +174,7 @@ class Video
     /**
      * Set description
      *
-     * @param string $description
+     * @param  string $description
      * @return Video
      */
     public function setDescription($description)
@@ -187,7 +187,7 @@ class Video
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -197,7 +197,7 @@ class Video
     /**
      * Set link
      *
-     * @param string $link
+     * @param  string $link
      * @return Video
      */
     public function setLink($link)
@@ -210,7 +210,7 @@ class Video
     /**
      * Get link
      *
-     * @return string 
+     * @return string
      */
     public function getLink()
     {
@@ -220,7 +220,7 @@ class Video
     /**
      * Set createdAt
      *
-     * @param \DateTime $createdAt
+     * @param  \DateTime $createdAt
      * @return Video
      */
     public function setCreatedAt($createdAt)
@@ -233,7 +233,7 @@ class Video
     /**
      * Get createdAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -243,7 +243,7 @@ class Video
     /**
      * Set updatedAt
      *
-     * @param \DateTime $updatedAt
+     * @param  \DateTime $updatedAt
      * @return Video
      */
     public function setUpdatedAt($updatedAt)
@@ -256,7 +256,7 @@ class Video
     /**
      * Get updatedAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -266,7 +266,7 @@ class Video
     /**
      * Set viewsNumber
      *
-     * @param integer $viewsNumber
+     * @param  integer $viewsNumber
      * @return Video
      */
     public function setViewsNumber($viewsNumber)
@@ -279,7 +279,7 @@ class Video
     /**
      * Get viewsNumber
      *
-     * @return integer 
+     * @return integer
      */
     public function getViewsNumber()
     {
@@ -289,7 +289,7 @@ class Video
     /**
      * Set chord
      *
-     * @param \AppBundle\Entity\Chord $chord
+     * @param  \AppBundle\Entity\Chord $chord
      * @return Video
      */
     public function setChord(\AppBundle\Entity\Chord $chord = null)
@@ -302,7 +302,7 @@ class Video
     /**
      * Get chord
      *
-     * @return \AppBundle\Entity\Chord 
+     * @return \AppBundle\Entity\Chord
      */
     public function getChord()
     {
@@ -312,7 +312,7 @@ class Video
     /**
      * Set album
      *
-     * @param \AppBundle\Entity\Album $album
+     * @param  \AppBundle\Entity\Album $album
      * @return Video
      */
     public function setAlbum(\AppBundle\Entity\Album $album = null)
@@ -325,7 +325,7 @@ class Video
     /**
      * Get album
      *
-     * @return \AppBundle\Entity\Album 
+     * @return \AppBundle\Entity\Album
      */
     public function getAlbum()
     {

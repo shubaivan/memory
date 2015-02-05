@@ -2,7 +2,6 @@
 
 namespace AppBundle\Entity;
 
-use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -35,7 +34,7 @@ class Chord
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -45,7 +44,7 @@ class Chord
     /**
      * Set title
      *
-     * @param string $title
+     * @param  string $title
      * @return Chord
      */
     public function setTitle($title)
@@ -58,7 +57,7 @@ class Chord
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -68,7 +67,7 @@ class Chord
     /**
      * Set description
      *
-     * @param string $description
+     * @param  string $description
      * @return Chord
      */
     public function setDescription($description)
@@ -81,7 +80,7 @@ class Chord
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -91,7 +90,7 @@ class Chord
     /**
      * Set video
      *
-     * @param \AppBundle\Entity\Video $video
+     * @param  \AppBundle\Entity\Video $video
      * @return Chord
      */
     public function setVideo(\AppBundle\Entity\Video $video = null)
@@ -104,7 +103,7 @@ class Chord
     /**
      * Get video
      *
-     * @return \AppBundle\Entity\Video 
+     * @return \AppBundle\Entity\Video
      */
     public function getVideo()
     {

@@ -5,7 +5,8 @@
         {% for video in videos %}
             {{ video.Title }} </br>
             {{ video.Link | raw}} </br>
-            {{ video.album }} </br>
-            {{ video.chord }} </br>
+            {{ video.album.name }} </br>
+            {{ video.chord.description }} </br>
+            </br>
         {% endfor %}
     {% endblock %}
