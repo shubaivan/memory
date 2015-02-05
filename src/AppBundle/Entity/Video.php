@@ -24,7 +24,7 @@ class Video
      */
     protected $title;
     /**
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Chords", inversedBy="video")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Chord", inversedBy="video")
      */
     protected $chord;
     /**
@@ -289,10 +289,10 @@ class Video
     /**
      * Set chord
      *
-     * @param \AppBundle\Entity\Chords $chord
+     * @param \AppBundle\Entity\Chord $chord
      * @return Video
      */
-    public function setChord(\AppBundle\Entity\Chords $chord = null)
+    public function setChord(\AppBundle\Entity\Chord $chord = null)
     {
         $this->chord = $chord;
 
@@ -302,7 +302,7 @@ class Video
     /**
      * Get chord
      *
-     * @return \AppBundle\Entity\Chords 
+     * @return \AppBundle\Entity\Chord 
      */
     public function getChord()
     {

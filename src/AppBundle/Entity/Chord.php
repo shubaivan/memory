@@ -6,10 +6,10 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="chords")
- * @ORM\Entity(repositoryClass="AppBundle\Entity\ChordsRepository")
+ * @ORM\Table(name="chord")
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\ChordRepository")
  */
-class Chords
+class Chord
 {
     /**
      * @ORM\Column(name="id", type="integer")
@@ -23,7 +23,7 @@ class Chords
     private $title;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string")
      */
     protected $description;
 
@@ -46,7 +46,7 @@ class Chords
      * Set title
      *
      * @param string $title
-     * @return Chords
+     * @return Chord
      */
     public function setTitle($title)
     {
@@ -69,7 +69,7 @@ class Chords
      * Set description
      *
      * @param string $description
-     * @return Chords
+     * @return Chord
      */
     public function setDescription($description)
     {
@@ -92,7 +92,7 @@ class Chords
      * Set video
      *
      * @param \AppBundle\Entity\Video $video
-     * @return Chords
+     * @return Chord
      */
     public function setVideo(\AppBundle\Entity\Video $video = null)
     {

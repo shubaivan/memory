@@ -8,6 +8,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Video;
 use Symfony\Component\Yaml\Yaml;
 use AppBundle\Entity\Album;
+use AppBundle\Entity\Chord;
 
 class LoadVideoData extends AbstractFixture implements OrderedFixtureInterface
 {
@@ -17,11 +18,11 @@ class LoadVideoData extends AbstractFixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager)
     {
         $videos = Yaml::parse(file_get_contents(__DIR__.'/Data/Video.yml'));
-
         foreach ($videos as $key => $videoData) {
             $video = new Video();
             $video->setTitle($videoData['title']);
             $video->setAlbum($this->getReference($videoData['album']));
+            $video->setChord($this->getReference($videoData['chord']));
             $video->setAuthor($videoData['author']);
             $video->setYear($videoData['year']);
             $video->setDescription($videoData['description']);
@@ -30,7 +31,6 @@ class LoadVideoData extends AbstractFixture implements OrderedFixtureInterface
         }
         $manager->flush();
     }
-
     /**
      * {@inheritDoc}
      */

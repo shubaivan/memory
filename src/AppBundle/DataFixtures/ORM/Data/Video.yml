@@ -1,6 +1,7 @@
 video1:
     title:        Руина
     album:        Dobryak
+    chord:        chord1
     description:  правдивая песня
     author:       admin
     year:         2013
@@ -8,6 +9,7 @@ video1:
 video2:
     title:        Говорили & курили
     album:        RadioLove
+    chord:        chord2
     description:  про инженера и любовь
     author:       admin
     year:         2012
