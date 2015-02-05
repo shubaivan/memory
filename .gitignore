@@ -9,6 +9,7 @@
 /build/
 /vendor/
 /components/
+/web/
 /bin/
 !/bin/reload
 !/bin/base_script.php

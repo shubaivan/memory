@@ -24,9 +24,22 @@ class Video
      */
     protected $title;
     /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Chords", inversedBy="video")
+     */
+    protected $chord;
+    /**
      * @ORM\Column(length=64)
      */
     protected $author;
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $year;
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Album", inversedBy="video")
+     */
+    protected $album;
+
     /**
      * @Gedmo\Slug(fields={"title"}, style="camel")
      * @ORM\Column(length=128, unique=true)
@@ -52,9 +65,9 @@ class Video
     protected $updatedAt;
     /**
      * @var integer
-     * @ORM\Column(type = "integer" )
+     * @ORM\Column(type = "integer")
      */
-    protected $viewsNumber;
+    protected $viewsNumber = 0;
 
     /**
      * Get id
@@ -110,6 +123,29 @@ class Video
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    /**
+     * Set year
+     *
+     * @param integer $year
+     * @return Video
+     */
+    public function setYear($year)
+    {
+        $this->year = $year;
+
+        return $this;
+    }
+
+    /**
+     * Get year
+     *
+     * @return integer 
+     */
+    public function getYear()
+    {
+        return $this->year;
     }
 
     /**
@@ -248,5 +284,51 @@ class Video
     public function getViewsNumber()
     {
         return $this->viewsNumber;
+    }
+
+    /**
+     * Set chord
+     *
+     * @param \AppBundle\Entity\Chords $chord
+     * @return Video
+     */
+    public function setChord(\AppBundle\Entity\Chords $chord = null)
+    {
+        $this->chord = $chord;
+
+        return $this;
+    }
+
+    /**
+     * Get chord
+     *
+     * @return \AppBundle\Entity\Chords 
+     */
+    public function getChord()
+    {
+        return $this->chord;
+    }
+
+    /**
+     * Set album
+     *
+     * @param \AppBundle\Entity\Album $album
+     * @return Video
+     */
+    public function setAlbum(\AppBundle\Entity\Album $album = null)
+    {
+        $this->album = $album;
+
+        return $this;
+    }
+
+    /**
+     * Get album
+     *
+     * @return \AppBundle\Entity\Album 
+     */
+    public function getAlbum()
+    {
+        return $this->album;
     }
 }
