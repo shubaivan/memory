@@ -30,7 +30,7 @@ class Album
     protected $year;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
     private $name;
     /**
@@ -77,7 +77,7 @@ class Album
     /**
      * Set name
      *
-     * @param integer $name
+     * @param string $name
      * @return Album
      */
     public function setName($name)
@@ -90,7 +90,7 @@ class Album
     /**
      * Get name
      *
-     * @return integer 
+     * @return string 
      */
     public function getName()
     {

@@ -7,6 +7,7 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Video;
 use Symfony\Component\Yaml\Yaml;
+use AppBundle\Entity\Album;
 
 class LoadVideoData extends AbstractFixture implements OrderedFixtureInterface
 {

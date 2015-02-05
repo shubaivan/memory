@@ -23,6 +23,8 @@ class LoadAlbumData extends AbstractFixture implements OrderedFixtureInterface
             $album->setYear($albumData['year']);
             $album->setName($albumData['name']);
 
+            $this->addReference($key, $album);
+
             $manager->persist($album);
         }
         $manager->flush();
