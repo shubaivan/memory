@@ -26,7 +26,7 @@ class Video
     /**
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\Chord", inversedBy="video")
      */
-    protected $chord;
+    protected $chord = Null;
     /**
      * @ORM\Column(length=64)
      */
@@ -38,7 +38,7 @@ class Video
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Album", inversedBy="video")
      */
-    protected $album;
+    protected $album = Null;
 
     /**
      * @Gedmo\Slug(fields={"title"}, style="camel")
@@ -68,6 +68,12 @@ class Video
      * @ORM\Column(type = "integer")
      */
     protected $viewsNumber = 0;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="UserBundle\Entity\User", mappedBy="videos")
+     * @ORM\JoinTable(name="videos_users")
+     */
+    protected $users;
 
     /**
      * Get id
@@ -330,5 +336,45 @@ class Video
     public function getAlbum()
     {
         return $this->album;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add users
+     *
+     * @param \UserBundle\Entity\User $users
+     * @return Video
+     */
+    public function addUser(\UserBundle\Entity\User $users)
+    {
+        $this->users[] = $users;
+
+        return $this;
+    }
+
+    /**
+     * Remove users
+     *
+     * @param \UserBundle\Entity\User $users
+     */
+    public function removeUser(\UserBundle\Entity\User $users)
+    {
+        $this->users->removeElement($users);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }
