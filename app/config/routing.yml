@@ -1,3 +1,6 @@
 memory_video:
     resource: "@AppBundle/Resources/config/routing.yml"
     prefix:   /
+
+memory_fos_user:
+    resource: "@UserBundle/Resources/config/routing.yml"

@@ -25,6 +25,11 @@ class LoadAlbumData extends AbstractFixture implements OrderedFixtureInterface
 
             $this->addReference($key, $album);
 
+            if (isset($albumData['parent']))
+            {
+                $album->setParent($this->getReference($albumData['parent']));
+            }
+
             $manager->persist($album);
         }
         $manager->flush();
@@ -35,6 +40,6 @@ class LoadAlbumData extends AbstractFixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return 2; // the order in which fixtures will be loaded
+        return 3; // the order in which fixtures will be loaded
     }
 }
