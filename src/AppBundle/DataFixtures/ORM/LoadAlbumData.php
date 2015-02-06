@@ -25,8 +25,7 @@ class LoadAlbumData extends AbstractFixture implements OrderedFixtureInterface
 
             $this->addReference($key, $album);
 
-            if (isset($albumData['parent']))
-            {
+            if (isset($albumData['parent'])) {
                 $album->setParent($this->getReference($albumData['parent']));
             }
 

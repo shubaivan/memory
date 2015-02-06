@@ -65,7 +65,7 @@ class Album
      * @ORM\ManyToOne(targetEntity="Album", inversedBy="children")
      * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", onDelete="CASCADE")
      */
-    private $parent = NULL;
+    private $parent = null;
 
     /**
      * @ORM\OneToMany(targetEntity="Album", mappedBy="parent")
@@ -173,7 +173,7 @@ class Album
     /**
      * Set lft
      *
-     * @param integer $lft
+     * @param  integer $lft
      * @return Album
      */
     public function setLft($lft)
@@ -186,7 +186,7 @@ class Album
     /**
      * Get lft
      *
-     * @return integer 
+     * @return integer
      */
     public function getLft()
     {
@@ -196,7 +196,7 @@ class Album
     /**
      * Set lvl
      *
-     * @param integer $lvl
+     * @param  integer $lvl
      * @return Album
      */
     public function setLvl($lvl)
@@ -209,7 +209,7 @@ class Album
     /**
      * Get lvl
      *
-     * @return integer 
+     * @return integer
      */
     public function getLvl()
     {
@@ -219,7 +219,7 @@ class Album
     /**
      * Set rgt
      *
-     * @param integer $rgt
+     * @param  integer $rgt
      * @return Album
      */
     public function setRgt($rgt)
@@ -232,7 +232,7 @@ class Album
     /**
      * Get rgt
      *
-     * @return integer 
+     * @return integer
      */
     public function getRgt()
     {
@@ -242,7 +242,7 @@ class Album
     /**
      * Set root
      *
-     * @param integer $root
+     * @param  integer $root
      * @return Album
      */
     public function setRoot($root)
@@ -255,7 +255,7 @@ class Album
     /**
      * Get root
      *
-     * @return integer 
+     * @return integer
      */
     public function getRoot()
     {
@@ -265,7 +265,7 @@ class Album
     /**
      * Set parent
      *
-     * @param \AppBundle\Entity\Album $parent
+     * @param  \AppBundle\Entity\Album $parent
      * @return Album
      */
     public function setParent(\AppBundle\Entity\Album $parent = null)
@@ -278,7 +278,7 @@ class Album
     /**
      * Get parent
      *
-     * @return \AppBundle\Entity\Album 
+     * @return \AppBundle\Entity\Album
      */
     public function getParent()
     {
@@ -288,7 +288,7 @@ class Album
     /**
      * Add children
      *
-     * @param \AppBundle\Entity\Album $children
+     * @param  \AppBundle\Entity\Album $children
      * @return Album
      */
     public function addChild(\AppBundle\Entity\Album $children)
@@ -311,7 +311,7 @@ class Album
     /**
      * Get children
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getChildren()
     {

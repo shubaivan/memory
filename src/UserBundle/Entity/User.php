@@ -32,7 +32,7 @@ class User extends BaseUser
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -42,7 +42,7 @@ class User extends BaseUser
     /**
      * Add videos
      *
-     * @param \AppBundle\Entity\Video $videos
+     * @param  \AppBundle\Entity\Video $videos
      * @return User
      */
     public function addVideo(\AppBundle\Entity\Video $videos)
@@ -65,7 +65,7 @@ class User extends BaseUser
     /**
      * Get videos
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getVideos()
     {

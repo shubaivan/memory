@@ -24,11 +24,12 @@ class DefaultController extends Controller
         $repo = $em->getRepository('AppBundle:Album');
         $options = array(
             'decorate' => true,
-            'nodeDecorator' => function($node) {
+            'nodeDecorator' => function ($node) {
                 return '<a href="/album/'.$node['id'].'">'.$node['name'].'</a>';
             }
         );
         $htmlTree = $repo->childrenHierarchy(null, false,  $options);
+
         return new Response($htmlTree);
     }
     public function videosOfCategoryAction($id)
@@ -38,11 +39,11 @@ class DefaultController extends Controller
         if (!$videos) {
             throw $this->createNotFoundException('No posts found');
         }
+
         return $this->render('AppBundle::index.html.twig', array('videos'=>$videos));
     }
 
-
-    public  function addVideoAction(Request $request)
+    public function addVideoAction(Request $request)
     {
         $video = new Video();
         $form = $this->createForm(new VideoType(), $video);
@@ -51,14 +52,16 @@ class DefaultController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($video);
             $em->flush();
+
             return $this->redirect($this->generateUrl('app'));
         }
+
         return $this->render('AppBundle::addVideo.html.twig',
             array('messages' => $video,
                 'form' => $form->createView(),
             ));
     }
-    public  function copyVideoToUserAction($user_id, $video_id)
+    public function copyVideoToUserAction($user_id, $video_id)
     {
         $user = $this->getUser();
         $video = $this->getDoctrine()->getRepository('AppBundle:Video')
@@ -66,6 +69,7 @@ class DefaultController extends Controller
         $user->addVideo($video);
         $this->getDoctrine()->getManager()->persist($user);
         $this->getDoctrine()->getManager()->flush();
+
         return $this->redirect($this->generateUrl('app'));
     }
 }

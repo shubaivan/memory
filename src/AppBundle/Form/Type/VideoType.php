@@ -16,18 +16,11 @@ class VideoType extends AbstractType
             ->add('description', 'textarea')
             ->add('author', 'text')
             ->add('year', 'integer')
-            ->add('album', 'entity', array(
-                'class' => 'AppBundle\Entity\Album',
-                'property' => 'name',
-                'required' => 'false'
-            ))
-            ->add('chord', 'entity', array(
-                'class' => 'AppBundle\Entity\Chord',
-                'property' => 'description',
-                'required' => 'false'
-            ))
-            ->add('save', 'submit')
-            ->getForm();
+            ->add('chord', 'collection', array('type' => new ChordType()))
+            ->add('album', 'collection', array('type' => new AlbumType()))
+            ->add('save', 'submit');
+
+        $builder->getForm();
     }
     public function getName()
     {

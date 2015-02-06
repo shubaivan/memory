@@ -26,7 +26,7 @@ class Video
     /**
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\Chord", inversedBy="video")
      */
-    protected $chord = Null;
+    protected $chord = null;
     /**
      * @ORM\Column(length=64)
      */
@@ -38,7 +38,7 @@ class Video
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Album", inversedBy="video")
      */
-    protected $album = Null;
+    protected $album = null;
 
     /**
      * @Gedmo\Slug(fields={"title"}, style="camel")
@@ -74,6 +74,9 @@ class Video
      * @ORM\JoinTable(name="videos_users")
      */
     protected $users;
+
+    /** @ORM\OneToMany(targetEntity="Rating", mappedBy="video") */
+    protected $ratings;
 
     /**
      * Get id
@@ -348,7 +351,7 @@ class Video
     /**
      * Add users
      *
-     * @param \UserBundle\Entity\User $users
+     * @param  \UserBundle\Entity\User $users
      * @return Video
      */
     public function addUser(\UserBundle\Entity\User $users)
@@ -371,10 +374,43 @@ class Video
     /**
      * Get users
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * Add ratings
+     *
+     * @param  \AppBundle\Entity\Rating $ratings
+     * @return Video
+     */
+    public function addRating(\AppBundle\Entity\Rating $ratings)
+    {
+        $this->ratings[] = $ratings;
+
+        return $this;
+    }
+
+    /**
+     * Remove ratings
+     *
+     * @param \AppBundle\Entity\Rating $ratings
+     */
+    public function removeRating(\AppBundle\Entity\Rating $ratings)
+    {
+        $this->ratings->removeElement($ratings);
+    }
+
+    /**
+     * Get ratings
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getRatings()
+    {
+        return $this->ratings;
     }
 }
