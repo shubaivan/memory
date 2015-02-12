@@ -29,11 +29,18 @@ class Video
      * @ORM\Column(type="string")
      */
     protected $link;
+
     /**
      * @Doctrine\ORM\Mapping\Column(type="datetime", name="created_at")
      * @Gedmo\Timestampable(on="create")
      */
     protected $createdAt;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Album", inversedBy="video")
+     * @ORM\JoinColumn(name="album_id", referencedColumnName="id")
+     */
+    protected $album;
 
     /**
      * Constructor
@@ -120,5 +127,28 @@ class Video
     public function getSong()
     {
         return $this->song;
+    }
+
+    /**
+     * Set album
+     *
+     * @param \AppBundle\Entity\Album $album
+     * @return Video
+     */
+    public function setAlbum(\AppBundle\Entity\Album $album = null)
+    {
+        $this->album = $album;
+
+        return $this;
+    }
+
+    /**
+     * Get album
+     *
+     * @return \AppBundle\Entity\Album 
+     */
+    public function getAlbum()
+    {
+        return $this->album;
     }
 }

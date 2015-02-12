@@ -11,12 +11,12 @@
 
             </br>
 
-            {% if app.user %}
+            {#{% if app.user %}#}
 
-            <p><a class="btn btn-info" href="{{ path('app_video_copyVideoToUser',
-                {'user_id': app.user.id, 'video_id': video.id}) }}"
-                  role="button">Add video + </a></p>
-            {% endif %}
+            {#<p><a class="btn btn-info" href="{{ path('app_video_copyVideoToUser',#}
+                {#{'user_id': app.user.id, 'video_id': video.id}) }}"#}
+                  {#role="button">Add video + </a></p>#}
+            {#{% endif %}#}
 
 {% endfor %}
     {% endblock %}

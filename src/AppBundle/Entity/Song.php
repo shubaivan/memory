@@ -46,7 +46,7 @@ class Song
 
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Video", mappedBy="song")
-     * @ORM\JoinColumn(name="video_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="_id", referencedColumnName="id")
      */
     protected $video;
 

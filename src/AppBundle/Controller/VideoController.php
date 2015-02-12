@@ -6,7 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Video;
-use UserBundle\Entity\User;
 use AppBundle\Form\Type\VideoType;
 
 class VideoController extends Controller
@@ -20,5 +19,24 @@ class VideoController extends Controller
         }
 
         return $this->render('AppBundle:Video:showVideo.html.twig', array('videos' => $videos));
+    }
+
+    public function addVideoAction(Request $request)
+    {
+        $video = new Video();
+        $form = $this->createForm(new VideoType(), $video);
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($video);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('app_video_show'));
+        }
+
+        return $this->render('AppBundle::addVideo.html.twig',
+            array('messages' => $video,
+                'form' => $form->createView(),
+            ));
     }
 }

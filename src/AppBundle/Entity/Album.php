@@ -38,6 +38,11 @@ class Album
     protected $song;
 
     /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Video", mappedBy="album")
+     */
+    protected $video;
+
+    /**
      * @Gedmo\TreeLeft
      * @ORM\Column(name="lft", type="integer")
      */
@@ -317,5 +322,38 @@ class Album
     public function getChildren()
     {
         return $this->children;
+    }
+
+    /**
+     * Add video
+     *
+     * @param \AppBundle\Entity\Video $video
+     * @return Album
+     */
+    public function addVideo(\AppBundle\Entity\Video $video)
+    {
+        $this->video[] = $video;
+
+        return $this;
+    }
+
+    /**
+     * Remove video
+     *
+     * @param \AppBundle\Entity\Video $video
+     */
+    public function removeVideo(\AppBundle\Entity\Video $video)
+    {
+        $this->video->removeElement($video);
+    }
+
+    /**
+     * Get video
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getVideo()
+    {
+        return $this->video;
     }
 }
