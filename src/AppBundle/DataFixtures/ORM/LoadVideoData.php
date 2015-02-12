@@ -7,8 +7,6 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Video;
 use Symfony\Component\Yaml\Yaml;
-use AppBundle\Entity\Album;
-use AppBundle\Entity\Chord;
 
 class LoadVideoData extends AbstractFixture implements OrderedFixtureInterface
 {
@@ -22,6 +20,9 @@ class LoadVideoData extends AbstractFixture implements OrderedFixtureInterface
             $video = new Video();
             $video->setSong($this->getReference($videoData['song']));
             $video->setLink($videoData['link']);
+
+            $this->addReference($key, $video);
+
             $manager->persist($video);
         }
         $manager->flush();

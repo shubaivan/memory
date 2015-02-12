@@ -22,7 +22,6 @@ class LoadChordData extends AbstractFixture implements OrderedFixtureInterface
             $chord = new Chord();
             $chord->setChord($chordData['chord']);
 
-
             $this->addReference($key, $chord);
 
             $manager->persist($chord);
