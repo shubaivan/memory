@@ -3,7 +3,7 @@ app:
     defaults: { _controller: AppBundle:Default:index }
 app_videos_of_album:
     pattern: /album/{id}
-    defaults: { _controller: AppBundle:Default:videosOfCategory}
+    defaults: { _controller: AppBundle:Default:songsOfCategory}
 app_video_addVideo:
     pattern: /addVideo
     defaults: { _controller: AppBundle:Default:addVideo}

@@ -13,12 +13,12 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        $videos = $this->getDoctrine()->getRepository('AppBundle:Video')->findAll();
+        $songs = $this->getDoctrine()->getRepository('AppBundle:Song')->findAll();
 
-        return $this->render('AppBundle::index.html.twig', array('videos' => $videos));
+        return $this->render('AppBundle::index.html.twig', array('songs' => $songs));
     }
 
-    public function categoryTreeAction()
+    public function albumTreeAction()
     {
         $em = $this->getDoctrine()->getManager();
         $repo = $em->getRepository('AppBundle:Album');
@@ -32,15 +32,15 @@ class DefaultController extends Controller
 
         return new Response($htmlTree);
     }
-    public function videosOfCategoryAction($id)
+    public function songsOfCategoryAction($id)
     {
-        $videos = $this->getDoctrine()->getRepository('AppBundle:Video')->findByAlbum($id);
+        $songs = $this->getDoctrine()->getRepository('AppBundle:Song')->findByAlbum($id);
 
-        if (!$videos) {
+        if (!$songs) {
             throw $this->createNotFoundException('No posts found');
         }
 
-        return $this->render('AppBundle::index.html.twig', array('videos'=>$videos));
+        return $this->render('AppBundle::index.html.twig', array('songs' => $songs));
     }
 
     public function addVideoAction(Request $request)

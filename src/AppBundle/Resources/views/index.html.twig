@@ -2,11 +2,13 @@
 
     {% block title %} {{ parent() }} Blog {% endblock %}
     {% block content %}
-        {% for video in videos %}
-            {{ video.Title }} </br>
-            {{ video.Link | raw}} </br>
-            {{ video.album.name }} </br>
-            {{ video.chord.description }} </br>
+        {% for song in songs %}
+            {{ song.nameSong }} </br>
+            {{ song.album.name }} </br>
+            {#{{ song.video | raw}} </br>#}
+            {#{{ song.chord }} </br>#}
+            {{ song.author }} </br>
+
             </br>
 
             {% if app.user %}
