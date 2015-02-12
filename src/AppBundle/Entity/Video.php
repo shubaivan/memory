@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints\Null;
 
 /**
  * Class Video
@@ -23,7 +24,7 @@ class Video
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Song", inversedBy="video")
      */
-    protected $song;
+    protected $song = NULL;
 
     /**
      * @ORM\Column(type="string")
