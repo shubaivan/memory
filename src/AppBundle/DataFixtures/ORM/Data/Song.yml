@@ -3,16 +3,15 @@ song1:
     chord:        chord3
     author:       admin
     album:        Добряк
-    video:        video3
+
 song2:
     nameSong:     Руина
     chord:        chord1
     author:       admin
     album:        Добряк
-    video:        video1
+
 song3:
     nameSong:     Говорили & курили
     chord:        chord2
     author:       admin
-    album:        RadioLove
-    video:        video2
+    album:        Радіо Любов
