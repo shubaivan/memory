@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Song;
+use AppBundle\Form\Type\SongType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -53,5 +55,24 @@ class DefaultController extends Controller
         $this->getDoctrine()->getManager()->flush();
 
         return $this->redirect($this->generateUrl('app_video_show'));
+    }
+
+    public function addSongAction(Request $request)
+    {
+        $song = new Song();
+        $form = $this->createForm(new SongType(), $song);
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($song);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('app'));
+        }
+
+        return $this->render('AppBundle::addSong.html.twig',
+            array('messages' => $song,
+                'form' => $form->createView(),
+            ));
     }
 }
