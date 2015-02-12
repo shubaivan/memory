@@ -34,7 +34,7 @@ class VideoController extends Controller
             return $this->redirect($this->generateUrl('app_video_show'));
         }
 
-        return $this->render('AppBundle::addVideo.html.twig',
+        return $this->render('AppBundle:Video:addVideo.html.twig',
             array('messages' => $video,
                 'form' => $form->createView(),
             ));
