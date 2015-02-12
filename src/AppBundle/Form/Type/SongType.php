@@ -13,16 +13,19 @@ class SongType extends AbstractType
     {
         $builder
             ->add('nameSong', 'text')
-            ->add('chord', 'text')
+//            ->add('chord', 'text')
             ->add('author', 'text')
             ->add('album', 'entity', array(
                     'class' => 'AppBundle\Entity\Album',
                     'property' => 'name',
                     'required' => 'false'
-                ))
-
-            ->add('save', 'submit')
-            ->getForm();
+                ));
+        $builder->add('chord', 'collection', array(
+            'type'         => new ChordType(),
+            'allow_add'    => true,
+        ));
+//            ->add('save', 'submit')
+//            ->getForm();
     }
 
     public function getName()

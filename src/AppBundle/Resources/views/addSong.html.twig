@@ -9,10 +9,10 @@
             {{ form_widget(form.nameSong) }}
         </div>
 
-        <div style="padding-bottom: 20px;">
-            {{ form_label(form.chord) }} <br>
-            {{ form_widget(form.chord) }}
-        </div>
+        {#<div style="padding-bottom: 20px;">#}
+            {#{{ form_label(form.chord) }} <br>#}
+            {#{{ form_widget(form.chord) }}#}
+        {#</div>#}
 
         <div style="padding-bottom: 20px;">
             {{ form_label(form.author) }} <br>
@@ -23,6 +23,18 @@
             {{ form_label(form.album) }} <br>
             {{ form_widget(form.album) }}
         </div>
+
+        <div style="padding-bottom: 20px;">
+            {{ form_label(form.chord) }} <br>
+            {{ form_widget(form.chord) }}
+        </div>
+
+        <ul class="tags" data-prototype="{{ form_widget(form.chord.vars.prototype)|e }}">
+
+            {{ form_widget(form.chord.vars.prototype.chord)|e }}
+
+        </ul>
+
 
         {{ form_end(form) }}
 
