@@ -13,7 +13,6 @@ class AlbumType extends AbstractType
         $builder->add('year');
         $builder->add('name');
 
-        $builder->getForm();
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

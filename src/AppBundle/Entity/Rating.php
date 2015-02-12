@@ -19,9 +19,9 @@ class Rating
      */
     protected $id;
     /**
-     * @ORM\ManyToOne(targetEntity="Video", inversedBy="ratings")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Song", inversedBy="ratings")
      */
-    protected $video;
+    protected $song;
     /**
      * @var User
      *
@@ -35,7 +35,7 @@ class Rating
     /**
      * Get id
      *
-     * @return integer
+     * @return integer 
      */
     public function getId()
     {
@@ -43,32 +43,32 @@ class Rating
     }
 
     /**
-     * Set video
+     * Set song
      *
-     * @param  \AppBundle\Entity\Video $video
+     * @param \AppBundle\Entity\Song $song
      * @return Rating
      */
-    public function setVideo(\AppBundle\Entity\Video $video = null)
+    public function setSong(\AppBundle\Entity\Song $song = null)
     {
-        $this->video = $video;
+        $this->song = $song;
 
         return $this;
     }
 
     /**
-     * Get video
+     * Get song
      *
-     * @return \AppBundle\Entity\Video
+     * @return \AppBundle\Entity\Song 
      */
-    public function getVideo()
+    public function getSong()
     {
-        return $this->video;
+        return $this->song;
     }
 
     /**
      * Set user
      *
-     * @param  \UserBundle\Entity\User $user
+     * @param \UserBundle\Entity\User $user
      * @return Rating
      */
     public function setUser(\UserBundle\Entity\User $user = null)
@@ -81,7 +81,7 @@ class Rating
     /**
      * Get user
      *
-     * @return \UserBundle\Entity\User
+     * @return \UserBundle\Entity\User 
      */
     public function getUser()
     {

@@ -19,36 +19,12 @@ class Video
      * @ORM\Column(type="integer")
      */
     protected $id;
-    /**
-     * @ORM\Column(length=64)
-     */
-    protected $title;
-    /**
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Chord", inversedBy="video")
-     */
-    protected $chord = null;
-    /**
-     * @ORM\Column(length=64)
-     */
-    protected $author;
-    /**
-     * @ORM\Column(type="integer")
-     */
-    protected $year;
-    /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Album", inversedBy="video")
-     */
-    protected $album = null;
 
     /**
-     * @Gedmo\Slug(fields={"title"}, style="camel")
-     * @ORM\Column(length=128, unique=true)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Song", inversedBy="video")
      */
-    protected $slug;
-    /**
-     * @ORM\Column(type="text")
-     */
-    protected $description;
+    protected $song;
+
     /**
      * @ORM\Column(type="string")
      */
@@ -58,30 +34,19 @@ class Video
      * @Gedmo\Timestampable(on="create")
      */
     protected $createdAt;
-    /**
-     * @Doctrine\ORM\Mapping\Column(type="datetime", name="updated_at")
-     * @Gedmo\Timestampable(on="update")
-     */
-    protected $updatedAt;
-    /**
-     * @var integer
-     * @ORM\Column(type = "integer")
-     */
-    protected $viewsNumber = 0;
 
     /**
-     * @ORM\ManyToMany(targetEntity="UserBundle\Entity\User", mappedBy="videos")
-     * @ORM\JoinTable(name="videos_users")
+     * Constructor
      */
-    protected $users;
-
-    /** @ORM\OneToMany(targetEntity="Rating", mappedBy="video") */
-    protected $ratings;
+    public function __construct()
+    {
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
      *
-     * @return integer
+     * @return integer 
      */
     public function getId()
     {
@@ -89,124 +54,9 @@ class Video
     }
 
     /**
-     * Set title
-     *
-     * @param  string $title
-     * @return Video
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * Set author
-     *
-     * @param  string $author
-     * @return Video
-     */
-    public function setAuthor($author)
-    {
-        $this->author = $author;
-
-        return $this;
-    }
-
-    /**
-     * Get author
-     *
-     * @return string
-     */
-    public function getAuthor()
-    {
-        return $this->author;
-    }
-
-    /**
-     * Set year
-     *
-     * @param  integer $year
-     * @return Video
-     */
-    public function setYear($year)
-    {
-        $this->year = $year;
-
-        return $this;
-    }
-
-    /**
-     * Get year
-     *
-     * @return integer
-     */
-    public function getYear()
-    {
-        return $this->year;
-    }
-
-    /**
-     * Set slug
-     *
-     * @param  string $slug
-     * @return Video
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
-
-    /**
-     * Set description
-     *
-     * @param  string $description
-     * @return Video
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
      * Set link
      *
-     * @param  string $link
+     * @param string $link
      * @return Video
      */
     public function setLink($link)
@@ -219,7 +69,7 @@ class Video
     /**
      * Get link
      *
-     * @return string
+     * @return string 
      */
     public function getLink()
     {
@@ -229,7 +79,7 @@ class Video
     /**
      * Set createdAt
      *
-     * @param  \DateTime $createdAt
+     * @param \DateTime $createdAt
      * @return Video
      */
     public function setCreatedAt($createdAt)
@@ -242,7 +92,7 @@ class Video
     /**
      * Get createdAt
      *
-     * @return \DateTime
+     * @return \DateTime 
      */
     public function getCreatedAt()
     {
@@ -250,167 +100,25 @@ class Video
     }
 
     /**
-     * Set updatedAt
+     * Set song
      *
-     * @param  \DateTime $updatedAt
+     * @param \AppBundle\Entity\Song $song
      * @return Video
      */
-    public function setUpdatedAt($updatedAt)
+    public function setSong(\AppBundle\Entity\Song $song = null)
     {
-        $this->updatedAt = $updatedAt;
+        $this->song = $song;
 
         return $this;
     }
 
     /**
-     * Get updatedAt
+     * Get song
      *
-     * @return \DateTime
+     * @return \AppBundle\Entity\Song 
      */
-    public function getUpdatedAt()
+    public function getSong()
     {
-        return $this->updatedAt;
-    }
-
-    /**
-     * Set viewsNumber
-     *
-     * @param  integer $viewsNumber
-     * @return Video
-     */
-    public function setViewsNumber($viewsNumber)
-    {
-        $this->viewsNumber = $viewsNumber;
-
-        return $this;
-    }
-
-    /**
-     * Get viewsNumber
-     *
-     * @return integer
-     */
-    public function getViewsNumber()
-    {
-        return $this->viewsNumber;
-    }
-
-    /**
-     * Set chord
-     *
-     * @param  \AppBundle\Entity\Chord $chord
-     * @return Video
-     */
-    public function setChord(\AppBundle\Entity\Chord $chord = null)
-    {
-        $this->chord = $chord;
-
-        return $this;
-    }
-
-    /**
-     * Get chord
-     *
-     * @return \AppBundle\Entity\Chord
-     */
-    public function getChord()
-    {
-        return $this->chord;
-    }
-
-    /**
-     * Set album
-     *
-     * @param  \AppBundle\Entity\Album $album
-     * @return Video
-     */
-    public function setAlbum(\AppBundle\Entity\Album $album = null)
-    {
-        $this->album = $album;
-
-        return $this;
-    }
-
-    /**
-     * Get album
-     *
-     * @return \AppBundle\Entity\Album
-     */
-    public function getAlbum()
-    {
-        return $this->album;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add users
-     *
-     * @param  \UserBundle\Entity\User $users
-     * @return Video
-     */
-    public function addUser(\UserBundle\Entity\User $users)
-    {
-        $this->users[] = $users;
-
-        return $this;
-    }
-
-    /**
-     * Remove users
-     *
-     * @param \UserBundle\Entity\User $users
-     */
-    public function removeUser(\UserBundle\Entity\User $users)
-    {
-        $this->users->removeElement($users);
-    }
-
-    /**
-     * Get users
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getUsers()
-    {
-        return $this->users;
-    }
-
-    /**
-     * Add ratings
-     *
-     * @param  \AppBundle\Entity\Rating $ratings
-     * @return Video
-     */
-    public function addRating(\AppBundle\Entity\Rating $ratings)
-    {
-        $this->ratings[] = $ratings;
-
-        return $this;
-    }
-
-    /**
-     * Remove ratings
-     *
-     * @param \AppBundle\Entity\Rating $ratings
-     */
-    public function removeRating(\AppBundle\Entity\Rating $ratings)
-    {
-        $this->ratings->removeElement($ratings);
-    }
-
-    /**
-     * Get ratings
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getRatings()
-    {
-        return $this->ratings;
+        return $this->song;
     }
 }

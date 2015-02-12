@@ -20,12 +20,7 @@ class LoadVideoData extends AbstractFixture implements OrderedFixtureInterface
         $videos = Yaml::parse(file_get_contents(__DIR__.'/Data/Video.yml'));
         foreach ($videos as $key => $videoData) {
             $video = new Video();
-            $video->setTitle($videoData['title']);
-            $video->setAlbum($this->getReference($videoData['album']));
-            $video->setChord($this->getReference($videoData['chord']));
-            $video->setAuthor($videoData['author']);
-            $video->setYear($videoData['year']);
-            $video->setDescription($videoData['description']);
+            $video->setSong($this->getReference($videoData['song']));
             $video->setLink($videoData['link']);
             $manager->persist($video);
         }

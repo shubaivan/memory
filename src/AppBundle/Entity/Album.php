@@ -21,10 +21,6 @@ class Album
      * @ORM\Column(type="integer")
      */
     protected $id;
-    /**
-     * @ORM\OneToMany(targetEntity="Video", mappedBy="album")
-     */
-    protected $video;
 
     /**
      * @ORM\Column(type="integer")
@@ -35,6 +31,11 @@ class Album
      * @ORM\Column(type="string")
      */
     private $name;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Song", mappedBy="album")
+     */
+    protected $song;
 
     /**
      * @Gedmo\TreeLeft
@@ -72,19 +73,19 @@ class Album
      * @ORM\OrderBy({"lft" = "ASC"})
      */
     private $children;
-
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->video = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->song = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->children = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
      * Get id
      *
-     * @return integer
+     * @return integer 
      */
     public function getId()
     {
@@ -94,7 +95,7 @@ class Album
     /**
      * Set year
      *
-     * @param  integer $year
+     * @param integer $year
      * @return Album
      */
     public function setYear($year)
@@ -107,7 +108,7 @@ class Album
     /**
      * Get year
      *
-     * @return integer
+     * @return integer 
      */
     public function getYear()
     {
@@ -117,7 +118,7 @@ class Album
     /**
      * Set name
      *
-     * @param  string $name
+     * @param string $name
      * @return Album
      */
     public function setName($name)
@@ -130,7 +131,7 @@ class Album
     /**
      * Get name
      *
-     * @return string
+     * @return string 
      */
     public function getName()
     {
@@ -138,42 +139,9 @@ class Album
     }
 
     /**
-     * Add video
-     *
-     * @param  \AppBundle\Entity\Video $video
-     * @return Album
-     */
-    public function addVideo(\AppBundle\Entity\Video $video)
-    {
-        $this->video[] = $video;
-
-        return $this;
-    }
-
-    /**
-     * Remove video
-     *
-     * @param \AppBundle\Entity\Video $video
-     */
-    public function removeVideo(\AppBundle\Entity\Video $video)
-    {
-        $this->video->removeElement($video);
-    }
-
-    /**
-     * Get video
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getVideo()
-    {
-        return $this->video;
-    }
-
-    /**
      * Set lft
      *
-     * @param  integer $lft
+     * @param integer $lft
      * @return Album
      */
     public function setLft($lft)
@@ -186,7 +154,7 @@ class Album
     /**
      * Get lft
      *
-     * @return integer
+     * @return integer 
      */
     public function getLft()
     {
@@ -196,7 +164,7 @@ class Album
     /**
      * Set lvl
      *
-     * @param  integer $lvl
+     * @param integer $lvl
      * @return Album
      */
     public function setLvl($lvl)
@@ -209,7 +177,7 @@ class Album
     /**
      * Get lvl
      *
-     * @return integer
+     * @return integer 
      */
     public function getLvl()
     {
@@ -219,7 +187,7 @@ class Album
     /**
      * Set rgt
      *
-     * @param  integer $rgt
+     * @param integer $rgt
      * @return Album
      */
     public function setRgt($rgt)
@@ -232,7 +200,7 @@ class Album
     /**
      * Get rgt
      *
-     * @return integer
+     * @return integer 
      */
     public function getRgt()
     {
@@ -242,7 +210,7 @@ class Album
     /**
      * Set root
      *
-     * @param  integer $root
+     * @param integer $root
      * @return Album
      */
     public function setRoot($root)
@@ -255,7 +223,7 @@ class Album
     /**
      * Get root
      *
-     * @return integer
+     * @return integer 
      */
     public function getRoot()
     {
@@ -263,9 +231,42 @@ class Album
     }
 
     /**
+     * Add song
+     *
+     * @param \AppBundle\Entity\Song $song
+     * @return Album
+     */
+    public function addSong(\AppBundle\Entity\Song $song)
+    {
+        $this->song[] = $song;
+
+        return $this;
+    }
+
+    /**
+     * Remove song
+     *
+     * @param \AppBundle\Entity\Song $song
+     */
+    public function removeSong(\AppBundle\Entity\Song $song)
+    {
+        $this->song->removeElement($song);
+    }
+
+    /**
+     * Get song
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSong()
+    {
+        return $this->song;
+    }
+
+    /**
      * Set parent
      *
-     * @param  \AppBundle\Entity\Album $parent
+     * @param \AppBundle\Entity\Album $parent
      * @return Album
      */
     public function setParent(\AppBundle\Entity\Album $parent = null)
@@ -278,7 +279,7 @@ class Album
     /**
      * Get parent
      *
-     * @return \AppBundle\Entity\Album
+     * @return \AppBundle\Entity\Album 
      */
     public function getParent()
     {
@@ -288,7 +289,7 @@ class Album
     /**
      * Add children
      *
-     * @param  \AppBundle\Entity\Album $children
+     * @param \AppBundle\Entity\Album $children
      * @return Album
      */
     public function addChild(\AppBundle\Entity\Album $children)
@@ -311,7 +312,7 @@ class Album
     /**
      * Get children
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return \Doctrine\Common\Collections\Collection 
      */
     public function getChildren()
     {

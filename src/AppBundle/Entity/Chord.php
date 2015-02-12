@@ -16,25 +16,28 @@ class Chord
      * @ORM\GeneratedValue
      */
     private $id;
-    /**
-     * @ORM\Column(name="title", type="string", length=64)
-     */
-    private $title;
 
     /**
      * @ORM\Column(type="string")
      */
-    protected $description;
+    protected $chord;
 
     /**
-     * @ORM\OneToOne(targetEntity="Video", mappedBy="chord")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Song", mappedBy="chord")
      */
-    protected $video;
+    protected $song;
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->song = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
      *
-     * @return integer
+     * @return integer 
      */
     public function getId()
     {
@@ -42,71 +45,58 @@ class Chord
     }
 
     /**
-     * Set title
+     * Set chord
      *
-     * @param  string $title
+     * @param string $chord
      * @return Chord
      */
-    public function setTitle($title)
+    public function setChord($chord)
     {
-        $this->title = $title;
+        $this->chord = $chord;
 
         return $this;
     }
 
     /**
-     * Get title
+     * Get chord
      *
-     * @return string
+     * @return string 
      */
-    public function getTitle()
+    public function getChord()
     {
-        return $this->title;
+        return $this->chord;
     }
 
     /**
-     * Set description
+     * Add song
      *
-     * @param  string $description
+     * @param \AppBundle\Entity\Song $song
      * @return Chord
      */
-    public function setDescription($description)
+    public function addSong(\AppBundle\Entity\Song $song)
     {
-        $this->description = $description;
+        $this->song[] = $song;
 
         return $this;
     }
 
     /**
-     * Get description
+     * Remove song
      *
-     * @return string
+     * @param \AppBundle\Entity\Song $song
      */
-    public function getDescription()
+    public function removeSong(\AppBundle\Entity\Song $song)
     {
-        return $this->description;
+        $this->song->removeElement($song);
     }
 
     /**
-     * Set video
+     * Get song
      *
-     * @param  \AppBundle\Entity\Video $video
-     * @return Chord
+     * @return \Doctrine\Common\Collections\Collection 
      */
-    public function setVideo(\AppBundle\Entity\Video $video = null)
+    public function getSong()
     {
-        $this->video = $video;
-
-        return $this;
-    }
-
-    /**
-     * Get video
-     *
-     * @return \AppBundle\Entity\Video
-     */
-    public function getVideo()
-    {
-        return $this->video;
+        return $this->song;
     }
 }
