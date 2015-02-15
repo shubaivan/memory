@@ -72,28 +72,6 @@ assetic:
                 - https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js
             outputs: js/bootstrap.ie9.js
 
-
-# Doctrine Configuration
-doctrine:
-    dbal:
-        driver:   "%database_driver%"
-        host:     "%database_host%"
-        port:     "%database_port%"
-        dbname:   "%database_name%"
-        user:     "%database_user%"
-        password: "%database_password%"
-        charset:  UTF8
-        # if using pdo_sqlite as your database driver:
-        #   1. add the path in parameters.yml
-        #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
-        #   2. Uncomment database_path in parameters.yml.dist
-        #   3. Uncomment next line:
-        #     path:     "%database_path%"
-
-    orm:
-        auto_generate_proxy_classes: "%kernel.debug%"
-        auto_mapping: true
-
 # Swiftmailer Configuration
 swiftmailer:
     transport: "%mailer_transport%"
@@ -111,7 +89,7 @@ doctrine_migrations:
 
 #doctrine extensions
 stof_doctrine_extensions:
-    orm:
+    mongodb:
         default:
             timestampable: true
             sluggable: true
@@ -120,14 +98,14 @@ stof_doctrine_extensions:
 fos_user:
     db_driver: mongodb # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    user_class: UserBundle\Entity\User
+    user_class: UserBundle\Document\User
 
 doctrine_mongodb:
     connections:
         default:
             server: mongodb://localhost:27017
             options: {}
-    default_database: memory
+    default_database: %database_name%
     document_managers:
         default:
             auto_mapping: true
