@@ -19,7 +19,7 @@ class Album
     protected $id;
 
     /**
-     * @ODM\Field(type="integer")
+     * @ODM\Field(type="int")
      */
     protected $year;
 
@@ -34,7 +34,7 @@ class Album
     protected $poster;
 
     /**
-     * @ODM\ReferenceMany(targetDocument="Song")
+     * @ODM\ReferenceMany(targetDocument="AppBundle\Document\Song")
      */
     protected $song;
 
