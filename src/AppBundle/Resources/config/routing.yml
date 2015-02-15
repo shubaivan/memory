@@ -7,12 +7,12 @@ app_videos_of_album:
     defaults: { _controller: AppBundle:Default:songsOfCategory}
 
 app_video_addVideo:
-    pattern: /addVideo
+    pattern: /new
     defaults: { _controller: AppBundle:Video:addVideo}
 
-app_video_copyVideoToUser:
-    pattern: /copyVideo/{user_id}/{video_id}
-    defaults: { _controller: AppBundle:Default:copyVideoToUser}
+#app_video_copyVideoToUser:
+#    pattern: /copyVideo/{user_id}/{video_id}
+#    defaults: { _controller: AppBundle:Default:copyVideoToUser}
 
 app_video_show:
     pattern: /showVideo

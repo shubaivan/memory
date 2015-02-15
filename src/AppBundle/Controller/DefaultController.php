@@ -13,66 +13,64 @@ use AppBundle\Form\Type\VideoType;
 
 class DefaultController extends Controller
 {
+
+    /**
+     * Render front page
+     *
+     * @return Response
+     */
     public function indexAction()
     {
         $songs = $this->getDoctrine()->getRepository('AppBundle:Song')->findAll();
 
-        return $this->render('AppBundle::index.html.twig', array('songs' => $songs));
-    }
-
-    public function albumTreeAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $repo = $em->getRepository('AppBundle:Album');
-        $options = array(
-            'decorate' => true,
-            'nodeDecorator' => function ($node) {
-                return '<a href="/album/'.$node['id'].'">'.$node['name'].'</a>';
-            }
+        return $this->render(
+            'AppBundle::index.html.twig',
+            [
+                'songs' => $songs
+            ]
         );
-        $htmlTree = $repo->childrenHierarchy(null, false,  $options);
-
-        return new Response($htmlTree);
-    }
-    public function songsOfCategoryAction($id)
-    {
-        $songs = $this->getDoctrine()->getRepository('AppBundle:Song')->findByAlbum($id);
-
-        if (!$songs) {
-            throw $this->createNotFoundException('No posts found');
-        }
-
-        return $this->render('AppBundle::index.html.twig', array('songs' => $songs));
     }
 
-    public function copyVideoToUserAction($user_id, $video_id)
-    {
-        $user = $this->getUser();
-        $video = $this->getDoctrine()->getRepository('AppBundle:Video')
-            ->find($video_id);
-        $user->addVideo($video);
-        $this->getDoctrine()->getManager()->persist($user);
-        $this->getDoctrine()->getManager()->flush();
+//    public function albumTreeAction()
+//    {
+//        $em = $this->getDoctrine()->getManager();
+//
+//        $repo = $em->getRepository('AppBundle:Album');
+//        $options = array(
+//            'decorate' => true,
+//            'nodeDecorator' => function ($node) {
+//                return '<a href="/album/'.$node['id'].'">'.$node['name'].'</a>';
+//            }
+//        );
+//
+//        $htmlTree = $repo->childrenHierarchy(null, false,  $options);
+//
+//        return new Response($htmlTree);
+//    }
 
-        return $this->redirect($this->generateUrl('app_video_show'));
-    }
+//    public function songsOfCategoryAction($id)
+//    {
+//        $songs = $this->getDoctrine()->getRepository('AppBundle:Song')->findByAlbum($id);
+//
+//        if (!$songs) {
+//            throw $this->createNotFoundException('No posts found');
+//        }
+//
+//        return $this->render('AppBundle::index.html.twig', array('songs' => $songs));
+//    }
 
-    public function addSongAction(Request $request)
-    {
-        $song = new Song();
-        $form = $this->createForm(new SongType(), $song);
-        $form->handleRequest($request);
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($song);
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('app'));
-        }
-
-        return $this->render('AppBundle::addSong.html.twig',
-            array('messages' => $song,
-                'form' => $form->createView(),
-            ));
-    }
+//    public function copyVideoToUserAction($user_id, $video_id)
+//    {
+//        $em = $this->getDoctrine()->getManager();
+//
+//        $user = $this->getUser();
+//        $video = $em->getRepository('AppBundle:Video')
+//                 ->find($video_id);
+//        $user->addVideo($video);
+//
+//        $em->persist($user);
+//        $em->getManager()->flush();
+//
+//        return $this->redirect($this->generateUrl('app_video_show'));
+//    }
 }

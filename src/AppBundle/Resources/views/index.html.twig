@@ -1,22 +1,23 @@
-{% extends "AppBundle::layout.html.twig" %}
+{% extends "::base.html.twig" %}
 
-    {% block title %} {{ parent() }} Blog {% endblock %}
-    {% block content %}
-        {% for song in songs %}
-            {{ song.nameSong }} </br>
-            {{ song.album.name }} </br>
-            {#{{ song.video | raw}} </br>#}
-            {{ song.chord.chord }} </br>
-            {{ song.author }} </br>
+{% block title %} Index {% endblock %}
 
-            </br>
+{% block content %}
+    {% for song in songs %}
+        {{ song.nameSong }} </br>
+        {{ song.album.name }} </br>
+        {#{{ song.video | raw}} </br>#}
+        {{ song.chord.chord }} </br>
+        {{ song.author }} </br>
 
-            {#{% if app.user %}#}
+        </br>
 
-            {#<p><a class="btn btn-info" href="{{ path('app_video_copyVideoToUser',#}
-                {#{'user_id': app.user.id, 'video_id': video.id}) }}"#}
-                  {#role="button">Add video + </a></p>#}
-            {#{% endif %}#}
+        {#{% if app.user %}#}
 
-{% endfor %}
-    {% endblock %}
+        {#<p><a class="btn btn-info" href="{{ path('app_video_copyVideoToUser',#}
+            {#{'user_id': app.user.id, 'video_id': video.id}) }}"#}
+              {#role="button">Add video + </a></p>#}
+        {#{% endif %}#}
+
+    {% endfor %}
+{% endblock %}
