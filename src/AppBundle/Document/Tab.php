@@ -14,4 +14,73 @@ use Gedmo\Mapping\Annotation as Gedmo;
 class Tab extends AbstractChord
 {
 
+    /**
+     * @var $id
+     */
+    protected $id;
+
+    /**
+     * @var string $title
+     */
+    protected $title;
+
+    /**
+     * @var string $slug
+     */
+    protected $slug;
+
+
+    /**
+     * Get id
+     *
+     * @return id $id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return self
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string $title
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return self
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string $slug
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
 }
