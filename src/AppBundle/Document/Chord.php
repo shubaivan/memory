@@ -18,7 +18,7 @@ class Chord extends AbstractChord
      */
     protected $gtp;
     /**
-     * @var $id
+     * @ODM\Id
      */
     protected $id;
 

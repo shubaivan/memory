@@ -15,7 +15,7 @@ class Tab extends AbstractChord
 {
 
     /**
-     * @var $id
+     * @ODM\Id
      */
     protected $id;
 
