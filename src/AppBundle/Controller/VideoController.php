@@ -12,13 +12,16 @@ use AppBundle\Form\Type\VideoType;
 class VideoController extends Controller
 {
     /**
+     * Method that render all video
+     *
      * @return Response
      *
      * @Template()
      */
     public function showVideoAction()
     {
-        $videos = $this->getDoctrine()->getRepository('AppBundle:Video')->findAll();
+        $videos = $this->getDoctrine()->getRepository('AppBundle:Video')
+                       ->findAll();
 
         if (!$videos) {
             throw $this->createNotFoundException('No posts found');
@@ -30,6 +33,8 @@ class VideoController extends Controller
     }
 
     /**
+     * Method that add new video
+     *
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      *

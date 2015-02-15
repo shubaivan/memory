@@ -14,6 +14,11 @@ use AppBundle\Form\Type\VideoType;
 class DefaultController extends Controller
 {
 
+    /**
+     * Render front page
+     *
+     * @return Response
+     */
     public function indexAction()
     {
         $songs = $this->getDoctrine()->getRepository('AppBundle:Song')->findAll();
