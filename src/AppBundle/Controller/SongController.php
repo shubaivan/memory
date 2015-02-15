@@ -2,7 +2,7 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Song;
+use AppBundle\Document\Song;
 use AppBundle\Form\Type\SongType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
@@ -26,10 +26,10 @@ class SongController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+            $dm = $this->get('doctrine_mongodb.odm.document_manager');
 
-            $em->persist($song);
-            $em->flush();
+            $dm->persist($song);
+            $dm->flush();
 
             return $this->redirect($this->generateUrl('app'));
         }

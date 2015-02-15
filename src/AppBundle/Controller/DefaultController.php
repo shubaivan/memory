@@ -2,13 +2,13 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Song;
+use AppBundle\Document\Song;
 use AppBundle\Form\Type\SongType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
-use AppBundle\Entity\Video;
-use UserBundle\Entity\User;
+use AppBundle\Document\Video;
+use UserBundle\Document\User;
 use AppBundle\Form\Type\VideoType;
 
 class DefaultController extends Controller
@@ -21,7 +21,9 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $songs = $this->getDoctrine()->getRepository('AppBundle:Song')->findAll();
+        $songs = $this->get('doctrine_mongodb.odm.document_manager')
+                    ->getRepository('AppBundle:Song')
+                    ->findAll();
 
         return $this->render(
             'AppBundle::index.html.twig',

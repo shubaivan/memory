@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
-use AppBundle\Entity\Video;
+use AppBundle\Document\Video;
 use AppBundle\Form\Type\VideoType;
 
 class VideoController extends Controller
@@ -20,8 +20,9 @@ class VideoController extends Controller
      */
     public function showVideoAction()
     {
-        $videos = $this->getDoctrine()->getRepository('AppBundle:Video')
-                       ->findAll();
+        $videos = $this->get('doctrine_mongodb.odm.document_manager')
+                        ->getRepository('AppBundle:Video')
+                        ->findAll();
 
         if (!$videos) {
             throw $this->createNotFoundException('No posts found');
@@ -48,7 +49,7 @@ class VideoController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+            $em = $this->get('doctrine_mongodb.odm.document_manager');
 
             $em->persist($video);
             $em->flush();
