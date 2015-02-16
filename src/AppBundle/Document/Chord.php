@@ -23,6 +23,9 @@ class Chord extends AbstractChord
     protected $id;
 
     /**
+     * @var string
+     *
+     * @ODM\Field(type="string")
      * @var string $title
      */
     protected $title;

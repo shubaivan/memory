@@ -20,12 +20,16 @@ class Tab extends AbstractChord
     protected $id;
 
     /**
+     * @var string
+     *
+     * @ODM\Field(type="string")
      * @var string $title
      */
     protected $title;
 
     /**
-     * @var string $slug
+     * @Gedmo\Slug(fields={"title"})
+     * @ODM\Field(type="string")
      */
     protected $slug;
 

@@ -3,16 +3,15 @@ song1:
     timeline:     This is Lvov
     chord:        chord3
     video:        video3
-    author:       admin
+
 song2:
     name:         Руина
     timeline:     Руина
     chord:        chord1
     video:        video1
-    author:       admin
+
 song3:
     name:         Говорили & курили
     timline:      Говорили & курили
     chord:        chord2
     video:        video2
-    author:       admin

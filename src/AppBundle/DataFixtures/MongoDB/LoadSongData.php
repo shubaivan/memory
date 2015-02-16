@@ -18,11 +18,10 @@ class LoadSongData extends AbstractFixture implements OrderedFixtureInterface
         $songs = Yaml::parse(file_get_contents(__DIR__.'/Data/Song.yml'));
         foreach ($songs as $key => $songData) {
             $song = new Song();
-            $song->setNameSong($songData['nameSong']);
-            $song->setChord($this->getReference($songData['chord']));
-            $song->setAuthor($songData['author']);
-            $song->setAlbum($this->getReference($songData['album']));
-//            $song->getVideo($this->getReference($songData['video']));
+            $song->setName($songData['name']);
+            $song->setTimeline($songData['timeline']);
+            $song->getChord($this->getReference($songData['chord']));
+            $song->getVideo($this->getReference($songData['vidoe']));
 
             $this->addReference($key, $song);
 

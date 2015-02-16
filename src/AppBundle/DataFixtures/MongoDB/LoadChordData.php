@@ -20,7 +20,7 @@ class LoadChordData extends AbstractFixture implements OrderedFixtureInterface
 
         foreach ($chords as $key => $chordData) {
             $chord = new Chord();
-            $chord->setChord($chordData['chord']);
+            $chord->setTitle($chordData['title']);
 
             $this->addReference($key, $chord);
 
