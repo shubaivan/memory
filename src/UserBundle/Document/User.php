@@ -30,6 +30,26 @@ class User extends BaseUser
     protected $secondName;
 
     /**
+     * @ODM\Field(type="int")
+     */
+    protected $facebookId;
+
+    /**
+     * @ODM\Field(type="string")
+     */
+    protected $facebookAccessToken;
+
+    /**
+     * @ODM\Field(type="int")
+     */
+    protected $vkontakteId;
+
+    /**
+     * @ODM\Field(type="string")
+     */
+    protected $vkontakteAccessToken;
+
+    /**
      * @Gedmo\Slug(fields={"firstName", "secondName"})
      * @ODM\Field(type="string")
      */
@@ -39,6 +59,7 @@ class User extends BaseUser
      * @ODM\ReferenceMany(targetDocument="AppBundle\Document\Video")
      */
     protected $video;
+
     public function __construct()
     {
         $this->video = new \Doctrine\Common\Collections\ArrayCollection();
