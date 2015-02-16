@@ -22,6 +22,15 @@ app_song_show:
     pattern: /showSong
     defaults: { _controller: AppBundle:Song:index}
 
+app_song_show_by_album:
+    pattern: /songInAlbum
+    defaults: { _controller: AppBundle:Song:songsInAlbum}
+
+
+app_album_show:
+    pattern: /showAlbum
+    defaults: { _controller: AppBundle:Album:index}
+
 app_video_addSong:
     pattern: /addSong
     defaults: { _controller: AppBundle:Song:addSong}

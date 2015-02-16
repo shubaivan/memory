@@ -59,4 +59,15 @@ class SongController extends Controller
             'form' => $form->createView(),
         ];
     }
+
+    public function songsInAlbumAction($id)
+    {
+        $songs = $this->get('doctrine_mongodb.odm.document_manager')
+            ->getRepository('AppBundle:Song')
+            ->findByAlbum($id);
+        if (!$songs) {
+            throw $this->createNotFoundException('No posts found');
+        }
+        return $this->render('AppBundle:Song:showSong.html.twig', array('songs' => $songs));
+    }
 }
