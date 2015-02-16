@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\DataFixtures\ORM;
+namespace AppBundle\DataFixtures\MongoDB;
 
 use AppBundle\Document\Song;
 use Doctrine\Common\DataFixtures\AbstractFixture;
