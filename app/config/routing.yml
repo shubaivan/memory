@@ -2,5 +2,13 @@ memory_video:
     resource: "@AppBundle/Resources/config/routing.yml"
     prefix:   /
 
-memory_fos_user:
-    resource: "@UserBundle/Resources/config/routing.yml"
+#memory_fos_user:
+#    resource: "@UserBundle/Resources/config/routing.yml"
+
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /connect
+
+hwi_oauth_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix:   /login
