@@ -1,8 +1,8 @@
 <?php
 
-namespace AppBundle\DataFixtures\ORM;
+namespace AppBundle\DataFixtures\MongoDB;
 
-use AppBundle\Entity\Song;
+use AppBundle\Document\Song;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -18,11 +18,10 @@ class LoadSongData extends AbstractFixture implements OrderedFixtureInterface
         $songs = Yaml::parse(file_get_contents(__DIR__.'/Data/Song.yml'));
         foreach ($songs as $key => $songData) {
             $song = new Song();
-            $song->setNameSong($songData['nameSong']);
-            $song->setChord($this->getReference($songData['chord']));
-            $song->setAuthor($songData['author']);
+            $song->setName($songData['name']);
+            $song->setTimeline($songData['timeline']);
+            $song->addChord($this->getReference($songData['chord']));
             $song->setAlbum($this->getReference($songData['album']));
-//            $song->getVideo($this->getReference($songData['video']));
 
             $this->addReference($key, $song);
 

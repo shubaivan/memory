@@ -1,11 +1,11 @@
 <?php
 
-namespace AppBundle\DataFixtures\ORM;
+namespace AppBundle\DataFixtures\MongoDB;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use AppBundle\Entity\Video;
+use AppBundle\Document\Video;
 use Symfony\Component\Yaml\Yaml;
 
 class LoadVideoData extends AbstractFixture implements OrderedFixtureInterface
@@ -18,8 +18,10 @@ class LoadVideoData extends AbstractFixture implements OrderedFixtureInterface
         $videos = Yaml::parse(file_get_contents(__DIR__.'/Data/Video.yml'));
         foreach ($videos as $key => $videoData) {
             $video = new Video();
-            $video->setSong($this->getReference($videoData['song']));
+            $video->setName($videoData['name']);
             $video->setLink($videoData['link']);
+            $video->setLike($videoData['like']);
+            $video->setDislike($videoData['dislike']);
 
             $this->addReference($key, $video);
 

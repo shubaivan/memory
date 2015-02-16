@@ -12,6 +12,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ODM\InheritanceType("SINGLE_COLLECTION")
  * @ODM\DiscriminatorField("type")
  * @ODM\HasLifecycleCallbacks()
+ * @ODM\MappedSuperclass
  */
 class AbstractChord
 {

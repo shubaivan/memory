@@ -62,12 +62,13 @@ class Video
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return self
      */
     public function setName($name)
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -84,12 +85,13 @@ class Video
     /**
      * Set link
      *
-     * @param string $link
+     * @param  string $link
      * @return self
      */
     public function setLink($link)
     {
         $this->link = $link;
+
         return $this;
     }
 
@@ -106,12 +108,13 @@ class Video
     /**
      * Set like
      *
-     * @param int $like
+     * @param  int  $like
      * @return self
      */
     public function setLike($like)
     {
         $this->like = $like;
+
         return $this;
     }
 
@@ -128,12 +131,13 @@ class Video
     /**
      * Set dislike
      *
-     * @param int $dislike
+     * @param  int  $dislike
      * @return self
      */
     public function setDislike($dislike)
     {
         $this->dislike = $dislike;
+
         return $this;
     }
 
@@ -150,12 +154,13 @@ class Video
     /**
      * Set slug
      *
-     * @param string $slug
+     * @param  string $slug
      * @return self
      */
     public function setSlug($slug)
     {
         $this->slug = $slug;
+
         return $this;
     }
 
@@ -172,19 +177,20 @@ class Video
     /**
      * Set author
      *
-     * @param UserBundle\Document\User $author
+     * @param  \UserBundle\Document\User $author
      * @return self
      */
     public function setAuthor(\UserBundle\Document\User $author)
     {
         $this->author = $author;
+
         return $this;
     }
 
     /**
      * Get author
      *
-     * @return UserBundle\Document\User $author
+     * @return \UserBundle\Document\User $author
      */
     public function getAuthor()
     {

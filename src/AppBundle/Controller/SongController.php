@@ -7,13 +7,33 @@ use AppBundle\Form\Type\SongType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class SongController extends Controller
 {
     /**
+     * Render front page
+     *
+     * @return Response
+     */
+    public function indexAction()
+    {
+        $songs = $this->get('doctrine_mongodb.odm.document_manager')
+            ->getRepository('AppBundle:Song')
+            ->findAll();
+
+        return $this->render(
+            'AppBundle:Song:showSong.html.twig',
+            [
+                'songs' => $songs
+            ]
+        );
+    }
+
+    /**
      * Method that addnew song
      *
-     * @param Request $request
+     * @param  Request                                                                                       $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      *
      * @Template()
@@ -38,5 +58,17 @@ class SongController extends Controller
             'messages' => $song,
             'form' => $form->createView(),
         ];
+    }
+
+    public function songsInAlbumAction($id)
+    {
+        $songs = $this->get('doctrine_mongodb.odm.document_manager')
+            ->getRepository('AppBundle:Song')
+            ->findByAlbum($id);
+        if (!$songs) {
+            throw $this->createNotFoundException('No posts found');
+        }
+
+        return $this->render('AppBundle:Song:showSong.html.twig', array('songs' => $songs));
     }
 }

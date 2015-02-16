@@ -47,7 +47,7 @@ class Album
     {
         $this->song = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Get id
      *
@@ -61,12 +61,13 @@ class Album
     /**
      * Set year
      *
-     * @param int $year
+     * @param  int  $year
      * @return self
      */
     public function setYear($year)
     {
         $this->year = $year;
+
         return $this;
     }
 
@@ -83,12 +84,13 @@ class Album
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return self
      */
     public function setName($name)
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -105,12 +107,13 @@ class Album
     /**
      * Set poster
      *
-     * @param file $poster
+     * @param  file $poster
      * @return self
      */
     public function setPoster($poster)
     {
         $this->poster = $poster;
+
         return $this;
     }
 
@@ -127,7 +130,7 @@ class Album
     /**
      * Add song
      *
-     * @param AppBundle\Document\Song $song
+     * @param \AppBundle\Document\Song $song
      */
     public function addSong(\AppBundle\Document\Song $song)
     {
@@ -137,7 +140,7 @@ class Album
     /**
      * Remove song
      *
-     * @param AppBundle\Document\Song $song
+     * @param \AppBundle\Document\Song $song
      */
     public function removeSong(\AppBundle\Document\Song $song)
     {
@@ -147,7 +150,7 @@ class Album
     /**
      * Get song
      *
-     * @return Doctrine\Common\Collections\Collection $song
+     * @return \Doctrine\Common\Collections\Collection $song
      */
     public function getSong()
     {
@@ -157,12 +160,13 @@ class Album
     /**
      * Set slug
      *
-     * @param string $slug
+     * @param  string $slug
      * @return self
      */
     public function setSlug($slug)
     {
         $this->slug = $slug;
+
         return $this;
     }
 

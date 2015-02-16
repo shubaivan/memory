@@ -1,14 +1,14 @@
 <?php
 
-namespace AppBundle\DataFixtures\ORM;
+namespace AppBundle\DataFixtures\MongoDB;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use AppBundle\Entity\Chord;
+use AppBundle\Document\News;
 use Symfony\Component\Yaml\Yaml;
 
-class LoadChordData extends AbstractFixture implements OrderedFixtureInterface
+class LoadNewsData extends AbstractFixture implements OrderedFixtureInterface
 {
     /**
      * {@inheritDoc}
@@ -16,15 +16,16 @@ class LoadChordData extends AbstractFixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager)
     {
 
-        $chords = Yaml::parse(file_get_contents(__DIR__.'/Data/Chord.yml'));
+        $news = Yaml::parse(file_get_contents(__DIR__.'/Data/News.yml'));
 
-        foreach ($chords as $key => $chordData) {
-            $chord = new Chord();
-            $chord->setChord($chordData['chord']);
+        foreach ($news as $key => $newData) {
+            $new = new News();
+            $new->setTitle($newData['title']);
+            $new->setText($newData['text']);
 
-            $this->addReference($key, $chord);
+            $this->addReference($key, $new);
 
-            $manager->persist($chord);
+            $manager->persist($new);
         }
         $manager->flush();
     }

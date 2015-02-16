@@ -1,11 +1,11 @@
 <?php
 
-namespace AppBundle\DataFixtures\ORM;
+namespace AppBundle\DataFixtures\MongoDB;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use AppBundle\Entity\Album;
+use AppBundle\Document\Album;
 use Symfony\Component\Yaml\Yaml;
 
 class LoadAlbumData extends AbstractFixture implements OrderedFixtureInterface
@@ -24,10 +24,6 @@ class LoadAlbumData extends AbstractFixture implements OrderedFixtureInterface
             $album->setName($albumData['name']);
 
             $this->addReference($key, $album);
-
-            if (isset($albumData['parent'])) {
-                $album->setParent($this->getReference($albumData['parent']));
-            }
 
             $manager->persist($album);
         }

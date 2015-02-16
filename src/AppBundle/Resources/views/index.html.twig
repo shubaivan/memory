@@ -1,23 +1,12 @@
 {% extends "::base.html.twig" %}
 
-{% block title %} Index {% endblock %}
+{% block title %} News {% endblock %}
 
 {% block content %}
-    {% for song in songs %}
-        {{ song.nameSong }} </br>
-        {{ song.album.name }} </br>
-        {#{{ song.video | raw}} </br>#}
-        {{ song.chord.chord }} </br>
-        {{ song.author }} </br>
-
+    {% for news in news %}
+        {{ news.title }} </br>
+        {{ news.text }} </br>
         </br>
-
-        {#{% if app.user %}#}
-
-        {#<p><a class="btn btn-info" href="{{ path('app_video_copyVideoToUser',#}
-            {#{'user_id': app.user.id, 'video_id': video.id}) }}"#}
-              {#role="button">Add video + </a></p>#}
-        {#{% endif %}#}
 
     {% endfor %}
 {% endblock %}
