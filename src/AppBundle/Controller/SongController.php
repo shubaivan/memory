@@ -23,7 +23,7 @@ class SongController extends Controller
             ->findAll();
 
         return $this->render(
-            'AppBundle::index.html.twig',
+            'AppBundle:Song:showSong.html.twig',
             [
                 'songs' => $songs
             ]

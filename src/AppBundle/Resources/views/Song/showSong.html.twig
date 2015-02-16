@@ -3,9 +3,9 @@
 {% block title %} Index {% endblock %}
 
 {% block content %}
-    {% for news in news %}
-        {{ news.title }} </br>
-        {{ news.text }} </br>
+    {% for song in songs %}
+        {{ song.name }} </br>
+        {#{{ song.album.name }}#}
         </br>
 
     {% endfor %}

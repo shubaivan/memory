@@ -1,6 +1,6 @@
 app:
     pattern:  /
-    defaults: { _controller: AppBundle:Song:index }
+    defaults: { _controller: AppBundle:News:index }
 
 app_video_addVideo:
     pattern: /new
@@ -17,6 +17,10 @@ app_video_show:
 app_chord_show:
     pattern: /showChord
     defaults: { _controller: AppBundle:Chord:index}
+
+app_song_show:
+    pattern: /showSong
+    defaults: { _controller: AppBundle:Song:index}
 
 app_video_addSong:
     pattern: /addSong
