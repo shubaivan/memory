@@ -1,11 +1,7 @@
 <?php
 namespace AppBundle\Controller;
 
-use AppBundle\Document\Song;
-use AppBundle\Form\Type\SongType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class ChordController extends Controller

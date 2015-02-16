@@ -36,7 +36,7 @@ class VideoController extends Controller
     /**
      * Method that add new video
      *
-     * @param Request $request
+     * @param  Request                                                     $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      *
      * @Template()

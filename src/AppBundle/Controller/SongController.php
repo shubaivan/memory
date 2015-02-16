@@ -33,7 +33,7 @@ class SongController extends Controller
     /**
      * Method that addnew song
      *
-     * @param Request $request
+     * @param  Request                                                                                       $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      *
      * @Template()
@@ -68,6 +68,7 @@ class SongController extends Controller
         if (!$songs) {
             throw $this->createNotFoundException('No posts found');
         }
+
         return $this->render('AppBundle:Song:showSong.html.twig', array('songs' => $songs));
     }
 }

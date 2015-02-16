@@ -43,7 +43,7 @@ class User extends BaseUser
     {
         $this->video = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Get id
      *
@@ -57,12 +57,13 @@ class User extends BaseUser
     /**
      * Set firstName
      *
-     * @param string $firstName
+     * @param  string $firstName
      * @return self
      */
     public function setFirstName($firstName)
     {
         $this->firstName = $firstName;
+
         return $this;
     }
 
@@ -79,12 +80,13 @@ class User extends BaseUser
     /**
      * Set secondName
      *
-     * @param string $secondName
+     * @param  string $secondName
      * @return self
      */
     public function setSecondName($secondName)
     {
         $this->secondName = $secondName;
+
         return $this;
     }
 
@@ -101,12 +103,13 @@ class User extends BaseUser
     /**
      * Set slug
      *
-     * @param string $slug
+     * @param  string $slug
      * @return self
      */
     public function setSlug($slug)
     {
         $this->slug = $slug;
+
         return $this;
     }
 

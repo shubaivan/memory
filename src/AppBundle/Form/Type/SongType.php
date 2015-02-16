@@ -5,7 +5,6 @@ namespace AppBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use AppBundle\Entity\Video;
 
 class SongType extends AbstractType
 {
@@ -40,4 +39,3 @@ class SongType extends AbstractType
         ));
     }
 }
-

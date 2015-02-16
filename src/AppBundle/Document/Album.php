@@ -47,7 +47,7 @@ class Album
     {
         $this->song = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Get id
      *
@@ -61,12 +61,13 @@ class Album
     /**
      * Set year
      *
-     * @param int $year
+     * @param  int  $year
      * @return self
      */
     public function setYear($year)
     {
         $this->year = $year;
+
         return $this;
     }
 
@@ -83,12 +84,13 @@ class Album
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return self
      */
     public function setName($name)
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -105,12 +107,13 @@ class Album
     /**
      * Set poster
      *
-     * @param file $poster
+     * @param  file $poster
      * @return self
      */
     public function setPoster($poster)
     {
         $this->poster = $poster;
+
         return $this;
     }
 
@@ -157,12 +160,13 @@ class Album
     /**
      * Set slug
      *
-     * @param string $slug
+     * @param  string $slug
      * @return self
      */
     public function setSlug($slug)
     {
         $this->slug = $slug;
+
         return $this;
     }
 

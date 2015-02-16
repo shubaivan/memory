@@ -38,16 +38,16 @@ class Chord extends AbstractChord
      */
     protected $slug;
 
-
     /**
      * Set gtp
      *
-     * @param file $gtp
+     * @param  file $gtp
      * @return self
      */
     public function setGtp($gtp)
     {
         $this->gtp = $gtp;
+
         return $this;
     }
 
@@ -74,12 +74,13 @@ class Chord extends AbstractChord
     /**
      * Set title
      *
-     * @param string $title
+     * @param  string $title
      * @return self
      */
     public function setTitle($title)
     {
         $this->title = $title;
+
         return $this;
     }
 
@@ -96,12 +97,13 @@ class Chord extends AbstractChord
     /**
      * Set slug
      *
-     * @param string $slug
+     * @param  string $slug
      * @return self
      */
     public function setSlug($slug)
     {
         $this->slug = $slug;
+
         return $this;
     }
 

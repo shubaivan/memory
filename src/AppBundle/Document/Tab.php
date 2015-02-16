@@ -33,7 +33,6 @@ class Tab extends AbstractChord
      */
     protected $slug;
 
-
     /**
      * Get id
      *
@@ -47,12 +46,13 @@ class Tab extends AbstractChord
     /**
      * Set title
      *
-     * @param string $title
+     * @param  string $title
      * @return self
      */
     public function setTitle($title)
     {
         $this->title = $title;
+
         return $this;
     }
 
@@ -69,12 +69,13 @@ class Tab extends AbstractChord
     /**
      * Set slug
      *
-     * @param string $slug
+     * @param  string $slug
      * @return self
      */
     public function setSlug($slug)
     {
         $this->slug = $slug;
+
         return $this;
     }
 
