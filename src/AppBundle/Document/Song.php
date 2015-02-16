@@ -34,6 +34,11 @@ class Song
     protected $video;
 
     /**
+     * @ODM\ReferenceOne(targetDocument="AppBundle\Document\Album")
+     */
+    protected $album;
+
+    /**
      * @ODM\ReferenceMany(targetDocument="AppBundle\Document\AbstractChord")
      */
     protected $chord;
@@ -183,5 +188,27 @@ class Song
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set album
+     *
+     * @param \AppBundle\Document\Album $album
+     * @return self
+     */
+    public function setAlbum(\AppBundle\Document\Album $album)
+    {
+        $this->album = $album;
+        return $this;
+    }
+
+    /**
+     * Get album
+     *
+     * @return \AppBundle\Document\Album $album
+     */
+    public function getAlbum()
+    {
+        return $this->album;
     }
 }
