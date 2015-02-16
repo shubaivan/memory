@@ -28,7 +28,10 @@ class Chord extends AbstractChord
     protected $title;
 
     /**
-     * @var string $slug
+     * @var string
+     *
+     * @Gedmo\Slug(fields={"title"})
+     * @ODM\Field(type="string")
      */
     protected $slug;
 

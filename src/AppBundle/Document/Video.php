@@ -172,7 +172,7 @@ class Video
     /**
      * Set author
      *
-     * @param UserBundle\Document\User $author
+     * @param \UserBundle\Document\User $author
      * @return self
      */
     public function setAuthor(\UserBundle\Document\User $author)
@@ -184,7 +184,7 @@ class Video
     /**
      * Get author
      *
-     * @return UserBundle\Document\User $author
+     * @return \UserBundle\Document\User $author
      */
     public function getAuthor()
     {

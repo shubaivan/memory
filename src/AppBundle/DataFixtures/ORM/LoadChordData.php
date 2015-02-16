@@ -5,7 +5,7 @@ namespace AppBundle\DataFixtures\ORM;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use AppBundle\Entity\Chord;
+use AppBundle\Document\Chord;
 use Symfony\Component\Yaml\Yaml;
 
 class LoadChordData extends AbstractFixture implements OrderedFixtureInterface

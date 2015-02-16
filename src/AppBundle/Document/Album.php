@@ -127,7 +127,7 @@ class Album
     /**
      * Add song
      *
-     * @param AppBundle\Document\Song $song
+     * @param \AppBundle\Document\Song $song
      */
     public function addSong(\AppBundle\Document\Song $song)
     {
@@ -137,7 +137,7 @@ class Album
     /**
      * Remove song
      *
-     * @param AppBundle\Document\Song $song
+     * @param \AppBundle\Document\Song $song
      */
     public function removeSong(\AppBundle\Document\Song $song)
     {
@@ -147,7 +147,7 @@ class Album
     /**
      * Get song
      *
-     * @return Doctrine\Common\Collections\Collection $song
+     * @return \Doctrine\Common\Collections\Collection $song
      */
     public function getSong()
     {

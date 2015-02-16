@@ -1,18 +1,18 @@
 song1:
-    nameSong:     This is Lvov
+    name:         This is Lvov
+    timeline:     This is Lvov
     chord:        chord3
-    author:       admin
-    album:        Добряк
     video:        video3
+    author:       admin
 song2:
-    nameSong:     Руина
+    name:         Руина
+    timeline:     Руина
     chord:        chord1
-    author:       admin
-    album:        Добряк
     video:        video1
-song3:
-    nameSong:     Говорили & курили
-    chord:        chord2
     author:       admin
-    album:        Радіо Любов
+song3:
+    name:         Говорили & курили
+    timline:      Говорили & курили
+    chord:        chord2
     video:        video2
+    author:       admin

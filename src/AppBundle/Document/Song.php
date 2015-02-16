@@ -106,7 +106,7 @@ class Song
     /**
      * Add video
      *
-     * @param AppBundle\Document\Video $video
+     * @param \AppBundle\Document\Video $video
      */
     public function addVideo(\AppBundle\Document\Video $video)
     {
@@ -116,7 +116,7 @@ class Song
     /**
      * Remove video
      *
-     * @param AppBundle\Document\Video $video
+     * @param \AppBundle\Document\Video $video
      */
     public function removeVideo(\AppBundle\Document\Video $video)
     {
@@ -126,7 +126,7 @@ class Song
     /**
      * Get video
      *
-     * @return Doctrine\Common\Collections\Collection $video
+     * @return \Doctrine\Common\Collections\Collection $video
      */
     public function getVideo()
     {
@@ -136,7 +136,7 @@ class Song
     /**
      * Add chord
      *
-     * @param AppBundle\Document\AbstractChord $chord
+     * @param \AppBundle\Document\AbstractChord $chord
      */
     public function addChord(\AppBundle\Document\AbstractChord $chord)
     {
@@ -146,7 +146,7 @@ class Song
     /**
      * Remove chord
      *
-     * @param AppBundle\Document\AbstractChord $chord
+     * @param \AppBundle\Document\AbstractChord $chord
      */
     public function removeChord(\AppBundle\Document\AbstractChord $chord)
     {
@@ -156,7 +156,7 @@ class Song
     /**
      * Get chord
      *
-     * @return Doctrine\Common\Collections\Collection $chord
+     * @return \Doctrine\Common\Collections\Collection $chord
      */
     public function getChord()
     {
