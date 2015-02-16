@@ -21,7 +21,6 @@ class LoadSongData extends AbstractFixture implements OrderedFixtureInterface
             $song->setName($songData['name']);
             $song->setTimeline($songData['timeline']);
             $song->addChord($this->getReference($songData['chord']));
-            $song->addVideo($this->getReference($songData['video']));
             $song->setAlbum($this->getReference($songData['album']));
 
             $this->addReference($key, $song);

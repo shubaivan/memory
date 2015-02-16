@@ -2,17 +2,14 @@ song1:
     name:         This is Lvov
     timeline:     This is Lvov
     chord:        chord3
-    video:        video3
     album:        Радіо Любов
 song2:
     name:         Руина
     timeline:     Руина
     chord:        chord1
-    video:        video1
     album:        Добряк
 song3:
     name:         Говорили & курили
-    timline:      Говорили & курили
+    timeline:      Говорили & курили
     chord:        chord2
-    video:        video2
     album:        Добряк

@@ -22,7 +22,6 @@ class LoadVideoData extends AbstractFixture implements OrderedFixtureInterface
             $video->setLink($videoData['link']);
             $video->setLike($videoData['like']);
             $video->setDislike($videoData['dislike']);
-            $video->setAuthor($this->getReference($videoData['author']));
 
             $this->addReference($key, $video);
 
