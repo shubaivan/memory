@@ -62,4 +62,22 @@ class VideoController extends Controller
             'form' => $form->createView(),
         ];
     }
+
+    public function copyVideoToUserAction($user_id, $video_id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $user = $this->getUser();
+
+        $video = $this->get('doctrine_mongodb.odm.document_manager')
+            ->getRepository('AppBundle:Video')
+            ->find($video_id);
+
+        $user->addVideo($video);
+
+        $em->persist($user);
+        $em->getManager()->flush();
+
+        return $this->redirect($this->generateUrl('app_video_show'));
+    }
 }

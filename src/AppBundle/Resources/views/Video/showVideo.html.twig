@@ -5,18 +5,13 @@
 {% block content %}
     {% for video in videos %}
         {{ video.link | raw }} </br>
-        {{ video.createdAt | date }} </br>
+        {{ video.name }} </br>
         </br>
         {% if app.user %}
-            <p>
-                <a class="btn btn-info" href="{{ path(
-                                                        'app_video_copyVideoToUser',
-                                                        {'user_id': app.user.id, 'video_id': video.id}
-                                                    )
-                                                }}"
-                        role="button">Add video +
-                </a>
-            </p>
+
+            <p><a class="btn btn-info" href="{{ path('app_video_copyVideoToUser',
+            {'user_id': app.user.id, 'video_id': video.id}) }}"
+              role="button">Add video + </a></p>
         {% endif %}
 
     {% endfor %}

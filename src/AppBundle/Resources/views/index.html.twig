@@ -4,11 +4,8 @@
 
 {% block content %}
     {% for song in songs %}
-        {{ song.nameSong }} </br>
-        {{ song.album.name }} </br>
-        {#{{ song.video | raw}} </br>#}
-        {{ song.chord.chord }} </br>
-        {{ song.author }} </br>
+        {{ song.name }} </br>
+        {#{{ song.album.name }}#}
 
         </br>
 
