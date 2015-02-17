@@ -34,3 +34,11 @@ app_album_show:
 app_video_addSong:
     pattern: /addSong
     defaults: { _controller: AppBundle:Song:addSong}
+
+app_get_all_video:
+    pattern: /video
+    defaults: { _controller: AppBundle:Album:getAllAlbum }
+
+app_get_single_video:
+    pattern: /video/{slug}
+    defaults: { _controller: AppBundle:Album:getSingleAlbum }
