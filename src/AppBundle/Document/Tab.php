@@ -98,16 +98,16 @@ class Tab extends AbstractChord
      */
     protected $song;
 
-
     /**
      * Set gtp
      *
-     * @param file $gtp
+     * @param  file $gtp
      * @return self
      */
     public function setGtp($gtp)
     {
         $this->gtp = $gtp;
+
         return $this;
     }
 
@@ -124,7 +124,7 @@ class Tab extends AbstractChord
     /**
      * Set song
      *
-     * @param AppBundle\Document\Song $song
+     * @param  AppBundle\Document\Song $song
      * @return self
      */
     public function setSong(\AppBundle\Document\Song $song)

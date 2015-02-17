@@ -10,9 +10,9 @@ class VideoControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/showVideo');
+        $crawler = $client->request('GET', '/video');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertTrue($crawler->filter('html:contains("Всі добавленні відео")')->count() > 0);
+        $this->assertTrue($crawler->filter('html:contains("AllVideos")')->count() > 0);
     }
 }

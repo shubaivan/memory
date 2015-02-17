@@ -27,7 +27,7 @@ class AlbumController extends Controller
     }
 
     /**
-     * @param Album $album
+     * @param  Album $album
      * @return array
      *
      * @Template()

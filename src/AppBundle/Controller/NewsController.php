@@ -27,7 +27,7 @@ class NewsController extends Controller
     }
 
     /**
-     * @param News $news
+     * @param  News  $news
      * @return array
      *
      * @Template()

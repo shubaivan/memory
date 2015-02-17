@@ -34,7 +34,7 @@ class VideoController extends Controller
     }
 
     /**
-     * @param Video $video
+     * @param  Video $video
      * @return array
      *
      * @Template()

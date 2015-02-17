@@ -3,7 +3,6 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Document\Song;
-use AppBundle\Document\Album;
 use AppBundle\Form\Type\SongType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
@@ -31,7 +30,7 @@ class SongController extends Controller
     }
 
     /**
-     * @param Song $song
+     * @param  Song  $song
      * @return array
      *
      * @Template()

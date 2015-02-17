@@ -123,12 +123,13 @@ class News
     /**
      * Set slug
      *
-     * @param string $slug
+     * @param  string $slug
      * @return self
      */
     public function setSlug($slug)
     {
         $this->slug = $slug;
+
         return $this;
     }
 
