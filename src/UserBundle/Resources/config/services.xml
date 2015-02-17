@@ -15,7 +15,17 @@
                 <argument key="facebook">facebookId</argument>
                 <argument key="vkontakte">vkontakteId</argument>
             </argument>
+            <call method="setFacebookProvider">
+                <argument type="service" id="geekhub.user.facebook_provider" />
+            </call>
+            <call method="setVkontakteProvider">
+                <argument type="service" id="geekhub.user.vkontakte_provider" />
+            </call>
         </service>
+
+        <service id="geekhub.user.facebook_provider" class="UserBundle\Providers\FacebookProvider" />
+
+        <service id="geekhub.user.vkontakte_provider" class="UserBundle\Providers\VkontakteProvider"/>
     </services>
 
 </container>

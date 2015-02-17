@@ -3,9 +3,9 @@
 namespace UserBundle\Providers;
 
 use HWI\Bundle\OAuthBundle\OAuth\Response\UserResponseInterface;
-use UserBundle\Document\User;
+use Sluggable\Fixture\Handler\User;
 
-class VkontakteProvider
+class FacebookProvider
 {
     public function setUserData(User $user, UserResponseInterface $response)
     {
