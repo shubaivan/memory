@@ -1,0 +1,12 @@
+{% extends "::base.html.twig" %}
+
+{% block title %} AllChords {% endblock %}
+
+{% block content %}
+    {% for chord in chords %}
+        {{ chord.title }} </br>
+        {{ chord.chord }} </br>
+        </br>
+
+    {% endfor %}
+{% endblock %}

@@ -31,4 +31,9 @@ class AbstractChord
      * @ODM\Field(type="string")
      */
     protected $slug;
+
+    /**
+     * @ODM\ReferenceOne(targetDocument="AppBundle\Document\Song")
+     */
+    protected $song;
 }

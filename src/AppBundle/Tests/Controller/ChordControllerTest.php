@@ -10,9 +10,9 @@ class ChordControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/showChord');
+        $crawler = $client->request('GET', '/chord');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertTrue($crawler->filter('html:contains("Chords")')->count() > 0);
+        $this->assertTrue($crawler->filter('html:contains("AllChords")')->count() > 0);
     }
 }

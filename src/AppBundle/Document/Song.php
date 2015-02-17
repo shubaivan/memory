@@ -48,6 +48,7 @@ class Song
      * @ODM\Field(type="string")
      */
     protected $slug;
+
     public function __construct()
     {
         $this->video = new \Doctrine\Common\Collections\ArrayCollection();
@@ -202,6 +203,7 @@ class Song
     public function setAlbum(\AppBundle\Document\Album $album)
     {
         $this->album = $album;
+        $album->addSong($this);
 
         return $this;
     }

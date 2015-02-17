@@ -10,7 +10,7 @@ class AlbumControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/showAlbum');
+        $crawler = $client->request('GET', '/album');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertTrue($crawler->filter('html:contains("Albums")')->count() > 0);
