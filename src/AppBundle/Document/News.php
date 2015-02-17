@@ -36,6 +36,12 @@ class News
     protected $createdAt;
 
     /**
+     * @Gedmo\Slug(fields={"title"})
+     * @ODM\Field(type="string")
+     */
+    protected $slug;
+
+    /**
      * Get id
      *
      * @return id $id
