@@ -56,3 +56,11 @@ app_get_single_chord:
   pattern: /chord/{slug}
   defaults: { _controller: AppBundle:Chord:getSingleChord }
 
+#news
+app_get_all_news:
+  pattern: /
+  defaults: { _controller: AppBundle:News:getAllNews }
+
+app_get_single_news:
+  pattern: /news/{slug}
+  defaults: { _controller: AppBundle:News:getSingleNews }
