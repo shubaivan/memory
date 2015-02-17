@@ -8,6 +8,10 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class UserProvider extends BaseClass
 {
+    private $vkontakteProvider;
+
+    private $facebookProvider;
+
     /**
      * {@inheritDoc}
      */
@@ -74,5 +78,15 @@ class UserProvider extends BaseClass
         $user->$setter($response->getAccessToken());
 
         return $user;
+    }
+
+    public function setVkontakteProvider(VkontakteProvider $vkontakteProvider)
+    {
+        $this->vkontakteProvider = $vkontakteProvider;
+    }
+
+    public function setFacebookProvider(FacebookProvider $facebookProvider)
+    {
+        $this->facebookProvider = $facebookProvider;
     }
 }
