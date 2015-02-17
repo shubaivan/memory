@@ -35,10 +35,24 @@ app_video_addSong:
     pattern: /addSong
     defaults: { _controller: AppBundle:Song:addSong}
 
-app_get_all_video:
-    pattern: /video
-    defaults: { _controller: AppBundle:Album:getAllAlbum }
+
+#new routings
+
+#video
+app_get_all_videos:
+  pattern: /video
+  defaults: { _controller: AppBundle:Album:getAllAlbum }
 
 app_get_single_video:
-    pattern: /video/{slug}
-    defaults: { _controller: AppBundle:Album:getSingleAlbum }
+  pattern: /video/{slug}
+  defaults: { _controller: AppBundle:Album:getSingleAlbum }
+
+#chord
+app_get_all_chords:
+  pattern: /chord
+  defaults: { _controller: AppBundle:Chord:getAllChords }
+
+app_get_single_chord:
+  pattern: /chord/{slug}
+  defaults: { _controller: AppBundle:Chord:getSingleChord }
+
