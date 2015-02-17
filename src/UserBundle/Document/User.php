@@ -173,4 +173,92 @@ class User extends BaseUser
     {
         return $this->video;
     }
+
+    /**
+     * Set facebookId
+     *
+     * @param int $facebookId
+     * @return self
+     */
+    public function setFacebookId($facebookId)
+    {
+        $this->facebookId = $facebookId;
+        return $this;
+    }
+
+    /**
+     * Get facebookId
+     *
+     * @return int $facebookId
+     */
+    public function getFacebookId()
+    {
+        return $this->facebookId;
+    }
+
+    /**
+     * Set facebookAccessToken
+     *
+     * @param string $facebookAccessToken
+     * @return self
+     */
+    public function setFacebookAccessToken($facebookAccessToken)
+    {
+        $this->facebookAccessToken = $facebookAccessToken;
+        return $this;
+    }
+
+    /**
+     * Get facebookAccessToken
+     *
+     * @return string $facebookAccessToken
+     */
+    public function getFacebookAccessToken()
+    {
+        return $this->facebookAccessToken;
+    }
+
+    /**
+     * Set vkontakteId
+     *
+     * @param int $vkontakteId
+     * @return self
+     */
+    public function setVkontakteId($vkontakteId)
+    {
+        $this->vkontakteId = $vkontakteId;
+        return $this;
+    }
+
+    /**
+     * Get vkontakteId
+     *
+     * @return int $vkontakteId
+     */
+    public function getVkontakteId()
+    {
+        return $this->vkontakteId;
+    }
+
+    /**
+     * Set vkontakteAccessToken
+     *
+     * @param string $vkontakteAccessToken
+     * @return self
+     */
+    public function setVkontakteAccessToken($vkontakteAccessToken)
+    {
+        $this->vkontakteAccessToken = $vkontakteAccessToken;
+        return $this;
+    }
+
+    /**
+     * Get vkontakteAccessToken
+     *
+     * @return string $vkontakteAccessToken
+     */
+    public function getVkontakteAccessToken()
+    {
+        return $this->vkontakteAccessToken;
+    }
 }
