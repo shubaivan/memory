@@ -35,3 +35,12 @@ app_get_all_videos:
 app_get_single_video:
   pattern: /video/{slug}
   defaults: { _controller: AppBundle:Video:getSingleVideo }
+
+#song
+app_get_all_songs:
+  pattern: /song
+  defaults: { _controller: AppBundle:Song:getAllSong }
+
+app_get_single_song:
+  pattern: /song/{slug}
+  defaults: { _controller: AppBundle:Song:getSingleSong }

@@ -48,6 +48,7 @@ class Song
      * @ODM\Field(type="string")
      */
     protected $slug;
+
     public function __construct()
     {
         $this->video = new \Doctrine\Common\Collections\ArrayCollection();
