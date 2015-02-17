@@ -14,46 +14,35 @@ use Gedmo\Mapping\Annotation as Gedmo;
 class Chord extends AbstractChord
 {
     /**
-     * @ODM\File()
+     * @var \AppBundle\Document\Song
      */
-    protected $gtp;
+    protected $song;
+
     /**
      * @ODM\Id
      */
     protected $id;
 
     /**
+     * @var string
+     *
+     * @ODM\Field(type="string")
      * @var string $title
      */
     protected $title;
 
     /**
-     * @var string $slug
+     * @var string
+     *
+     * @Gedmo\Slug(fields={"title"})
+     * @ODM\Field(type="string")
      */
     protected $slug;
 
-
     /**
-     * Set gtp
-     *
-     * @param file $gtp
-     * @return self
+     * @ODM\Field(type="string")
      */
-    public function setGtp($gtp)
-    {
-        $this->gtp = $gtp;
-        return $this;
-    }
-
-    /**
-     * Get gtp
-     *
-     * @return file $gtp
-     */
-    public function getGtp()
-    {
-        return $this->gtp;
-    }
+    protected $chord;
 
     /**
      * Get id
@@ -68,12 +57,13 @@ class Chord extends AbstractChord
     /**
      * Set title
      *
-     * @param string $title
+     * @param  string $title
      * @return self
      */
     public function setTitle($title)
     {
         $this->title = $title;
+
         return $this;
     }
 
@@ -90,12 +80,13 @@ class Chord extends AbstractChord
     /**
      * Set slug
      *
-     * @param string $slug
+     * @param  string $slug
      * @return self
      */
     public function setSlug($slug)
     {
         $this->slug = $slug;
+
         return $this;
     }
 
@@ -107,5 +98,52 @@ class Chord extends AbstractChord
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set chord
+     *
+     * @param  string $chord
+     * @return self
+     */
+    public function setChord($chord)
+    {
+        $this->chord = $chord;
+
+        return $this;
+    }
+
+    /**
+     * Get chord
+     *
+     * @return string $chord
+     */
+    public function getChord()
+    {
+        return $this->chord;
+    }
+
+    /**
+     * Set song
+     *
+     * @param  \AppBundle\Document\Song $song
+     * @return self
+     */
+    public function setSong(\AppBundle\Document\Song $song)
+    {
+        $this->song = $song;
+        $song->addChord($this);
+
+        return $this;
+    }
+
+    /**
+     * Get song
+     *
+     * @return \AppBundle\Document\Song $song
+     */
+    public function getSong()
+    {
+        return $this->song;
     }
 }

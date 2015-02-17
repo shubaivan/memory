@@ -1,11 +1,11 @@
 <?php
 
-namespace AppBundle\DataFixtures\ORM;
+namespace AppBundle\DataFixtures\MongoDB;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use AppBundle\Entity\Chord;
+use AppBundle\Document\Chord;
 use Symfony\Component\Yaml\Yaml;
 
 class LoadChordData extends AbstractFixture implements OrderedFixtureInterface
@@ -20,6 +20,7 @@ class LoadChordData extends AbstractFixture implements OrderedFixtureInterface
 
         foreach ($chords as $key => $chordData) {
             $chord = new Chord();
+            $chord->setTitle($chordData['title']);
             $chord->setChord($chordData['chord']);
 
             $this->addReference($key, $chord);

@@ -1,23 +1,59 @@
-app:
-    pattern:  /
-    defaults: { _controller: AppBundle:Default:index }
+#new routings
 
-app_videos_of_album:
-    pattern: /album/{id}
-    defaults: { _controller: AppBundle:Default:songsOfCategory}
+#album
+app_get_all_albums:
+  pattern: /album
+  defaults: { _controller: AppBundle:Album:getAllAlbum }
 
-app_video_addVideo:
-    pattern: /new
-    defaults: { _controller: AppBundle:Video:addVideo}
+app_get_single_album:
+  pattern: /album/{slug}
+  defaults: { _controller: AppBundle:Album:getSingleAlbum }
 
-#app_video_copyVideoToUser:
-#    pattern: /copyVideo/{user_id}/{video_id}
-#    defaults: { _controller: AppBundle:Default:copyVideoToUser}
+#chord
+app_get_all_chords:
+  pattern: /chord
+  defaults: { _controller: AppBundle:Chord:getAllChords }
 
-app_video_show:
-    pattern: /showVideo
-    defaults: { _controller: AppBundle:Video:showVideo}
+app_get_single_chord:
+  pattern: /chord/{slug}
+  defaults: { _controller: AppBundle:Chord:getSingleChord }
 
-app_video_addSong:
-    pattern: /addSong
-    defaults: { _controller: AppBundle:Default:addSong}
+#news
+app_get_all_news:
+  pattern: /
+  defaults: { _controller: AppBundle:News:getAllNews }
+
+app_get_single_news:
+  pattern: /news/{slug}
+  defaults: { _controller: AppBundle:News:getSingleNews }
+
+#video
+app_get_all_videos:
+  pattern: /video
+  defaults: { _controller: AppBundle:Video:getAllVideos }
+
+app_add_video:
+  pattern: /add_video
+  defaults: { _controller: AppBundle:Video:addVideo }
+
+
+app_get_single_video:
+  pattern: /video/{slug}
+  defaults: { _controller: AppBundle:Video:getSingleVideo }
+
+#song
+app_get_all_songs:
+  pattern: /song
+  defaults: { _controller: AppBundle:Song:getAllSong }
+
+app_add_song:
+  pattern: /add_song
+  defaults: { _controller: AppBundle:Song:addSong }
+
+app_get_single_song:
+  pattern: /song/{slug}
+  defaults: { _controller: AppBundle:Song:getSingleSong }
+
+app_get_single_album_song:
+  pattern: /song_in_album/{slug}
+  defaults: { _controller: AppBundle:Album:getSingleAlbum }

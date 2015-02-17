@@ -18,7 +18,7 @@ class VideoController extends Controller
      *
      * @Template()
      */
-    public function showVideoAction()
+    public function getAllVideosAction()
     {
         $videos = $this->get('doctrine_mongodb.odm.document_manager')
                         ->getRepository('AppBundle:Video')
@@ -34,9 +34,22 @@ class VideoController extends Controller
     }
 
     /**
+     * @param  Video $video
+     * @return array
+     *
+     * @Template()
+     */
+    public function getSingleVideoAction(Video $video)
+    {
+        return [
+            "video" => $video
+        ];
+    }
+
+    /**
      * Method that add new video
      *
-     * @param Request $request
+     * @param  Request                                                     $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      *
      * @Template()
@@ -54,7 +67,7 @@ class VideoController extends Controller
             $em->persist($video);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('app_video_show'));
+            return $this->redirect($this->generateUrl('app_get_all_videos'));
         }
 
         return [
@@ -62,4 +75,22 @@ class VideoController extends Controller
             'form' => $form->createView(),
         ];
     }
+
+//    public function copyVideoToUserAction($user_id, $video_id)
+//    {
+//        $em = $this->getDoctrine()->getManager();
+//
+//        $user = $this->getUser();
+//
+//        $video = $this->get('doctrine_mongodb.odm.document_manager')
+//            ->getRepository('AppBundle:Video')
+//            ->find($video_id);
+//
+//        $user->addVideo($video);
+//
+//        $em->persist($user);
+//        $em->getManager()->flush();
+//
+//        return $this->redirect($this->generateUrl('app_video_show'));
+//    }
 }

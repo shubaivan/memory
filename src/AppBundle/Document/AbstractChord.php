@@ -12,6 +12,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ODM\InheritanceType("SINGLE_COLLECTION")
  * @ODM\DiscriminatorField("type")
  * @ODM\HasLifecycleCallbacks()
+ * @ODM\MappedSuperclass
  */
 class AbstractChord
 {
@@ -30,4 +31,9 @@ class AbstractChord
      * @ODM\Field(type="string")
      */
     protected $slug;
+
+    /**
+     * @ODM\ReferenceOne(targetDocument="AppBundle\Document\Song")
+     */
+    protected $song;
 }

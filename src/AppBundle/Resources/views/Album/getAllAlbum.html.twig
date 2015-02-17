@@ -1,0 +1,14 @@
+{% extends "::base.html.twig" %}
+
+{% block title %} Albums {% endblock %}
+
+{% block content %}
+    {% for album in albums %}
+        <li>
+            <a href="{{ path('app_get_single_album_song', {'slug': album.slug }) }}">{{ album.name }}</a>
+        </li>
+        {{ album.year }} </br>
+        </br>
+
+    {% endfor %}
+{% endblock %}

@@ -34,6 +34,11 @@ class Song
     protected $video;
 
     /**
+     * @ODM\ReferenceOne(targetDocument="AppBundle\Document\Album")
+     */
+    protected $album;
+
+    /**
      * @ODM\ReferenceMany(targetDocument="AppBundle\Document\AbstractChord")
      */
     protected $chord;
@@ -43,12 +48,13 @@ class Song
      * @ODM\Field(type="string")
      */
     protected $slug;
+
     public function __construct()
     {
         $this->video = new \Doctrine\Common\Collections\ArrayCollection();
         $this->chord = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Get id
      *
@@ -62,12 +68,13 @@ class Song
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return self
      */
     public function setName($name)
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -84,12 +91,13 @@ class Song
     /**
      * Set timeline
      *
-     * @param string $timeline
+     * @param  string $timeline
      * @return self
      */
     public function setTimeline($timeline)
     {
         $this->timeline = $timeline;
+
         return $this;
     }
 
@@ -106,7 +114,7 @@ class Song
     /**
      * Add video
      *
-     * @param AppBundle\Document\Video $video
+     * @param \AppBundle\Document\Video $video
      */
     public function addVideo(\AppBundle\Document\Video $video)
     {
@@ -116,7 +124,7 @@ class Song
     /**
      * Remove video
      *
-     * @param AppBundle\Document\Video $video
+     * @param \AppBundle\Document\Video $video
      */
     public function removeVideo(\AppBundle\Document\Video $video)
     {
@@ -126,7 +134,7 @@ class Song
     /**
      * Get video
      *
-     * @return Doctrine\Common\Collections\Collection $video
+     * @return \Doctrine\Common\Collections\Collection $video
      */
     public function getVideo()
     {
@@ -136,7 +144,7 @@ class Song
     /**
      * Add chord
      *
-     * @param AppBundle\Document\AbstractChord $chord
+     * @param \AppBundle\Document\AbstractChord $chord
      */
     public function addChord(\AppBundle\Document\AbstractChord $chord)
     {
@@ -146,7 +154,7 @@ class Song
     /**
      * Remove chord
      *
-     * @param AppBundle\Document\AbstractChord $chord
+     * @param \AppBundle\Document\AbstractChord $chord
      */
     public function removeChord(\AppBundle\Document\AbstractChord $chord)
     {
@@ -156,7 +164,7 @@ class Song
     /**
      * Get chord
      *
-     * @return Doctrine\Common\Collections\Collection $chord
+     * @return \Doctrine\Common\Collections\Collection $chord
      */
     public function getChord()
     {
@@ -166,12 +174,13 @@ class Song
     /**
      * Set slug
      *
-     * @param string $slug
+     * @param  string $slug
      * @return self
      */
     public function setSlug($slug)
     {
         $this->slug = $slug;
+
         return $this;
     }
 
@@ -183,5 +192,29 @@ class Song
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set album
+     *
+     * @param  \AppBundle\Document\Album $album
+     * @return self
+     */
+    public function setAlbum(\AppBundle\Document\Album $album)
+    {
+        $this->album = $album;
+        $album->addSong($this);
+
+        return $this;
+    }
+
+    /**
+     * Get album
+     *
+     * @return \AppBundle\Document\Album $album
+     */
+    public function getAlbum()
+    {
+        return $this->album;
     }
 }
