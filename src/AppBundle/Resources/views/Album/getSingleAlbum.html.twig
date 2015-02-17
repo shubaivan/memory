@@ -1,0 +1,17 @@
+{% extends "::base.html.twig" %}
+
+{% block title %} News {% endblock %}
+
+{% block content %}
+
+        {{ album.name }} </br>
+        {{ album.year }} </br>
+        </br>
+        <p>Songs:</p>
+        {% for song in album.song %}
+        {{ song.name }} </br>
+
+    {% endfor %}
+        </br>
+
+{% endblock %}

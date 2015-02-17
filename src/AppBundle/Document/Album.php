@@ -43,6 +43,7 @@ class Album
      * @ODM\Field(type="string")
      */
     protected $slug;
+
     public function __construct()
     {
         $this->song = new \Doctrine\Common\Collections\ArrayCollection();

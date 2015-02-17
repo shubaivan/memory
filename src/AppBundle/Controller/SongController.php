@@ -15,19 +15,31 @@ class SongController extends Controller
      * Render front page
      *
      * @return Response
+     *
+     * @Template()
      */
-    public function indexAction()
+    public function getAllSongAction()
     {
         $songs = $this->get('doctrine_mongodb.odm.document_manager')
             ->getRepository('AppBundle:Song')
             ->findAll();
 
-        return $this->render(
-            'AppBundle:Song:showSong.html.twig',
-            [
-                'songs' => $songs
-            ]
-        );
+        return [
+            'songs' => $songs
+        ];
+    }
+
+    /**
+     * @param  Song  $song
+     * @return array
+     *
+     * @Template()
+     */
+    public function getSingleSongAction(Song $song)
+    {
+        return [
+            "song" => $song
+        ];
     }
 
     /**
@@ -58,17 +70,5 @@ class SongController extends Controller
             'messages' => $song,
             'form' => $form->createView(),
         ];
-    }
-
-    public function songsInAlbumAction($slug)
-    {
-        $albums = $this->get('doctrine_mongodb.odm.document_manager')
-            ->getRepository('AppBundle:Album')->findBySlug($slug);
-
-        if (!$albums) {
-            throw $this->createNotFoundException('No posts found');
-        }
-
-        return $this->render('AppBundle:Song:showSongByAlbum.html.twig', array('albums' => $albums));
     }
 }

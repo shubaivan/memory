@@ -36,6 +36,12 @@ class News
     protected $createdAt;
 
     /**
+     * @Gedmo\Slug(fields={"title"})
+     * @ODM\Field(type="string")
+     */
+    protected $slug;
+
+    /**
      * Get id
      *
      * @return id $id
@@ -112,5 +118,28 @@ class News
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param  string $slug
+     * @return self
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string $slug
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

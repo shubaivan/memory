@@ -1,11 +1,10 @@
 {% extends "::base.html.twig" %}
 
-{% block title %} Songs {% endblock %}
+{% block title %} Song {% endblock %}
 
 {% block content %}
-    {% for song in songs %}
+    {% for song in album.song %}
         {{ song.name }} </br>
-        {#{{ song.album.name }}#}
         </br>
 
     {% endfor %}

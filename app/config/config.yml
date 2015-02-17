@@ -109,3 +109,8 @@ doctrine_mongodb:
     document_managers:
         default:
             auto_mapping: true
+
+sensio_framework_extra:
+    request:
+        converters: true
+        auto_convert: true
