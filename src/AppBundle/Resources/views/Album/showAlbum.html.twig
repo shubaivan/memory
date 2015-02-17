@@ -5,7 +5,7 @@
 {% block content %}
     {% for album in albums %}
         <li>
-            <a href="{{ path('app_song_show_by_album', {'name': album.Id }) }}">{{ album.name }}</a>
+            <a href="{{ path('app_song_show_by_album', {'name': album.slug }) }}">{{ album.name }}</a>
         </li>
         {{ album.year }} </br>
 

@@ -60,15 +60,15 @@ class SongController extends Controller
         ];
     }
 
-    public function songsInAlbumAction($id)
+    public function songsInAlbumAction($slug)
     {
-        $songs = $this->get('doctrine_mongodb.odm.document_manager')
-            ->getRepository('AppBundle:Song')
-            ->findByAlbum($id);
-        if (!$songs) {
+        $albums = $this->get('doctrine_mongodb.odm.document_manager')
+            ->getRepository('AppBundle:Album')->findBySlug($slug);
+
+        if (!$albums) {
             throw $this->createNotFoundException('No posts found');
         }
 
-        return $this->render('AppBundle:Song:showSong.html.twig', array('songs' => $songs));
+        return $this->render('AppBundle:Song:showSongByAlbum.html.twig', array('albums' => $albums));
     }
 }
