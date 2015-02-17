@@ -34,6 +34,11 @@ class Tab extends AbstractChord
     protected $slug;
 
     /**
+     * @ODM\File()
+     */
+    protected $gtp;
+
+    /**
      * Get id
      *
      * @return id $id
@@ -87,5 +92,56 @@ class Tab extends AbstractChord
     public function getSlug()
     {
         return $this->slug;
+    }
+    /**
+     * @var AppBundle\Document\Song
+     */
+    protected $song;
+
+
+    /**
+     * Set gtp
+     *
+     * @param file $gtp
+     * @return self
+     */
+    public function setGtp($gtp)
+    {
+        $this->gtp = $gtp;
+        return $this;
+    }
+
+    /**
+     * Get gtp
+     *
+     * @return file $gtp
+     */
+    public function getGtp()
+    {
+        return $this->gtp;
+    }
+
+    /**
+     * Set song
+     *
+     * @param AppBundle\Document\Song $song
+     * @return self
+     */
+    public function setSong(\AppBundle\Document\Song $song)
+    {
+        $this->song = $song;
+        $song->addChord($this);
+
+        return $this;
+    }
+
+    /**
+     * Get song
+     *
+     * @return AppBundle\Document\Song $song
+     */
+    public function getSong()
+    {
+        return $this->song;
     }
 }

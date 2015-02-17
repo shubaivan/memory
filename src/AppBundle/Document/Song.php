@@ -203,6 +203,7 @@ class Song
     public function setAlbum(\AppBundle\Document\Album $album)
     {
         $this->album = $album;
+        $album->addSong($this);
 
         return $this;
     }

@@ -45,6 +45,11 @@ class Video
     protected $slug;
 
     /**
+     * @ODM\ReferenceOne(targetDocument="AppBundle\Document\Song")
+     */
+    protected $song;
+
+    /**
      * @ODM\ReferenceOne(targetDocument="UserBundle\Document\User")
      */
     protected $author;
@@ -183,6 +188,7 @@ class Video
     public function setAuthor(\UserBundle\Document\User $author)
     {
         $this->author = $author;
+        $author->addVideo($this);
 
         return $this;
     }
@@ -195,5 +201,29 @@ class Video
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    /**
+     * Set song
+     *
+     * @param AppBundle\Document\Song $song
+     * @return self
+     */
+    public function setSong(\AppBundle\Document\Song $song)
+    {
+        $this->song = $song;
+        $song->addVideo($this);
+
+        return $this;
+    }
+
+    /**
+     * Get song
+     *
+     * @return AppBundle\Document\Song $song
+     */
+    public function getSong()
+    {
+        return $this->song;
     }
 }
