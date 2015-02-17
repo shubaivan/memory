@@ -67,7 +67,7 @@ class VideoController extends Controller
             $em->persist($video);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('app_video_show'));
+            return $this->redirect($this->generateUrl('app_get_all_videos'));
         }
 
         return [

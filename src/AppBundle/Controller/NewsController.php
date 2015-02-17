@@ -13,7 +13,7 @@ class NewsController extends Controller
      *
      * @return Response
      *
-     * @Template()
+     * @Template(template="AppBundle::index.html.twig")
      */
     public function getAllNewsAction()
     {

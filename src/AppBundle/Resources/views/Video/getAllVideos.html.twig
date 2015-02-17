@@ -1,1 +1,13 @@
-{{ dump(videos) }}
+{% extends "::base.html.twig" %}
+
+{% block title %} AllVideos {% endblock %}
+
+{% block content %}
+    {% for video in videos %}
+        {{ video.name }} </br>
+        {{ video.dislike }} </br>
+        {{ video.like }} </br>
+        </br>
+
+    {% endfor %}
+{% endblock %}

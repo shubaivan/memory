@@ -1,1 +1,10 @@
-{{ dump(news) }}
+{% extends "::base.html.twig" %}
+
+{% block title %} News {% endblock %}
+
+{% block content %}
+
+        {{ news.text }} </br>
+        </br>
+
+{% endblock %}

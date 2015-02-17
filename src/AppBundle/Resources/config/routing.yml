@@ -32,6 +32,11 @@ app_get_all_videos:
   pattern: /video
   defaults: { _controller: AppBundle:Video:getAllVideos }
 
+app_add_video:
+  pattern: /add_video
+  defaults: { _controller: AppBundle:Video:addVideo }
+
+
 app_get_single_video:
   pattern: /video/{slug}
   defaults: { _controller: AppBundle:Video:getSingleVideo }
@@ -41,6 +46,14 @@ app_get_all_songs:
   pattern: /song
   defaults: { _controller: AppBundle:Song:getAllSong }
 
+app_add_song:
+  pattern: /add_song
+  defaults: { _controller: AppBundle:Song:addSong }
+
 app_get_single_song:
   pattern: /song/{slug}
   defaults: { _controller: AppBundle:Song:getSingleSong }
+
+app_get_single_album_song:
+  pattern: /song_in_album/{slug}
+  defaults: { _controller: AppBundle:Album:getSingleAlbum }

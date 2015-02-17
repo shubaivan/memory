@@ -1,1 +1,13 @@
-{{ dump(video) }}
+{% extends "::base.html.twig" %}
+
+{% block title %} Video {% endblock %}
+
+{% block content %}
+
+        {{ video.name }} </br>
+        {{ video.dislike }} </br>
+        {{ video.like }} </br>
+        </br>
+
+
+{% endblock %}
