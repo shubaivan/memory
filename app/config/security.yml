@@ -9,6 +9,9 @@ security:
     providers:
         fos_userbundle:
             id: fos_user.user_provider.username
+        my_custom_hwi_provider:
+            id: app.provider.user_provider
+
 
     firewalls:
         dev:
@@ -20,17 +23,17 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_provider: form.csrf_provider
-                oauth:
-                    resource_owners:
-                        facebook:           "/login/check-facebook"
-                        google:             "/login/check-google"
-                    login_path:        /login
-                    failure_path:      /login
+            oauth:
+                resource_owners:
+                    facebook:           "/login/check-facebook"
+                    vkontakte:             "/login/check-vkontakte"
+                login_path:        /login
+                failure_path:      /login
 
-                    oauth_user_provider:
-                        #this is my custom user provider, created from FOSUBUserProvider - will manage the
-                        #automatic user registration on your site, with data from the provider (facebook. google, etc.)
-                        service: app.provider.user_provider
+                oauth_user_provider:
+                    #this is my custom user provider, created from FOSUBUserProvider - will manage the
+                    #automatic user registration on your site, with data from the provider (facebook. google, etc.)
+                    service: app.provider.user_provider
 
             logout:       true
             anonymous:    true
