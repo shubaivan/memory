@@ -206,7 +206,7 @@ class Video
     /**
      * Set song
      *
-     * @param  AppBundle\Document\Song $song
+     * @param  \AppBundle\Document\Song $song
      * @return self
      */
     public function setSong(\AppBundle\Document\Song $song)
@@ -220,7 +220,7 @@ class Video
     /**
      * Get song
      *
-     * @return AppBundle\Document\Song $song
+     * @return \AppBundle\Document\Song $song
      */
     public function getSong()
     {

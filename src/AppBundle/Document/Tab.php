@@ -94,7 +94,7 @@ class Tab extends AbstractChord
         return $this->slug;
     }
     /**
-     * @var AppBundle\Document\Song
+     * @var \AppBundle\Document\Song
      */
     protected $song;
 
@@ -124,7 +124,7 @@ class Tab extends AbstractChord
     /**
      * Set song
      *
-     * @param  AppBundle\Document\Song $song
+     * @param  \AppBundle\Document\Song $song
      * @return self
      */
     public function setSong(\AppBundle\Document\Song $song)
@@ -138,7 +138,7 @@ class Tab extends AbstractChord
     /**
      * Get song
      *
-     * @return AppBundle\Document\Song $song
+     * @return \AppBundle\Document\Song $song
      */
     public function getSong()
     {
