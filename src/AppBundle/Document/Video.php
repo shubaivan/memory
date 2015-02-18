@@ -235,7 +235,7 @@ class Video
     {
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Add user
      *

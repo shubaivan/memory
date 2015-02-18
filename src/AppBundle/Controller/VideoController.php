@@ -20,15 +20,14 @@ class VideoController extends Controller
      */
     public function getAllVideosAction()
     {
-        if($this->getUser() and $this->get('session')->get('user_menu') == true){
-            $videos = $this->getUser()->getVideos();
-        }
-        else
-        {
+        if ($this->getUser() and $this->get('session')->get('user_menu') == true) {
+            $videos = $this->getUser()->getVideo();
+        } else {
             $videos = $this->get('doctrine_mongodb.odm.document_manager')
                 ->getRepository('AppBundle:Video')
                 ->findAll();
         }
+
         return [
             'videos' => $videos
         ];

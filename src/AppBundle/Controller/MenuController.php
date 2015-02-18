@@ -9,7 +9,7 @@ class MenuController extends Controller
 {
     public function showUserMenuAction(Request $request)
     {
-        if($this->getUser()){
+        if ($this->getUser()) {
             $this->get('session')->set('user_menu', 'true');
         }
 
@@ -18,7 +18,7 @@ class MenuController extends Controller
 
     public function hideUserMenuAction(Request $request)
     {
-        if($this->getUser()){
+        if ($this->getUser()) {
             $this->get('session')->remove('user_menu');
         }
 
