@@ -10,7 +10,7 @@
 /vendor/
 /components/
 /web/
-/bin/
+/bin/*
 !/bin/reload
 !/bin/base_script.php
 /composer.phar
