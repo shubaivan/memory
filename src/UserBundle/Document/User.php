@@ -126,7 +126,7 @@ class User extends BaseUser
     /**
      * Add video
      *
-     * @param AppBundle\Document\Video $video
+     * @param \AppBundle\Document\Video $video
      */
     public function addVideo(\AppBundle\Document\Video $video)
     {
@@ -136,7 +136,7 @@ class User extends BaseUser
     /**
      * Remove video
      *
-     * @param AppBundle\Document\Video $video
+     * @param \AppBundle\Document\Video $video
      */
     public function removeVideo(\AppBundle\Document\Video $video)
     {
@@ -146,7 +146,7 @@ class User extends BaseUser
     /**
      * Get video
      *
-     * @return Doctrine\Common\Collections\Collection $video
+     * @return \Doctrine\Common\Collections\Collection $video
      */
     public function getVideo()
     {

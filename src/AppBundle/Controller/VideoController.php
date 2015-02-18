@@ -20,17 +20,18 @@ class VideoController extends Controller
      */
     public function getAllVideosAction()
     {
-        $videos = $this->get('doctrine_mongodb.odm.document_manager')
-                        ->getRepository('AppBundle:Video')
-                        ->findAll();
-
-        if (!$videos) {
-            throw $this->createNotFoundException('No posts found');
+        if ($this->getUser() and $this->get('session')->get('user_menu') == true) {
+            $videos = $this->getUser()->getVideo();
+        } else {
+            $videos = $this->get('doctrine_mongodb.odm.document_manager')
+                ->getRepository('AppBundle:Video')
+                ->findAll();
         }
 
         return [
             'videos' => $videos
         ];
+
     }
 
     /**
@@ -76,21 +77,22 @@ class VideoController extends Controller
         ];
     }
 
-//    public function copyVideoToUserAction($user_id, $video_id)
-//    {
+    public function copyVideoToUserAction($user_id, $video_id)
+    {
 //        $em = $this->getDoctrine()->getManager();
-//
-//        $user = $this->getUser();
-//
-//        $video = $this->get('doctrine_mongodb.odm.document_manager')
-//            ->getRepository('AppBundle:Video')
-//            ->find($video_id);
-//
-//        $user->addVideo($video);
-//
-//        $em->persist($user);
-//        $em->getManager()->flush();
-//
-//        return $this->redirect($this->generateUrl('app_video_show'));
-//    }
+
+        $user = $this->getUser();
+
+        $video = $this->get('doctrine_mongodb.odm.document_manager')
+            ->getRepository('AppBundle:Video')
+            ->find($video_id);
+
+        $user->addVideo($video);
+
+        $dm = $this->get('doctrine.odm.mongodb.document_manager');
+                $dm->persist($user);
+                $dm->flush();
+
+        return $this->redirect($this->generateUrl('app_get_all_videos'));
+    }
 }
