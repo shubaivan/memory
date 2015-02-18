@@ -6,6 +6,9 @@
 
     <link href="{{ asset('bundles/app/css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('bundles/app/css/style.css') }}" rel="stylesheet">
+
+    <script src="//code.jquery.com/jquery-latest.min.js"></script>
+    <script src="//unslider.com/unslider.min.js"></script>
     {% block stylesheets %}{% endblock %}
 
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
@@ -15,6 +18,7 @@
 
 {% block body %}
     <div class="container">
+        {% include 'AppBundle::baner.html.twig' %}
         {% include 'AppBundle::menu.html.twig' %}
 
         <div class="col-sm-8 blog-main">
