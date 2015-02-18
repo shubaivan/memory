@@ -22,7 +22,15 @@
             {% endblock %}
         </div>
 
-        {#{% include 'AppBundle::rightsidebar.html.twig' %}#}
+        <div>
+            <a href="{{ path('hwi_oauth_service_redirect', {'service' : 'vkontakte'}) }}">Вконтакте</a>
+        </div>
+
+        <div>
+            <a href="{{ path('hwi_oauth_service_redirect', {'service' : 'facebook'}) }}">Facebook</a>
+        </div>
+
+        {% include 'AppBundle::rightsidebar.html.twig' %}
 
         <div class="blog-footer">
             <p>
