@@ -55,6 +55,11 @@ class Video
     protected $author;
 
     /**
+     * @ODM\ReferenceMany(targetDocument="UserBundle\Document\User")
+     */
+    protected $users;
+
+    /**
      * Get id
      *
      * @return id $id
@@ -225,5 +230,39 @@ class Video
     public function getSong()
     {
         return $this->song;
+    }
+    public function __construct()
+    {
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add user
+     *
+     * @param UserBundle\Document\User $user
+     */
+    public function addUser(\UserBundle\Document\User $user)
+    {
+        $this->users[] = $user;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param UserBundle\Document\User $user
+     */
+    public function removeUser(\UserBundle\Document\User $user)
+    {
+        $this->users->removeElement($user);
+    }
+
+    /**
+     * Get users
+     *
+     * @return Doctrine\Common\Collections\Collection $users
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }

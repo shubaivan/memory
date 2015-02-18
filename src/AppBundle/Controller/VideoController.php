@@ -80,7 +80,7 @@ class VideoController extends Controller
 
     public function copyVideoToUserAction($user_id, $video_id)
     {
-        $em = $this->getDoctrine()->getManager();
+//        $em = $this->getDoctrine()->getManager();
 
         $user = $this->getUser();
 
@@ -90,9 +90,10 @@ class VideoController extends Controller
 
         $user->addVideo($video);
 
-        $em->persist($user);
-        $em->getManager()->flush();
+        $dm = $this->get('doctrine.odm.mongodb.document_manager');
+                $dm->persist($user);
+                $dm->flush();
 
-        return $this->redirect($this->generateUrl('app_video_show'));
+        return $this->redirect($this->generateUrl('app_get_all_videos'));
     }
 }
