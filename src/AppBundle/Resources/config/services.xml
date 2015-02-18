@@ -13,6 +13,13 @@
             <argument type="service" id="doctrine_mongodb" />
             <tag name="request.param_converter" converter="doctrine.odm" />
         </service>
+
+        <service id="user.doctrine_subscriber" class="UserBundle\EventListener\RegistrationSubscriber">
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+            <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"  />
+        </service>
     </services>
 
 </container>
