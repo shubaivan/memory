@@ -60,11 +60,13 @@ class UserProvider extends BaseClass
             $user->$setter_token($response->getAccessToken());
             //I have set all requested data with the user's username
             //modify here with relevant data
-            $user->setUsername($username);
-            $user->setEmail($username);
-            $user->setPassword($username);
-            $user->setEnabled(true);
+
+            $serviceProvider = $service."Provider";
+
+            $user = $this->$serviceProvider->setUserData($user, $response);
+
             $this->userManager->updateUser($user);
+
             return $user;
         }
 
