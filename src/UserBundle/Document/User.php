@@ -266,4 +266,9 @@ class User extends BaseUser
     {
         return false === strpos($this->email, '@example.com') && $this->email ? false : true;
     }
+
+    public function isFakeUsername()
+    {
+        return (($this->username == $this->vkontakteId) || ($this->username == $this->facebookId));
+    }
 }

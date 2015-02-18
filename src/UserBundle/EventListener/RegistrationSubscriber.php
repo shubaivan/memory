@@ -45,6 +45,10 @@ class RegistrationSubscriber
         $request = $this->container->get('request');
         $updateContactsAction = $this->container->get('router')->generate(self::UPDATE_CONTACTS_ROUTE, array(), Router::ABSOLUTE_URL);
 
+        if ($user->isFakeUsername() && $request->get('_route') !== self::UPDATE_CONTACTS_ROUTE) {
+            $event->setResponse(new RedirectResponse($updateContactsAction));
+        }
+
         if ($user->isFakeEmail() && $request->get('_route') !== self::UPDATE_CONTACTS_ROUTE) {
             $event->setResponse(new RedirectResponse($updateContactsAction));
         }
