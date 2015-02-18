@@ -61,6 +61,10 @@ app_get_single_song:
 app_get_single_album_song:
   pattern: /song_in_album/{slug}
   defaults: { _controller: AppBundle:Album:getSingleAlbum }
+
+app_song_search:
+   pattern: /search
+   defaults: { _controller: AppBundle:Search:search}
 #menu
 app_show_user_menu:
     pattern: /show_user_menu

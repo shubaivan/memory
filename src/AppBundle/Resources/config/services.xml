@@ -6,6 +6,9 @@
 
     <parameters>
         <parameter key="app.example.class">AppBundle\Example</parameter>
+
+        <parameter key="app.song.repository.class">AppBundle\Repository\SongRepository</parameter>
+        <parameter key="app.search.song.class">AppBundle\Service\Search</parameter>
     </parameters>
 
     <services>
@@ -13,6 +16,19 @@
             <argument type="service" id="doctrine_mongodb" />
             <tag name="request.param_converter" converter="doctrine.odm" />
         </service>
+
+        <service id="app.song.repository"
+                 class="%app.song.repository.class%"
+                 factory-service="doctrine.odm.mongodb.document_manager"
+                 factory-method="getRepository">
+            <argument>AppBundle:Song</argument>
+        </service>
+
+        <service id="searcher"
+                 class="%app.search.song.class%">
+            <argument type="service" id="app.song.repository" />
+        </service>
+
     </services>
 
 </container>

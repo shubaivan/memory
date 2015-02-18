@@ -10,6 +10,11 @@ song2:
     album:        Добряк
 song3:
     name:         Говорили & курили
-    timeline:      Говорили & курили
+    timeline:     Говорили & курили
+    chord:        chord2
+    album:        Добряк
+song4:
+    name:         Добряк
+    timeline:     Добряк
     chord:        chord2
     album:        Добряк

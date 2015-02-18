@@ -239,7 +239,7 @@ class Video
     /**
      * Add user
      *
-     * @param UserBundle\Document\User $user
+     * @param \UserBundle\Document\User $user
      */
     public function addUser(\UserBundle\Document\User $user)
     {
@@ -249,7 +249,7 @@ class Video
     /**
      * Remove user
      *
-     * @param UserBundle\Document\User $user
+     * @param \UserBundle\Document\User $user
      */
     public function removeUser(\UserBundle\Document\User $user)
     {
@@ -259,7 +259,7 @@ class Video
     /**
      * Get users
      *
-     * @return Doctrine\Common\Collections\Collection $users
+     * @return \Doctrine\Common\Collections\Collection $users
      */
     public function getUsers()
     {
