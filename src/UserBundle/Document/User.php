@@ -261,4 +261,9 @@ class User extends BaseUser
     {
         return $this->vkontakteAccessToken;
     }
+
+    public function isFakeEmail()
+    {
+        return false === strpos($this->email, '@example.com') && $this->email ? false : true;
+    }
 }
