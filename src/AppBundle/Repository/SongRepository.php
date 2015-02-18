@@ -12,7 +12,7 @@ use Doctrine\ODM\MongoDB\DocumentRepository;
  */
 class SongRepository extends DocumentRepository
 {
-    function getIdArrayByName($name)
+    public function getIdArrayByName($name)
     {
         return $this->getDocumentManager()->createQueryBuilder($this->findByName($name))
             ->setQueryArray('name', '%'.$name.'%');

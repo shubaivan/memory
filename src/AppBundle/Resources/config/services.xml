@@ -23,7 +23,7 @@
                  factory-method="getRepository">
             <argument>AppBundle:Song</argument>
         </service>
-        
+
         <service id="searcher"
                  class="%app.search.song.class%">
             <argument type="service" id="app.song.repository" />

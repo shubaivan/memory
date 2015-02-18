@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Document\Song;
 
 class SearchController extends Controller
 {
@@ -18,7 +19,7 @@ class SearchController extends Controller
             ->getQuery();
         $song = $query->getResult();
 
-        if (!$song){
+        if (!$song) {
             throw $this->createNotFoundException('Opss, dont search');
         }
 
