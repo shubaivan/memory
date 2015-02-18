@@ -40,4 +40,15 @@
                 {% trans %}AddSong{% endtrans %}</a>
         </li>
     </ul>
+
+    {% block search %}
+
+        <div class="search">
+            <form action="{{ path('app_song_search') }}" metod="POST" class="form-search">
+                <input type="text" name="search" class="input-medium search-query" />
+                <input type="submit" class="btn" value="Search"/>
+            </form>
+        </div>
+
+    {% endblock %}
 </nav>

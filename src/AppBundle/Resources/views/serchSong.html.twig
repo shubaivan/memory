@@ -1,0 +1,16 @@
+{% extends "::base.html.twig" %}
+
+    {% block title %} {{ parent() }} Song search{% endblock %}
+    {% block content %}
+
+        {% for song in songs %}
+
+            <div class="blog-post" style="margin-bottom: 40px;">
+
+                <h5> {{ song.name }}</h5>
+
+            </div>
+
+        {% endfor %}
+
+    {% endblock %}
