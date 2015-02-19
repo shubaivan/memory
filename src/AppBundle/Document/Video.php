@@ -9,7 +9,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Class
  * @package AppBundle\Document
  *
- * @ODM\Document(repositoryClass="AppBundle\Repository\VideoRepository")
+ * @ODM\Document()
  */
 class Video
 {

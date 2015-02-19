@@ -9,7 +9,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Class Song
  * @package AppBundle\Document
  *
- * @ODM\Document(repositoryClass="AppBundle\Repository\SongRepository")
+ * @ODM\Document()
  */
 class Song
 {
