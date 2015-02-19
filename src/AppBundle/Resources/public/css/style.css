@@ -1,16 +1,17 @@
-.blog-sidebar
-{
+.blog-sidebar {
     padding-top: 30px;
 }
 
-.blog-main
-{
+.blog-main {
     padding-top: 40px;
 }
 
-.blog-post-meta
-{
+.blog-post-meta {
     margin-bottom: 0px;
     padding: 0px;
     font-size: 14px;
+}
+
+.banner {
+    background-color: #E3E3E3;
 }
