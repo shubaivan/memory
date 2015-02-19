@@ -1,13 +1,11 @@
-
-#song
 app_get_all_songs:
   pattern: /song
   defaults: { _controller: AppBundle:Song:getAllSong }
 
 app_add_song:
-  pattern: /add_song
+  pattern: /album/{slug}/new
   defaults: { _controller: AppBundle:Song:addSong }
 
 app_get_single_song:
-  pattern: /song/{slug}
+  pattern: /album/{slugAlbum}/song/{slug}
   defaults: { _controller: AppBundle:Song:getSingleSong }
