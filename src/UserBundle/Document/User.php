@@ -30,6 +30,26 @@ class User extends BaseUser
     protected $secondName;
 
     /**
+     * @ODM\Field(type="string")
+     */
+    protected $facebookId;
+
+    /**
+     * @ODM\Field(type="string")
+     */
+    protected $facebookAccessToken;
+
+    /**
+     * @ODM\Field(type="int")
+     */
+    protected $vkontakteId;
+
+    /**
+     * @ODM\Field(type="string")
+     */
+    protected $vkontakteAccessToken;
+
+    /**
      * @Gedmo\Slug(fields={"firstName", "secondName"})
      * @ODM\Field(type="string")
      */
@@ -39,6 +59,7 @@ class User extends BaseUser
      * @ODM\ReferenceMany(targetDocument="AppBundle\Document\Video")
      */
     protected $video;
+
     public function __construct()
     {
         $this->video = new \Doctrine\Common\Collections\ArrayCollection();
@@ -151,5 +172,103 @@ class User extends BaseUser
     public function getVideo()
     {
         return $this->video;
+    }
+
+    /**
+     * Set facebookId
+     *
+     * @param int $facebookId
+     * @return self
+     */
+    public function setFacebookId($facebookId)
+    {
+        $this->facebookId = $facebookId;
+        return $this;
+    }
+
+    /**
+     * Get facebookId
+     *
+     * @return int $facebookId
+     */
+    public function getFacebookId()
+    {
+        return $this->facebookId;
+    }
+
+    /**
+     * Set facebookAccessToken
+     *
+     * @param string $facebookAccessToken
+     * @return self
+     */
+    public function setFacebookAccessToken($facebookAccessToken)
+    {
+        $this->facebookAccessToken = $facebookAccessToken;
+        return $this;
+    }
+
+    /**
+     * Get facebookAccessToken
+     *
+     * @return string $facebookAccessToken
+     */
+    public function getFacebookAccessToken()
+    {
+        return $this->facebookAccessToken;
+    }
+
+    /**
+     * Set vkontakteId
+     *
+     * @param int $vkontakteId
+     * @return self
+     */
+    public function setVkontakteId($vkontakteId)
+    {
+        $this->vkontakteId = $vkontakteId;
+        return $this;
+    }
+
+    /**
+     * Get vkontakteId
+     *
+     * @return int $vkontakteId
+     */
+    public function getVkontakteId()
+    {
+        return $this->vkontakteId;
+    }
+
+    /**
+     * Set vkontakteAccessToken
+     *
+     * @param string $vkontakteAccessToken
+     * @return self
+     */
+    public function setVkontakteAccessToken($vkontakteAccessToken)
+    {
+        $this->vkontakteAccessToken = $vkontakteAccessToken;
+        return $this;
+    }
+
+    /**
+     * Get vkontakteAccessToken
+     *
+     * @return string $vkontakteAccessToken
+     */
+    public function getVkontakteAccessToken()
+    {
+        return $this->vkontakteAccessToken;
+    }
+
+    public function isFakeEmail()
+    {
+        return false === strpos($this->email, '@example.com') && $this->email ? false : true;
+    }
+
+    public function isFakeUsername()
+    {
+        return (($this->username == $this->vkontakteId) || ($this->username == $this->facebookId));
     }
 }

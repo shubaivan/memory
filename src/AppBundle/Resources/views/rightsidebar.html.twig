@@ -3,11 +3,18 @@
     <div class="sidebar-module">
         <h4>Registration/Login</h4>
         {% if app.user %}
-            <a href="{{ path('fos_user_profile_show') }}">{{ app.user.username }}</a>   |
-            <a href="{{ path('fos_user_security_logout') }}">Logout</a>
+            <div>
+                <a href="{{ path('fos_user_profile_show') }}">{{ app.user.username }}</a>   |
+                <a href="{{ path('fos_user_security_logout') }}">Logout</a>
+            </div>
         {% else %}
-            <a href="{{ path('fos_user_security_login') }}">Login</a>   |
-            <a href="{{ path('fos_user_registration_register') }}">Register</a>
+            <div>
+                <a href="{{ path('hwi_oauth_service_redirect', {'service' : 'vkontakte'}) }}">Вконтакте</a>
+            </div>
+
+            <div>
+                <a href="{{ path('hwi_oauth_service_redirect', {'service' : 'facebook'}) }}">Facebook</a>
+            </div>
         {% endif %}
     </div>
     <div class="sidebar-module">

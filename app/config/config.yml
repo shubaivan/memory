@@ -95,11 +95,6 @@ stof_doctrine_extensions:
             sluggable: true
             tree:    true
 
-fos_user:
-    db_driver: mongodb # other valid values are 'mongodb', 'couchdb' and 'propel'
-    firewall_name: main
-    user_class: UserBundle\Document\User
-
 doctrine_mongodb:
     connections:
         default:
@@ -109,6 +104,35 @@ doctrine_mongodb:
     document_managers:
         default:
             auto_mapping: true
+
+fos_user:
+    db_driver: mongodb # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: UserBundle\Document\User
+
+hwi_oauth:
+    connect:
+      account_connector: app.provider.user_provider
+      confirmation: false
+      # name of the firewall in which this bundle is active, this setting MUST be set
+    firewall_name: main
+    fosub:
+        username_iterations: 30
+        properties:
+            # these properties will be used/redefined later in the custom FOSUBUserProvider service.
+            facebook: facebookId
+            vkontakte: vkontakteId
+    resource_owners:
+        facebook:
+            type:                facebook
+            client_id:           "%facebook_app_id%"
+            client_secret:       "%facebook_app_secret%"
+            scope:               "email, user_photos, user_birthday"
+        vkontakte:
+            type:                vkontakte
+            client_id:           "%vkontakte_app_id%"
+            client_secret:       "%vkontakte_app_secret%"
+            scope:               "photos"
 
 sensio_framework_extra:
     request:

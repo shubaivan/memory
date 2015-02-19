@@ -1,30 +1,31 @@
 <?php
 
-namespace AppBundle\Form\Type;
+namespace UserBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ChordType extends AbstractType
+class UpdateProfileType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('chord', 'text');
-
-        $builder->getForm();
+            ->add('firstName')
+            ->add('secondName')
+            ->add('username')
+            ->add('email');
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Document\Chord',
+            'data_class' => 'UserBundle\Document\User',
         ));
     }
 
     public function getName()
     {
-        return 'chord';
+        return "update_profile";
     }
 }

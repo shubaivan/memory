@@ -16,7 +16,7 @@ class VideoType extends AbstractType
             ->add('link', 'text')
 
             ->add('album', 'entity', array(
-                'class' => 'AppBundle\Entity\Album',
+                'class' => 'AppBundle\Document\Album',
                 'property' => 'name',
                 'required' => 'false'
             ))
@@ -35,7 +35,7 @@ class VideoType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Video',
+            'data_class' => 'AppBundle\Document\Video',
         ));
     }
 }

@@ -13,3 +13,11 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    #vk api key
+    vkontakte_app_id: ~
+    vkontakte_app_secret: ~
+
+    #facebook api key
+    facebook_app_id: ~
+    facebook_app_secret: ~
