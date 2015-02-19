@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Document\Album;
 use AppBundle\Document\Song;
 use AppBundle\Form\Type\SongType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -19,7 +20,7 @@ class SongController extends Controller
      *
      * @Template()
      */
-    public function addSongAction(Request $request)
+    public function addSongAction(Request $request, Album $album)
     {
         $song = new Song();
 
@@ -28,11 +29,18 @@ class SongController extends Controller
 
         if ($form->isValid()) {
             $dm = $this->get('doctrine_mongodb.odm.document_manager');
+            $song->setAlbum($album);
 
             $dm->persist($song);
             $dm->flush();
 
-            return $this->redirect($this->generateUrl('app'));
+            return $this->redirect(
+                $this->generateUrl('app_get_single_album',
+                    [
+                        "slug" => $album->getSlug()
+                    ]
+                )
+            );
         }
 
         return [
