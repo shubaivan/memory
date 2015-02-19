@@ -20,12 +20,6 @@
     </div>
     <div class="sidebar-module">
 
-        {% if app.session.get('user_menu') %}
-            <p><a class="btn btn-success" href="{{ path('app_hide_user_menu') }}" role="button">Show site menu</a></p>
-        {% else %}
-            <p><a class="btn btn-success" href="{{ path('app_show_user_menu') }}" role="button">Show user menu</a></p>
-        {% endif %}
-
         <h4>Album</h4>
         <ol class="list-unstyled">
 

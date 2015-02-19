@@ -4,11 +4,25 @@
 
 {% block content %}
     {% for album in albums %}
-        <li>
-            <a href="{{ path('app_get_single_album_song', {'slug': album.slug }) }}">{{ album.name }}</a>
-        </li>
-        {{ album.year }} </br>
-        </br>
+        <div>
+            <div class="col-lg-12">
+                <a href="{{ path('app_get_single_album', {'slug': album.slug }) }}">{{ album.name }}</a>
+            </div>
+
+            <div class="col-lg-4">
+                <img src="#">
+            </div>
+
+            <div class="col-lg-8">
+                <p>
+                    Рік випуску: {{ album.year }}
+                </p>
+
+                <p>
+                    Короткий опис: {{ album.text|slice(0, 255) }}
+                </p>
+            </div>
+        </div>
 
     {% endfor %}
 {% endblock %}
