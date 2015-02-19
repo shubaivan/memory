@@ -3,36 +3,43 @@
 {% block title %} News {% endblock %}
 
 {% block content %}
+<div class="col-lg-12">
+    <div>
+        <a href="">Редагувати інформацію про альбом</a>
+    </div>
+
+    <div class="col-lg-12">{{ album.name }}</div>
+
+    <div class="col-lg-12">
+        <div class="col-lg-4">
+            <img src="#">
+        </div>
+
+        <div class="col-lg-8">
+            <p>
+                Рік випуску: {{ album.year }}
+            </p>
+
+            <p>
+                Короткий опис: {{ album.text }}
+            </p>
+        </div>
 
         <div class="col-lg-12">
-            <div class="col-lg-12">{{ album.name }}</div>
-
-            <div class="col-lg-12">
-                <div class="col-lg-4">
-                    <img src="#">
-                </div>
-
-                <div>
-                    <p>
-                        Рік випуску: {{ album.year }}
-                    </p>
-
-                    <p>
-                        Короткий опис: {{ album.text }}
-                    </p>
-                </div>
-
-                <div>
-                    <h3>Songs</h3>
-
-                    {% for song in album.song %}
-                        <a href="#">
-                            <div>
-                                {{ song.name }}
-                            </div>
-                        </a>
-                    {% endfor %}
-                </div>
+            <div>
+                <a href="">Додати новий трек</a>
             </div>
+
+            <h3>Songs</h3>
+
+            {% for song in album.song %}
+                <a href="{{ path('app_get_single_song', {'slugAlbum' : album.slug, 'slug' : song.slug}) }}">
+                    <div>
+                        {{ song.name }}
+                    </div>
+                </a>
+            {% endfor %}
         </div>
+    </div>
+</div>
 {% endblock %}
