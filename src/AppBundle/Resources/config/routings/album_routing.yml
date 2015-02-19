@@ -1,0 +1,7 @@
+app_get_all_albums:
+  pattern: /album
+  defaults: { _controller: AppBundle:Album:getAllAlbum }
+
+app_get_single_album:
+  pattern: /album/{slug}
+  defaults: { _controller: AppBundle:Album:getSingleAlbum }

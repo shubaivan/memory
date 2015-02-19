@@ -1,0 +1,12 @@
+app_get_all_videos:
+  pattern: /video
+  defaults: { _controller: AppBundle:Video:getAllVideos }
+
+app_add_video:
+  pattern: /add_video
+  defaults: { _controller: AppBundle:Video:addVideo }
+
+
+app_get_single_video:
+  pattern: /video/{slug}
+  defaults: { _controller: AppBundle:Video:getSingleVideo }
