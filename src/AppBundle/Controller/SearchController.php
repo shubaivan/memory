@@ -13,11 +13,8 @@ class SearchController extends Controller
         $searcher = $this->get('searcher');
         $result = $searcher->search($request->get('search'));
         $repository = $this->get('doctrine_mongodb')->getRepository('AppBundle:Song');
-        $query = $repository->createQueryBuilder('m')
-            ->where('m.id IN (:ids)')
-            ->setParameter('ids', $result)
-            ->getQuery();
-        $song = $query->getResult();
+        $query = $repository->createQueryBuilder('name');
+        $song = $query->getQuery();
 
         if (!$song) {
             throw $this->createNotFoundException('Opss, dont search');
