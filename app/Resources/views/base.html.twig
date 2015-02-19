@@ -21,20 +21,12 @@
 
 {% block body %}
     <div class="container">
-        {% include 'AppBundle::baner.html.twig' %}
         {% include 'AppBundle::menu.html.twig' %}
+        {% include 'AppBundle::baner.html.twig' %}
 
         <div class="col-sm-8 blog-main">
             {% block content %}
             {% endblock %}
-        </div>
-
-        <div>
-            <a href="{{ path('hwi_oauth_service_redirect', {'service' : 'vkontakte'}) }}">Вконтакте</a>
-        </div>
-
-        <div>
-            <a href="{{ path('hwi_oauth_service_redirect', {'service' : 'facebook'}) }}">Facebook</a>
         </div>
 
         {% include 'AppBundle::rightsidebar.html.twig' %}
