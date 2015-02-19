@@ -30,7 +30,7 @@ class User extends BaseUser
     protected $secondName;
 
     /**
-     * @ODM\Field(type="int")
+     * @ODM\Field(type="string")
      */
     protected $facebookId;
 
