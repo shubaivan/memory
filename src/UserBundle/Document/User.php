@@ -65,6 +65,11 @@ class User extends BaseUser
      */
     protected $video;
 
+    /**
+     * @ODM\ReferenceMany(targetDocument="AppBundle\Document\Video")
+     */
+    protected $favouriteVideo;
+
     public function __construct()
     {
         $this->video = new \Doctrine\Common\Collections\ArrayCollection();
@@ -297,5 +302,35 @@ class User extends BaseUser
     public function getAvatar()
     {
         return $this->avatar;
+    }
+
+    /**
+     * Add favouriteVideo
+     *
+     * @param AppBundle\Document\Video $favouriteVideo
+     */
+    public function addFavouriteVideo(\AppBundle\Document\Video $favouriteVideo)
+    {
+        $this->favouriteVideo[] = $favouriteVideo;
+    }
+
+    /**
+     * Remove favouriteVideo
+     *
+     * @param AppBundle\Document\Video $favouriteVideo
+     */
+    public function removeFavouriteVideo(\AppBundle\Document\Video $favouriteVideo)
+    {
+        $this->favouriteVideo->removeElement($favouriteVideo);
+    }
+
+    /**
+     * Get favouriteVideo
+     *
+     * @return Doctrine\Common\Collections\Collection $favouriteVideo
+     */
+    public function getFavouriteVideo()
+    {
+        return $this->favouriteVideo;
     }
 }

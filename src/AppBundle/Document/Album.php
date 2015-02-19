@@ -207,4 +207,9 @@ class Album
     {
         return $this->text;
     }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 }
