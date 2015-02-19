@@ -9,7 +9,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Class Song
  * @package AppBundle\Document
  *
- * @ODM\Document()
+ * @ODM\Document(repositoryClass="AppBundle\Repository\SongRepository")
  */
 class Song
 {
@@ -216,5 +216,13 @@ class Song
     public function getAlbum()
     {
         return $this->album;
+    }
+
+    /**
+     *
+     */
+    public function __toString()
+    {
+       return $this->name;
     }
 }
