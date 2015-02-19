@@ -1,12 +1,11 @@
-app_get_all_videos:
-  pattern: /video
+app_get_all_videos_in_song:
+  pattern: /album/{slugAlbum}/song/{slug}/videos
   defaults: { _controller: AppBundle:Video:getAllVideos }
 
 app_add_video:
-  pattern: /add_video
+  pattern: /album/{slugVideo}/song/{slug}/new_video
   defaults: { _controller: AppBundle:Video:addVideo }
 
-
 app_get_single_video:
-  pattern: /video/{slug}
+  pattern: /album/{slugAlbum}/song/{slugSong}/video/{slug}/view
   defaults: { _controller: AppBundle:Video:getSingleVideo }

@@ -1,18 +1,25 @@
 {% extends "::base.html.twig" %}
 
-{% block title %} AllVideos {% endblock %}
+{% block title %} Всі відео треку {{ song.name }} альбому {{ song.album.name }} {% endblock %}
 
 {% block content %}
-    {% for video in videos %}
-        {{ video.name }} </br>
-        {{ video.dislike }} </br>
-        {{ video.like }} </br>
-        </br>
-            {% if app.user %}
 
-            <p><a class="btn btn-info" href="{{ path('app_video_copyVideoToUser',
-                {'user_id': app.user.id, 'video_id': video.id}) }}"
-                    role="button">Add video + </a></p>
-            {% endif %}
+    {% if is_granted('ROLE_USER') %}
+    <div>
+        <a href="{{ path('app_add_video', {"slugVideo" : song.album.slug, "slug" : song.slug}) }}">Добавить видео</a>
+    </div>
+    {% endif %}
+
+    {% for video in song.video %}
+        <div class="col-lg-12">
+            <div class="col-lg-12">
+                <a href="{{ path('app_get_single_video', {"slugAlbum" : video.song.album.slug, "slugSong" : video.song.slug, "slug" : video.slug}) }}">{{ video.name }}</a>
+            </div>
+
+            <div class="col-lg-12">
+                <div class="col-lg-6">{{ video.dislike }}</div>
+                <div class="col-lg-6">{{ video.like }}</div>
+            </div>
+        </div>
     {% endfor %}
 {% endblock %}

@@ -3,19 +3,19 @@
 {% block title %} addVideo {% endblock %}
 
 {% block content %}
+    <div class="col-lg-12">
+        {{ form_start(form) }}
+            <div class="col-lg-12">
+                {{ form_row(form.name) }}
+            </div>
 
-    {{ form_start(form) }}
-    {{ form_errors(form) }}
-    <div>
-        {{ form_label(form.link) }} <br>
-        {{ form_widget(form.link) }}
+            <div class="col-lg-12">
+                {{ form_row(form.link) }}
+            </div>
+
+            <div class="col-lg-12">
+                <button type="submit">Додати</button>
+            </div>
+        {{ form_end(form) }}
     </div>
-
-    <div style="padding-bottom: 20px;">
-        {{ form_label(form.album) }} <br>
-        {{ form_widget(form.album) }}
-    </div>
-
-    {{ form_end(form) }}
-
 {% endblock %}
