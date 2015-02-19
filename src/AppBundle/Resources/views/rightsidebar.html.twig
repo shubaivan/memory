@@ -4,6 +4,7 @@
         <h4>Registration/Login</h4>
         {% if app.user %}
             <div>
+                <img src="{{ app.user.avatar }}" />
                 <a href="{{ path('fos_user_profile_show') }}">{{ app.user.username }}</a>   |
                 <a href="{{ path('fos_user_security_logout') }}">Logout</a>
             </div>

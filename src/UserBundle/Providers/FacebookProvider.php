@@ -18,6 +18,7 @@ class FacebookProvider
         $user->setUsername($username);
         $user->setPassword($username);
         $user->setEnabled(true);
+        $user->setAvatar('http://graph.facebook.com/'.$username.'/picture?width=200&height=200');
 
         return $user;
     }

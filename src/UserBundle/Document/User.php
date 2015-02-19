@@ -22,6 +22,11 @@ class User extends BaseUser
     /**
      * @ODM\Field(type="string")
      */
+    protected $avatar;
+
+    /**
+     * @ODM\Field(type="string")
+     */
     protected $firstName;
 
     /**
@@ -270,5 +275,27 @@ class User extends BaseUser
     public function isFakeUsername()
     {
         return (($this->username == $this->vkontakteId) || ($this->username == $this->facebookId));
+    }
+
+    /**
+     * Set avatar
+     *
+     * @param string $avatar
+     * @return self
+     */
+    public function setAvatar($avatar)
+    {
+        $this->avatar = $avatar;
+        return $this;
+    }
+
+    /**
+     * Get avatar
+     *
+     * @return string $avatar
+     */
+    public function getAvatar()
+    {
+        return $this->avatar;
     }
 }

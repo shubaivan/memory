@@ -18,6 +18,7 @@ class VkontakteProvider
         $user->setUsername($username);
         $user->setPassword($username);
         $user->setEnabled(true);
+        $user->setAvatar($responseArray['response'][0]['photo_50']);
 
         return $user;
     }
