@@ -17,3 +17,8 @@ AppBundle\Document\Video:
     like: <numberBetween($min = 0, $max = 2000)>
     dislike: <numberBetween($min = 0, $max = 2000)>
     song: @songs*
+
+AppBundle\Document\News:
+  news{1..50}:
+    title: <word()>
+    text: <realText()>
