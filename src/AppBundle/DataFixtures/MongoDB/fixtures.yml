@@ -1,0 +1,19 @@
+AppBundle\Document\Album:
+  albums{1..50}:
+    year: <numberBetween($min = 1990, $max = 2010)>
+    name: <word()>
+    text: <realText()>
+
+AppBundle\Document\Song:
+  songs{1..200}:
+    name: <word()>
+    timeline: <numberBetween($min = 1, $max = 5)>
+    album: @albums*
+
+AppBundle\Document\Video:
+  videos{1..150}:
+    name: <word()>
+    link: https://www.youtube.com/embed/zhD6hDCiiEw
+    like: <numberBetween($min = 0, $max = 2000)>
+    dislike: <numberBetween($min = 0, $max = 2000)>
+    song: @songs*
