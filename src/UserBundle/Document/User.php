@@ -66,6 +66,11 @@ class User extends BaseUser
     protected $video;
 
     /**
+     * @ODM\ReferenceMany(targetDocument="AppBundle\Document\Chord")
+     */
+    protected $chord;
+
+    /**
      * @ODM\ReferenceMany(targetDocument="AppBundle\Document\Video")
      */
     protected $favouriteVideo;
@@ -332,5 +337,37 @@ class User extends BaseUser
     public function getFavouriteVideo()
     {
         return $this->favouriteVideo;
+    }
+
+
+
+    /**
+     * Add chord
+     *
+     * @param AppBundle\Document\Chord $chord
+     */
+    public function addChord(\AppBundle\Document\Chord $chord)
+    {
+        $this->chord[] = $chord;
+    }
+
+    /**
+     * Remove chord
+     *
+     * @param AppBundle\Document\Chord $chord
+     */
+    public function removeChord(\AppBundle\Document\Chord $chord)
+    {
+        $this->chord->removeElement($chord);
+    }
+
+    /**
+     * Get chord
+     *
+     * @return Doctrine\Common\Collections\Collection $chord
+     */
+    public function getChord()
+    {
+        return $this->chord;
     }
 }
