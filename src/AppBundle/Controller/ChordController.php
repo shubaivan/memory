@@ -32,12 +32,12 @@ class ChordController extends Controller
     }
 
     /**
-     * @param  AbstractChord $chord
+     * @param  Chord $chord
      * @return array
      *
      * @Template()
      */
-    public function getSingleChordAction(AbstractChord $chord)
+    public function getSingleChordAction(Chord $chord)
     {
         return [
             "chord" => $chord
