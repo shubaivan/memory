@@ -192,12 +192,13 @@ class User extends BaseUser
     /**
      * Set facebookId
      *
-     * @param int $facebookId
+     * @param  int  $facebookId
      * @return self
      */
     public function setFacebookId($facebookId)
     {
         $this->facebookId = $facebookId;
+
         return $this;
     }
 
@@ -214,12 +215,13 @@ class User extends BaseUser
     /**
      * Set facebookAccessToken
      *
-     * @param string $facebookAccessToken
+     * @param  string $facebookAccessToken
      * @return self
      */
     public function setFacebookAccessToken($facebookAccessToken)
     {
         $this->facebookAccessToken = $facebookAccessToken;
+
         return $this;
     }
 
@@ -236,12 +238,13 @@ class User extends BaseUser
     /**
      * Set vkontakteId
      *
-     * @param int $vkontakteId
+     * @param  int  $vkontakteId
      * @return self
      */
     public function setVkontakteId($vkontakteId)
     {
         $this->vkontakteId = $vkontakteId;
+
         return $this;
     }
 
@@ -258,12 +261,13 @@ class User extends BaseUser
     /**
      * Set vkontakteAccessToken
      *
-     * @param string $vkontakteAccessToken
+     * @param  string $vkontakteAccessToken
      * @return self
      */
     public function setVkontakteAccessToken($vkontakteAccessToken)
     {
         $this->vkontakteAccessToken = $vkontakteAccessToken;
+
         return $this;
     }
 
@@ -290,12 +294,13 @@ class User extends BaseUser
     /**
      * Set avatar
      *
-     * @param string $avatar
+     * @param  string $avatar
      * @return self
      */
     public function setAvatar($avatar)
     {
         $this->avatar = $avatar;
+
         return $this;
     }
 
@@ -338,8 +343,6 @@ class User extends BaseUser
     {
         return $this->favouriteVideo;
     }
-
-
 
     /**
      * Add chord

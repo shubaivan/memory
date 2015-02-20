@@ -155,13 +155,14 @@ class Chord extends AbstractChord
     /**
      * Set author
      *
-     * @param UserBundle\Document\User $author
+     * @param  UserBundle\Document\User $author
      * @return self
      */
     public function setAuthor(\UserBundle\Document\User $author)
     {
         $this->author = $author;
         $author->addChord($this);
+
         return $this;
     }
 

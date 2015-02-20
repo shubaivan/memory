@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Document\Album;
 use AppBundle\Document\Song;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
@@ -17,7 +16,7 @@ class VideoController extends Controller
     /**
      * Method that render all video
      *
-     * @param Song $song
+     * @param  Song     $song
      * @return Response
      *
      * @Template()

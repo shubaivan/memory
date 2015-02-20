@@ -25,6 +25,7 @@ class ConnectController extends BaseConnectController
             $providerKey = $this->container->getParameter('hwi_oauth.firewall_name');
             $request->getSession()->set('_security.' . $providerKey . '.target_path', $request->headers->get('referer'));
         }
+
         return new RedirectResponse($this->container->get('hwi_oauth.security.oauth_utils')->getAuthorizationUrl($request, $service));
     }
 }

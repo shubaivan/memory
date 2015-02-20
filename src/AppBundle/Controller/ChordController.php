@@ -32,7 +32,7 @@ class ChordController extends Controller
     }
 
     /**
-     * @param  AbstractChord $chord
+     * @param  Chord $chord
      * @return array
      *
      * @Template()
