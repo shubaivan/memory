@@ -37,8 +37,12 @@ class ChordController extends Controller
      *
      * @Template()
      */
-    public function getSingleChordAction(AbstractChord $chord)
+    public function getSingleChordAction($slug)
     {
+        $chord = $this->get('doctrine_mongodb.odm.document_manager')
+                    ->getRepository('AppBundle:AbstractChord')
+                    ->findOneBy(["slug" => $slug]);
+
         return [
             "chord" => $chord
         ];
