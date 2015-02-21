@@ -2,7 +2,9 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Document\News;
+use AppBundle\Form\Type\NewsType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
 
@@ -36,6 +38,35 @@ class NewsController extends Controller
     {
         return [
             "news" => $news
+        ];
+    }
+
+    /**
+     * @param Request $request
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * @Template()
+     */
+    public function addNewsAction(Request $request)
+    {
+        $dm = $this->get('doctrine_mongodb.odm.document_manager');
+
+        $news = new News();
+
+        $form = $this->createForm(new NewsType(), $news);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $dm->persist($news);
+            $dm->flush();
+
+            return $this->redirect(
+                $this->generateUrl('app_get_all_news')
+            );
+        }
+
+        return [
+            "form" => $form->createView()
         ];
     }
 }

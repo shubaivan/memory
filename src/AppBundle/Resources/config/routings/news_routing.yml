@@ -4,5 +4,9 @@ app_get_all_news:
   defaults: { _controller: AppBundle:News:getAllNews }
 
 app_get_single_news:
-  pattern: /news/{slug}
+  pattern: /news/{slug}/view
   defaults: { _controller: AppBundle:News:getSingleNews }
+
+app_add_news:
+  pattern: /news/add
+  defaults: { _controller: AppBundle:News:addNews }
