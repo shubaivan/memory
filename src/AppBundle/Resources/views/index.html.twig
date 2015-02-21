@@ -1,12 +1,17 @@
 {% extends "::base.html.twig" %}
 
-{% block title %} News {% endblock %}
+{% block title %} Новини {% endblock %}
 
 {% block content %}
     {% for news in news %}
-        {{ news.title }} </br>
-        {{ news.text }} </br>
-        </br>
+        <div class="col-lg-12">
+            <div class="col-lg-12">
+                <a href="{{ path('app_get_single_news', {"slug" : news.slug}) }}">{{ news.title }}</a>
+            </div>
 
+            <div class="col-lg-12">
+                {{ news.text }}
+            </div>
+        </div>
     {% endfor %}
 {% endblock %}
