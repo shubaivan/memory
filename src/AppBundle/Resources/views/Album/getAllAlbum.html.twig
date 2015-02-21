@@ -3,6 +3,11 @@
 {% block title %} Альбоми группи Скрябін {% endblock %}
 
 {% block content %}
+    <div class="col-lg-12">
+        <a href="{{ path('app_add_album') }}">Додати альбом</a>
+    </div>
+
+
     {% for album in albums %}
         <div>
             <div class="col-lg-12">

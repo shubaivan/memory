@@ -5,3 +5,7 @@ app_get_all_albums:
 app_get_single_album:
   pattern: /{slug}/songs
   defaults: { _controller: AppBundle:Album:getSingleAlbum }
+
+app_add_album:
+  pattern: /add
+  defaults: { _controller: AppBundle:Album:addNewAlbum }
