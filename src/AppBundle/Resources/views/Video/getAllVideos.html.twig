@@ -36,16 +36,16 @@
         </div>
     {% endfor %}
             </td>
-/
+
             <td>
-    {% for chord in song.chord %}
+
         <div class="col-lg-12">
             <div class="col-lg-12">
-                <a href="{{ path('app_get_single_chord', { "slug" : chord.slug}) }}">{{ chord.title }}</a>
+                <a href="{{ path('app_get_all_chords_in_song', {"slugAlbum" : song.album.slug, "slug" : song.slug}) }}">Chord</a>
             </div>
 
         </div>
-    {% endfor %}
+
             </td>
         </tr>
     </table>

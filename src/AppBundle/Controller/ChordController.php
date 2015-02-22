@@ -14,20 +14,17 @@ use AppBundle\Document\Song;
 class ChordController extends Controller
 {
     /**
-     * Render front page
+     * Method that render all chord
      *
+     * @param  Song     $song
      * @return Response
      *
      * @Template()
      */
-    public function getAllChordsAction()
+    public function getAllChordsAction(Song $song)
     {
-        $chords = $this->get('doctrine_mongodb.odm.document_manager')
-            ->getRepository('AppBundle:AbstractChord')
-            ->findAll();
-
         return [
-            'chords' => $chords
+            'song' => $song
         ];
     }
 
