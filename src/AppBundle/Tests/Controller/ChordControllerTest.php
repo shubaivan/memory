@@ -10,7 +10,7 @@ class ChordControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/chord');
+        $crawler = $client->request('GET', '/album/dobriak/song/ruina/chords');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertTrue($crawler->filter('html:contains("AllChords")')->count() > 0);

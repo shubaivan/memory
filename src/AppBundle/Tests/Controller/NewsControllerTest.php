@@ -13,6 +13,6 @@ class NewsControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertTrue($crawler->filter('html:contains("News")')->count() > 0);
+        $this->assertTrue($crawler->filter('html:contains("Новини")')->count() > 0);
     }
 }
