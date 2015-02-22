@@ -4,9 +4,13 @@
 
 {% block content %}
 <div class="col-lg-12">
+    {% if is_granted('ROLE_USER') %}
+
     <div>
         <a href="">Редагувати інформацію про альбом</a>
     </div>
+
+    {% endif %}
 
     <div class="col-lg-12">{{ album.name }}</div>
 

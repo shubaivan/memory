@@ -3,9 +3,13 @@
 {% block title %} Новини {% endblock %}
 
 {% block content %}
+    {% if is_granted('ROLE_USER') %}
+
     <div class="col-lg-12">
         <a href="{{ path('app_add_news') }}">Додати новину</a>
     </div>
+
+    {% endif %}
 
     {% for news in news %}
         <div class="col-lg-12">

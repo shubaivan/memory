@@ -3,9 +3,13 @@
 {% block title %} Альбоми группи Скрябін {% endblock %}
 
 {% block content %}
+    {% if is_granted('ROLE_USER') %}
+
     <div class="col-lg-12">
         <a href="{{ path('app_add_album') }}">Додати альбом</a>
     </div>
+
+    {% endif %}
 
 
     {% for album in albums %}
