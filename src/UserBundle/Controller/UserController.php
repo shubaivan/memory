@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
 class UserController extends Controller
 {
     /**
-     * @param Request $request
+     * @param  Request                                                  $request
      * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      *
      * @Template()

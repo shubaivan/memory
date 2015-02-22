@@ -11,20 +11,8 @@ class SongType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nameSong', 'text')
-//            ->add('chord', 'text')
-            ->add('author', 'text')
-            ->add('album', 'entity', array(
-                    'class' => 'AppBundle\Entity\Album',
-                    'property' => 'name',
-                    'required' => 'false'
-                ));
-        $builder->add('chord', 'collection', array(
-            'type'         => new ChordType(),
-            'allow_add'    => true,
-        ));
-//            ->add('save', 'submit')
-//            ->getForm();
+            ->add('name', 'text')
+            ->add('timeline');
     }
 
     public function getName()

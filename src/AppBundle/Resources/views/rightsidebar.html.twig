@@ -1,7 +1,7 @@
-<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+<div class="col-lg-2">
 
     <div class="sidebar-module">
-        <h4>Registration/Login</h4>
+        <h4>Увійти:</h4>
         {% if app.user %}
             <div>
                 <img src="{{ app.user.avatar }}" />
@@ -20,18 +20,6 @@
     </div>
     <div class="sidebar-module">
 
-        {% if app.session.get('user_menu') %}
-            <p><a class="btn btn-success" href="{{ path('app_hide_user_menu') }}" role="button">Show site menu</a></p>
-        {% else %}
-            <p><a class="btn btn-success" href="{{ path('app_show_user_menu') }}" role="button">Show user menu</a></p>
-        {% endif %}
-
-        <h4>Album</h4>
-        <ol class="list-unstyled">
-
-            {#{{ render(controller('AppBundle:Default:albumTree')) }}#}
-
-        </ol>
     </div>
 
 </div>

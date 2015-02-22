@@ -65,6 +65,16 @@ class User extends BaseUser
      */
     protected $video;
 
+    /**
+     * @ODM\ReferenceMany(targetDocument="AppBundle\Document\Chord")
+     */
+    protected $chord;
+
+    /**
+     * @ODM\ReferenceMany(targetDocument="AppBundle\Document\Video")
+     */
+    protected $favouriteVideo;
+
     public function __construct()
     {
         $this->video = new \Doctrine\Common\Collections\ArrayCollection();
@@ -182,12 +192,13 @@ class User extends BaseUser
     /**
      * Set facebookId
      *
-     * @param int $facebookId
+     * @param  int  $facebookId
      * @return self
      */
     public function setFacebookId($facebookId)
     {
         $this->facebookId = $facebookId;
+
         return $this;
     }
 
@@ -204,12 +215,13 @@ class User extends BaseUser
     /**
      * Set facebookAccessToken
      *
-     * @param string $facebookAccessToken
+     * @param  string $facebookAccessToken
      * @return self
      */
     public function setFacebookAccessToken($facebookAccessToken)
     {
         $this->facebookAccessToken = $facebookAccessToken;
+
         return $this;
     }
 
@@ -226,12 +238,13 @@ class User extends BaseUser
     /**
      * Set vkontakteId
      *
-     * @param int $vkontakteId
+     * @param  int  $vkontakteId
      * @return self
      */
     public function setVkontakteId($vkontakteId)
     {
         $this->vkontakteId = $vkontakteId;
+
         return $this;
     }
 
@@ -248,12 +261,13 @@ class User extends BaseUser
     /**
      * Set vkontakteAccessToken
      *
-     * @param string $vkontakteAccessToken
+     * @param  string $vkontakteAccessToken
      * @return self
      */
     public function setVkontakteAccessToken($vkontakteAccessToken)
     {
         $this->vkontakteAccessToken = $vkontakteAccessToken;
+
         return $this;
     }
 
@@ -280,12 +294,13 @@ class User extends BaseUser
     /**
      * Set avatar
      *
-     * @param string $avatar
+     * @param  string $avatar
      * @return self
      */
     public function setAvatar($avatar)
     {
         $this->avatar = $avatar;
+
         return $this;
     }
 
@@ -297,5 +312,65 @@ class User extends BaseUser
     public function getAvatar()
     {
         return $this->avatar;
+    }
+
+    /**
+     * Add favouriteVideo
+     *
+     * @param AppBundle\Document\Video $favouriteVideo
+     */
+    public function addFavouriteVideo(\AppBundle\Document\Video $favouriteVideo)
+    {
+        $this->favouriteVideo[] = $favouriteVideo;
+    }
+
+    /**
+     * Remove favouriteVideo
+     *
+     * @param AppBundle\Document\Video $favouriteVideo
+     */
+    public function removeFavouriteVideo(\AppBundle\Document\Video $favouriteVideo)
+    {
+        $this->favouriteVideo->removeElement($favouriteVideo);
+    }
+
+    /**
+     * Get favouriteVideo
+     *
+     * @return Doctrine\Common\Collections\Collection $favouriteVideo
+     */
+    public function getFavouriteVideo()
+    {
+        return $this->favouriteVideo;
+    }
+
+    /**
+     * Add chord
+     *
+     * @param AppBundle\Document\Chord $chord
+     */
+    public function addChord(\AppBundle\Document\Chord $chord)
+    {
+        $this->chord[] = $chord;
+    }
+
+    /**
+     * Remove chord
+     *
+     * @param AppBundle\Document\Chord $chord
+     */
+    public function removeChord(\AppBundle\Document\Chord $chord)
+    {
+        $this->chord->removeElement($chord);
+    }
+
+    /**
+     * Get chord
+     *
+     * @return Doctrine\Common\Collections\Collection $chord
+     */
+    public function getChord()
+    {
+        return $this->chord;
     }
 }

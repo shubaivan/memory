@@ -217,4 +217,12 @@ class Song
     {
         return $this->album;
     }
+
+    /**
+     *
+     */
+    public function __toString()
+    {
+       return $this->name;
+    }
 }

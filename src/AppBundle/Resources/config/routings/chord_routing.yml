@@ -1,0 +1,11 @@
+app_get_single_chord:
+  pattern: /album/{slugAlbum}/song/{slugSong}/chord/{slug}/view
+  defaults: { _controller: AppBundle:Chord:getSingleChord }
+
+app_get_all_chords_in_song:
+  pattern: /album/{slugAlbum}/song/{slug}/chords
+  defaults: { _controller: AppBundle:Chord:getAllChords }
+
+app_add_chord:
+  pattern: /album/{slugChord}/song/{slug}/new_chord
+  defaults: { _controller: AppBundle:Chord:addChord }

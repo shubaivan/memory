@@ -14,7 +14,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 class Chord extends AbstractChord
 {
     /**
-     * @var \AppBundle\Document\Song
+     * @ODM\ReferenceOne(targetDocument="AppBundle\Document\Song")
      */
     protected $song;
 
@@ -43,6 +43,11 @@ class Chord extends AbstractChord
      * @ODM\Field(type="string")
      */
     protected $chord;
+
+    /**
+     * @ODM\ReferenceOne(targetDocument="UserBundle\Document\User")
+     */
+    protected $author;
 
     /**
      * Get id
@@ -145,5 +150,29 @@ class Chord extends AbstractChord
     public function getSong()
     {
         return $this->song;
+    }
+
+    /**
+     * Set author
+     *
+     * @param  UserBundle\Document\User $author
+     * @return self
+     */
+    public function setAuthor(\UserBundle\Document\User $author)
+    {
+        $this->author = $author;
+        $author->addChord($this);
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return UserBundle\Document\User $author
+     */
+    public function getAuthor()
+    {
+        return $this->author;
     }
 }

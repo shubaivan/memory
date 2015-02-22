@@ -4,8 +4,16 @@
 
 {% block content %}
 
-        {{ chord.title }} </br>
-        {{ chord.chord }} </br>
-        </br>
+        <div class="col-lg-12">
+                <div class="col-lg-12">
+                        {{ chord.title }}</br>
+                        {{ chord.chord }}</br>
+                </div>
+
+                <div class="col-lg-12">
+                        {#Добавив: {{ chord.author.username }}#}
+                </div>
+        </div>
+
 
 {% endblock %}

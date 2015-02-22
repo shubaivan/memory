@@ -39,6 +39,11 @@ class Album
     protected $song;
 
     /**
+     * @ODM\Field(type="string")
+     */
+    protected $text;
+
+    /**
      * @Gedmo\Slug(fields={"name"})
      * @ODM\Field(type="string")
      */
@@ -179,5 +184,33 @@ class Album
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set text
+     *
+     * @param  string $text
+     * @return self
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    /**
+     * Get text
+     *
+     * @return string $text
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }

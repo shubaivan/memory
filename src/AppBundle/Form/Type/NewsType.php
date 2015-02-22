@@ -6,24 +6,24 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class VideoType extends AbstractType
+class NewsType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('link', 'text');
-    }
-
-    public function getName()
-    {
-        return 'video';
+            ->add('title')
+            ->add('text', 'textarea');
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Document\Video',
+            'data_class' => 'AppBundle\Document\News',
         ));
+    }
+
+    public function getName()
+    {
+        return 'chord';
     }
 }

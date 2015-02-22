@@ -57,7 +57,7 @@ class Video
     /**
      * @ODM\ReferenceMany(targetDocument="UserBundle\Document\User")
      */
-    protected $users;
+    protected $usersWhoFavourite;
 
     /**
      * Get id
@@ -264,5 +264,35 @@ class Video
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * Add usersWhoFavourite
+     *
+     * @param UserBundle\Document\User $usersWhoFavourite
+     */
+    public function addUsersWhoFavourite(\UserBundle\Document\User $usersWhoFavourite)
+    {
+        $this->usersWhoFavourite[] = $usersWhoFavourite;
+    }
+
+    /**
+     * Remove usersWhoFavourite
+     *
+     * @param UserBundle\Document\User $usersWhoFavourite
+     */
+    public function removeUsersWhoFavourite(\UserBundle\Document\User $usersWhoFavourite)
+    {
+        $this->usersWhoFavourite->removeElement($usersWhoFavourite);
+    }
+
+    /**
+     * Get usersWhoFavourite
+     *
+     * @return Doctrine\Common\Collections\Collection $usersWhoFavourite
+     */
+    public function getUsersWhoFavourite()
+    {
+        return $this->usersWhoFavourite;
     }
 }

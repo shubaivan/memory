@@ -2,8 +2,10 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Document\Song;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security as Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Document\Video;
@@ -14,24 +16,16 @@ class VideoController extends Controller
     /**
      * Method that render all video
      *
+     * @param  Song     $song
      * @return Response
      *
      * @Template()
      */
-    public function getAllVideosAction()
+    public function getAllVideosAction(Song $song)
     {
-        if ($this->getUser() and $this->get('session')->get('user_menu') == true) {
-            $videos = $this->getUser()->getVideo();
-        } else {
-            $videos = $this->get('doctrine_mongodb.odm.document_manager')
-                ->getRepository('AppBundle:Video')
-                ->findAll();
-        }
-
         return [
-            'videos' => $videos
+            'song' => $song
         ];
-
     }
 
     /**
@@ -53,9 +47,10 @@ class VideoController extends Controller
      * @param  Request                                                     $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      *
+     * @Security("has_role('ROLE_USER')")
      * @Template()
      */
-    public function addVideoAction(Request $request)
+    public function addVideoAction(Request $request, Song $song)
     {
         $video = new Video();
 
@@ -64,11 +59,20 @@ class VideoController extends Controller
 
         if ($form->isValid()) {
             $em = $this->get('doctrine_mongodb.odm.document_manager');
+            $video->setAuthor($this->getUser());
+            $video->setSong($song);
 
             $em->persist($video);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('app_get_all_videos'));
+            return $this->redirect($this->generateUrl(
+                    'app_get_all_videos_in_song',
+                    [
+                        'slugAlbum' => $song->getAlbum()->getSlug(),
+                        'slug' => $song->getSlug()
+                    ]
+                )
+            );
         }
 
         return [
