@@ -22,3 +22,11 @@ AppBundle\Document\News:
   news{1..50}:
     title: <word()>
     text: <realText()>
+
+UserBundle\Document\User:
+  users{1..10}:
+    firstName: <firstName()>
+    secondName: <userName()>
+    vkontakteId: <numberBetween(1, 10)>
+    facebookId: <numberBetween(1, 10)>
+    video: 20x @videos*
