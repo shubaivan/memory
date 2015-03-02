@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0705929f450e8b61a4c5f39ee5f1ab03",
+    "hash": "0b8ae18da061533ad8efee8e1f37c2c8",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -608,12 +608,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineMigrationsBundle.git",
-                "reference": "81575a4316951125ce408c70f30547c77d98f78a"
+                "reference": "6a1bd731dbdd4ad952a3b246a8f38c9c12f52e62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/81575a4316951125ce408c70f30547c77d98f78a",
-                "reference": "81575a4316951125ce408c70f30547c77d98f78a",
+                "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/6a1bd731dbdd4ad952a3b246a8f38c9c12f52e62",
+                "reference": "6a1bd731dbdd4ad952a3b246a8f38c9c12f52e62",
                 "shasum": ""
             },
             "require": {
@@ -658,7 +658,7 @@
                 "migrations",
                 "schema"
             ],
-            "time": "2014-08-17 07:53:47"
+            "time": "2015-02-16 13:24:46"
         },
         {
             "name": "doctrine/inflector",
@@ -841,12 +841,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/migrations.git",
-                "reference": "1ac14fac3ced533047d8feae8edc7c283d5b8a67"
+                "reference": "058a4635ac9b80a5b1997df28a754e64b1425a1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/1ac14fac3ced533047d8feae8edc7c283d5b8a67",
-                "reference": "1ac14fac3ced533047d8feae8edc7c283d5b8a67",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/058a4635ac9b80a5b1997df28a754e64b1425a1d",
+                "reference": "058a4635ac9b80a5b1997df28a754e64b1425a1d",
                 "shasum": ""
             },
             "require": {
@@ -891,7 +891,7 @@
                 "database",
                 "migrations"
             ],
-            "time": "2015-01-19 02:26:02"
+            "time": "2015-02-19 08:13:05"
         },
         {
             "name": "doctrine/mongodb",
@@ -1173,6 +1173,56 @@
                 "orm"
             ],
             "time": "2014-12-16 13:45:01"
+        },
+        {
+            "name": "doctrine/search",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/search.git",
+                "reference": "76f9949a39d5e84d709177d2f042c6a7b2385b22"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/search/zipball/76f9949a39d5e84d709177d2f042c6a7b2385b22",
+                "reference": "76f9949a39d5e84d709177d2f042c6a7b2385b22",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": ">=2.3.0",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "doctrine/orm": "~2.4",
+                "phpunit/phpunit": "~4.2"
+            },
+            "suggest": {
+                "ruflin/Elastica": "Elastica version correlating to your ElasticSearch installation is required."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Search": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Doctrine Search Community",
+                    "homepage": "https://github.com/doctrine/search/graphs/contributors"
+                }
+            ],
+            "description": "Search",
+            "homepage": "https://github.com/doctrine/search",
+            "keywords": [
+                "elasticsearch",
+                "lucene",
+                "odm",
+                "orm",
+                "search",
+                "solr"
+            ],
+            "time": "2014-09-13 12:46:28"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -2864,6 +2914,7 @@
         "friendsofsymfony/user-bundle": 20,
         "doctrine/mongodb-odm": 20,
         "doctrine/mongodb-odm-bundle": 20,
+        "doctrine/search": 20,
         "doctrine/doctrine-fixtures-bundle": 20
     },
     "prefer-stable": false,

@@ -22,5 +22,4 @@ class SearchController extends Controller
 
         return $this->render('AppBundle::serchSong.html.twig', array('song' => $song));
     }
-
 }
