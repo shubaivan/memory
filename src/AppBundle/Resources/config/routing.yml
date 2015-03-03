@@ -14,3 +14,9 @@ app_video:
 
 app_chord:
   resource: "@AppBundle/Resources/config/routings/chord_routing.yml"
+
+acme_privacy:
+    path: /avtoriz
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template:    'AppBundle:Static:rightsidebar.html.twig'

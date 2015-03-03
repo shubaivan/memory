@@ -1,0 +1,94 @@
+{#<div class="col-lg-2">#}
+
+    {#<div class="sidebar-module">#}
+        {#<h4>Увійти:</h4>#}
+        {#{% if app.user %}#}
+            {#<div>#}
+                {#<img src="{{ app.user.avatar }}" />#}
+                {#<a href="{{ path('fos_user_profile_show') }}">{{ app.user.username }}</a>   |#}
+                {#<a href="{{ path('fos_user_security_logout') }}">Logout</a>#}
+            {#</div>#}
+        {#{% else %}#}
+            {#<div>#}
+                {#<a href="{{ path('hwi_oauth_service_redirect', {'service' : 'vkontakte'}) }}">Вконтакте</a>#}
+            {#</div>#}
+
+            {#<div>#}
+                {#<a href="{{ path('hwi_oauth_service_redirect', {'service' : 'facebook'}) }}">Facebook</a>#}
+            {#</div>#}
+        {#{% endif %}#}
+    {#</div>#}
+    {#<div class="sidebar-module">#}
+
+    {#</div>#}
+
+{#</div>#}
+
+<title>DASHGUM - Bootstrap Admin Template</title>
+
+<!-- Bootstrap core CSS -->
+<link href="{{ asset ('bundles/app/assets/css/bootstrap.css') }}" rel="stylesheet">
+<!--external css-->
+<link href="{{ asset ('bundles/app/assets/font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
+
+<!-- Custom styles for this template -->
+<link href="{{ asset ('bundles/app/assets/css/style.css') }}" rel="stylesheet">
+<link href="{{ asset ('bundles/app/assets/css/style-responsive.css') }}" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+-->
+
+<div id="login-page">
+<div class="container">
+
+    <form class="form-login" action="{{ path ('acme_privacy') }}">
+        <h2 class="form-login-heading">sign in now</h2>
+        <div class="login-wrap">
+            {% if app.user %}
+            <div>
+                <img src="{{ app.user.avatar }}" />
+                <a href="{{ path('fos_user_profile_show') }}">{{ app.user.username }}</a>   |
+                <a href="{{ path('fos_user_security_logout') }}">Logout</a>
+            </div>
+            {% else %}
+            {#<button class="btn btn-theme btn-block" href="index.html" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>#}
+            {#<hr>#}
+
+            <div class="login-social-link centered">
+                {#<p>or you can sign in via your social network</p>#}
+                {#<button class="btn btn-facebook"  type="submit"><i class="fa fa-facebook"></i> Facebook</button>#}
+                {#<button class="btn btn-twitter" type="submit"><i class="fa fa-twitter"></i> Twitter</button>#}
+                <button class="btn btn-facebook"  type="submit">
+
+                    <a href="{{ path('hwi_oauth_service_redirect', {'service' : 'vkontakte'}) }}">Вконтакте</a>
+
+                </button>
+                <button class="btn btn-twitter" type="submit">
+
+                    <a href="{{ path('hwi_oauth_service_redirect', {'service' : 'facebook'}) }}">Facebook</a>
+
+                </button>
+                {% endif %}
+            </div>
+
+
+        </div>
+
+        </form>
+
+    </div>
+</div>
+
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="{{ asset ('bundles/app/assets/js/jquery.js') }}"></script>
+<script src="{{ asset ('bundles/app/assets/js/bootstrap.min.js') }}"></script>
+
+<!--BACKSTRETCH-->
+<!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+<script type="text/javascript" src="{{ asset ('bundles/app/assets/js/bootstrap.min.js') }}"></script>
+<script>
+    $.backstretch("assets/img/login-bg.jpg", {speed: 500});
+</script>
