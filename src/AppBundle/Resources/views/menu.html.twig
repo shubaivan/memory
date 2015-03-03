@@ -1,18 +1,44 @@
-<nav class="navbar navbar-inverse" role="navigation">
-    <ul class="nav navbar-nav">
-        <li>
-            <a class="" href="{{ path('app_get_all_news') }}">
-                {% trans %}Головна{% endtrans %}</a>
-        </li>
+{#<nav class="navbar navbar-inverse" role="navigation">#}
+    {#<ul class="nav navbar-nav">#}
+        {#<li>#}
+            {#<a class="" href="{{ path('app_get_all_news') }}">#}
+                {#{% trans %}Головна{% endtrans %}</a>#}
+        {#</li>#}
 
-        <li>
-            <a class="blog-nav-item" href="{{ path('app_get_all_albums') }}">
-                {% trans %}Альбоми{% endtrans %}</a>
-        </li>
+        {#<li>#}
+            {#<a class="blog-nav-item" href="{{ path('app_get_all_albums') }}">#}
+                {#{% trans %}Альбоми{% endtrans %}</a>#}
+        {#</li>#}
 
-        <li>
-            <a class="blog-nav-item" href="#">
-                {% trans %}Про нас{% endtrans %}</a>
-        </li>
-    </ul>
-</nav>
+        {#<li>#}
+            {#<a class="blog-nav-item" href="#">#}
+                {#{% trans %}Про нас{% endtrans %}</a>#}
+        {#</li>#}
+    {#</ul>#}
+{#</nav>#}
+
+    <div id="sidebar"  class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+
+            <p class="centered"><a href="profile.html"><img src="{{ asset ('bundles/app/assets/img/ui-sam.jpg') }}" class="img-circle" width="60"></a></p>
+            <h5 class="centered">Marcel Newman</h5>
+
+            <li class="mt">
+                <a class="active" href="{{ path('app_get_all_news') }}">
+                    <i class="fa fa-dashboard"></i>
+                    <span>News</span>
+                </a>
+            </li>
+
+            <li class="sub-menu">
+                <a class="active" href="{{ path('app_get_all_albums') }}">
+                    <i class="fa fa-desktop"></i>
+                    <span>Albums</span>
+                </a>
+            </li>
+
+
+        </ul>
+        <!-- sidebar menu end-->
+    </div>
