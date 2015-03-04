@@ -151,20 +151,19 @@ class News
     /**
      * Set image
      *
-     * @param  string $image
+     * @param file $image
      * @return self
      */
     public function setImage($image)
     {
         $this->image = $image;
-
         return $this;
     }
 
     /**
      * Get image
      *
-     * @return string $image
+     * @return file $image
      */
     public function getImage()
     {
