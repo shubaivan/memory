@@ -19,6 +19,6 @@ AppBundle\Document\Video:
     song: @songs*
 
 AppBundle\Document\News:
-  news{1..50}:
+  news{1..5}:
     title: <word()>
     text: <realText()>

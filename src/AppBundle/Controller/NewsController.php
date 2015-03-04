@@ -42,7 +42,7 @@ class NewsController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param  Request                                                  $request
      * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      *
      * @Template()

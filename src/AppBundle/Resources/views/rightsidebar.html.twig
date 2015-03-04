@@ -1,4 +1,4 @@
-<div class="col-lg-2">
+<div class="column col-sm-3" id="sidebar">
 
     <div class="sidebar-module">
         <h4>Увійти:</h4>
@@ -10,11 +10,11 @@
             </div>
         {% else %}
             <div>
-                <a href="{{ path('hwi_oauth_service_redirect', {'service' : 'vkontakte'}) }}">Вконтакте</a>
+                <a class="logo" href="{{ path('hwi_oauth_service_redirect', {'service' : 'vkontakte'}) }}">Вк</a>
             </div>
 
             <div>
-                <a href="{{ path('hwi_oauth_service_redirect', {'service' : 'facebook'}) }}">Facebook</a>
+                <a class="logo" href="{{ path('hwi_oauth_service_redirect', {'service' : 'facebook'}) }}">Fa</a>
             </div>
         {% endif %}
     </div>
@@ -22,4 +22,37 @@
 
     </div>
 
+    <ul class="nav">
+    <li class="active"><a href="{{ path('app_get_all_albums') }}">Album</a>
+    </li>
+    <li><a href="#stories">Stories</a>
+    </li>
+    </ul>
+
+    <ul class="nav hidden-xs" id="sidebar-footer">
+    <li>
+    <a href="http://www.bootply.com"><h3>Basis</h3>Made with <i class="glyphicon glyphicon-heart-empty"></i> by Bootply</a>
+    </li>
+    </ul>
 </div>
+
+
+
+        {#<!-- sidebar -->#}
+        {#<div class="column col-sm-3" id="sidebar">#}
+            {#<a class="logo" href="#">B</a><a class="logo" href="#">F</a>#}
+            {#<ul class="nav">#}
+                {#<li class="active"><a href="#featured">Featured</a>#}
+                {#</li>#}
+                {#<li><a href="#stories">Stories</a>#}
+                {#</li>#}
+            {#</ul>#}
+
+
+            {#<ul class="nav hidden-xs" id="sidebar-footer">#}
+                {#<li>#}
+                    {#<a href="http://www.bootply.com"><h3>Basis</h3>Made with <i class="glyphicon glyphicon-heart-empty"></i> by Bootply</a>#}
+                {#</li>#}
+            {#</ul>#}
+        {#</div>#}
+        {#<!-- /sidebar -->#}

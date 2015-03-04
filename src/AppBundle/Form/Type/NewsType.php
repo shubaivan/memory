@@ -12,7 +12,8 @@ class NewsType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('text', 'textarea');
+            ->add('text', 'textarea')
+            ->add('image', 'file');
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

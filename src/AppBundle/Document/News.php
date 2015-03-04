@@ -42,6 +42,11 @@ class News
     protected $slug;
 
     /**
+     * @ODM\Field(type="string")
+     */
+    protected $image;
+
+    /**
      * Get id
      *
      * @return id $id
@@ -141,5 +146,28 @@ class News
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set image
+     *
+     * @param  string $image
+     * @return self
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string $image
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }
