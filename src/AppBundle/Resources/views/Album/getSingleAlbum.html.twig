@@ -26,7 +26,7 @@
         <small class="text-muted">Короткий опис:{{ album.text }}</small>
             <h4><span class="label label-default">List song</span></h4>
 
-        <h3>songs:</h3>
+
         {% for song in album.song %}
             <small class="text-muted"><a href="{{ path('app_get_all_videos_in_song', {'slugAlbum' : album.slug, 'slug' : song.slug}) }}"><p>{{ song.name }}</p></a></small>
         {% endfor %}
