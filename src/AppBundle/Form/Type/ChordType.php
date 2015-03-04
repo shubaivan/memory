@@ -14,7 +14,6 @@ class ChordType extends AbstractType
             ->add('title', 'text')
             ->add('chord', 'text');
 
-        $builder->getForm();
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

@@ -12,7 +12,10 @@ class SongType extends AbstractType
     {
         $builder
             ->add('name', 'text')
-            ->add('timeline');
+            ->add('timeline')
+            ->add('poster',  [
+                'required' => false
+            ]);
     }
 
     public function getName()
