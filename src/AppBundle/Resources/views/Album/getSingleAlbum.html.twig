@@ -16,7 +16,7 @@
 
     {% endif %}
 
-
+    <a href="{{ path('app_add_song', {'slug' : album.slug}) }}" class="btn btn-success btn-large"><i class="icon-white icon-star"></i> Додати новий трек</a></br>
 
 <!--/top story-->
 <div class="row">
@@ -24,8 +24,8 @@
         <h3>{{ album.name }}</h3>
         <h4><span class="label label-default">Рік випуску: {{ album.year }}</span></h4>
         <small class="text-muted">Короткий опис:{{ album.text }}</small>
-            <h4><span class="label label-default">Прими участие</span></h4>
-                    <a href="{{ path('app_add_song', {'slug' : album.slug}) }}" class="btn btn-success btn-large"><i class="icon-white icon-star"></i> Додати новий трек</a></br>
+            <h4><span class="label label-default">List song</span></h4>
+
         <h3>songs:</h3>
         {% for song in album.song %}
             <small class="text-muted"><a href="{{ path('app_get_all_videos_in_song', {'slugAlbum' : album.slug, 'slug' : song.slug}) }}"><p>{{ song.name }}</p></a></small>

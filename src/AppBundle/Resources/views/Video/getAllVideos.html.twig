@@ -23,8 +23,8 @@
     <!--/top story-->
     <div class="row">
         <div class="col-sm-10">
-            <h3>List videos</h3>
-            <h4><span class="label label-default">Видео</span></h4>
+
+            <h4><span class="label label-default">List videos</span></h4>
                 {% for video in song.video %}
 
                         <small class="text-muted"><a href="{{ path('app_get_single_video', {"slugAlbum" : video.song.album.slug, "slugSong" : video.song.slug, "slug" : video.slug}) }}"><p>{{ video.name }}</p></a></small>
