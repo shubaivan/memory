@@ -42,7 +42,7 @@ class News
     protected $slug;
 
     /**
-     * @ODM\Field(type="string")
+     * @ODM\File()
      */
     protected $image;
 

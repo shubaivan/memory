@@ -23,7 +23,7 @@
         <div class="col-sm-10">
             <h3>{{ album.name }}</h3>
             <h4><span class="label label-default"><a href="{{ path('app_get_single_album', {'slug': album.slug }) }}">{{ album.name }}</a></span></h4><h4>
-            <small class="text-muted">Короткий опис: {{ album.text|slice(0, 255) }} <a href="#" class="text-muted">Read More</a></small>
+            <small class="text-muted">Короткий опис: {{ album.text|slice(0, 255) }} <a href="{{ path('app_get_single_album', {'slug': album.slug }) }}">Read More</a></small>
             </h4>
             </div>
             <div class="col-sm-2">

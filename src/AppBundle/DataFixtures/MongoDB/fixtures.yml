@@ -1,5 +1,5 @@
 AppBundle\Document\Album:
-  albums{1..50}:
+  albums{1..5}:
     year: <numberBetween($min = 1990, $max = 2010)>
     name: <word()>
     text: <realText()>
