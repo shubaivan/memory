@@ -47,6 +47,11 @@ class News
     protected $image;
 
     /**
+     * @ODM\ReferenceOne(targetDocument="UserBundle\Document\User")
+     */
+    protected $author;
+
+    /**
      * Get id
      *
      * @return id $id
@@ -168,5 +173,27 @@ class News
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * Set author
+     *
+     * @param \UserBundle\Document\User $author
+     * @return self
+     */
+    public function setAuthor(\UserBundle\Document\User $author)
+    {
+        $this->author = $author;
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return \UserBundle\Document\User $author
+     */
+    public function getAuthor()
+    {
+        return $this->author;
     }
 }

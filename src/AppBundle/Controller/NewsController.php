@@ -57,6 +57,9 @@ class NewsController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+            $dm = $this->get('doctrine_mongodb.odm.document_manager');
+            $news->setAuthor($this->getUser());
+
             $dm->persist($news);
             $dm->flush();
 

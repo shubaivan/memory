@@ -49,6 +49,11 @@ class Song
      */
     protected $slug;
 
+    /**
+     * @ODM\ReferenceOne(targetDocument="UserBundle\Document\User")
+     */
+    protected $author;
+
     public function __construct()
     {
         $this->video = new \Doctrine\Common\Collections\ArrayCollection();
@@ -224,5 +229,27 @@ class Song
     public function __toString()
     {
        return $this->name;
+    }
+
+    /**
+     * Set author
+     *
+     * @param UserBundle\Document\User $author
+     * @return self
+     */
+    public function setAuthor(\UserBundle\Document\User $author)
+    {
+        $this->author = $author;
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return UserBundle\Document\User $author
+     */
+    public function getAuthor()
+    {
+        return $this->author;
     }
 }
