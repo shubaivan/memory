@@ -10,9 +10,9 @@ class VideoControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', 'album/dobriak/song/ruina/videos');
+        $crawler = $client->request('GET', '/album/nisi/song/totam/videos');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertTrue($crawler->filter('html:contains(" Всі вiдео по треку Руина альбому Добряк  | Memory")')->count() > 0);
+        $this->assertTrue($crawler->filter('html:contains("Всі вiдео по треку totam альбому nisi")')->count() > 0);
     }
 }

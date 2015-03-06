@@ -10,9 +10,9 @@ class SongControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/album/dobriak/songs');
+        $crawler = $client->request('GET', '/album/nisi/songs');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertTrue($crawler->filter('html:contains("Альбом Добряк")')->count() > 0);
+        $this->assertTrue($crawler->filter('html:contains("Альбом nisi")')->count() > 0);
     }
 }
