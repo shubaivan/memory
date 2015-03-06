@@ -26,7 +26,7 @@
 
             <h4><span class="label label-default">List chords</span></h4><h4>
                 {% for chord in song.chord %}
-                <small class="text-muted"><a href="{{ path('app_get_single_chord', {"slugAlbum" : song.album.slug, "slugSong" : song.slug, "slug" : chord.slug}) }}">{{ chord.title }}</a></small></br>
+                <li><small class="text-muted"><a href="{{ path('app_get_single_chord', {"slugAlbum" : song.album.slug, "slugSong" : song.slug, "slug" : chord.slug}) }}">{{ chord.title }}</a></small></li>
                 {% endfor %}
             </h4>
         </div>

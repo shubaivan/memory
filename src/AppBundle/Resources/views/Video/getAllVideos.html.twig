@@ -27,7 +27,7 @@
             <h4><span class="label label-default">List videos</span></h4>
                 {% for video in song.video %}
 
-                        <small class="text-muted"><a href="{{ path('app_get_single_video', {"slugAlbum" : video.song.album.slug, "slugSong" : video.song.slug, "slug" : video.slug}) }}"><p>{{ video.name }}</p></a></small>
+                        <li><small class="text-muted"><a href="{{ path('app_get_single_video', {"slugAlbum" : video.song.album.slug, "slugSong" : video.song.slug, "slug" : video.slug}) }}">{{ video.name }}</a></small></li>
 
 
                 {% endfor %}

@@ -28,7 +28,9 @@
 
 
         {% for song in album.song %}
-            <small class="text-muted"><a href="{{ path('app_get_all_videos_in_song', {'slugAlbum' : album.slug, 'slug' : song.slug}) }}"><p>{{ song.name }}</p></a></small>
+
+            <li><small class="text-muted"><a href="{{ path('app_get_all_videos_in_song', {'slugAlbum' : album.slug, 'slug' : song.slug}) }}">{{ song.name }}</a></small></li>
+
         {% endfor %}
 
         <a href="{{ path('app_get_all_albums')}}" class="btn btn-success btn-large"><i class="icon-white icon-star"></i> Back to tha all albums</a></br>
