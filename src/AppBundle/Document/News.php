@@ -156,12 +156,13 @@ class News
     /**
      * Set image
      *
-     * @param file $image
+     * @param  file $image
      * @return self
      */
     public function setImage($image)
     {
         $this->image = $image;
+
         return $this;
     }
 
@@ -178,12 +179,13 @@ class News
     /**
      * Set author
      *
-     * @param \UserBundle\Document\User $author
+     * @param  \UserBundle\Document\User $author
      * @return self
      */
     public function setAuthor(\UserBundle\Document\User $author)
     {
         $this->author = $author;
+
         return $this;
     }
 

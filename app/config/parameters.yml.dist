@@ -15,9 +15,9 @@ parameters:
     secret:            ThisTokenIsNotSoSecretChangeIt
 
     #vk api key
-    vkontakte_app_id: ~
-    vkontakte_app_secret: ~
+    vkontakte_app_id: 4789642
+    vkontakte_app_secret: kc50Y1vaqFYPUV75Jg7s
 
     #facebook api key
-    facebook_app_id: ~
-    facebook_app_secret: ~
+    facebook_app_id: 1548343515427225
+    facebook_app_secret: 22a95f25712dda7ef5dfe0df6d5b5af4

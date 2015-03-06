@@ -234,12 +234,13 @@ class Song
     /**
      * Set author
      *
-     * @param UserBundle\Document\User $author
+     * @param  UserBundle\Document\User $author
      * @return self
      */
     public function setAuthor(\UserBundle\Document\User $author)
     {
         $this->author = $author;
+
         return $this;
     }
 
