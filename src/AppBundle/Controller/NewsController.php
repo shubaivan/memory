@@ -49,8 +49,6 @@ class NewsController extends Controller
      */
     public function addNewsAction(Request $request)
     {
-        $dm = $this->get('doctrine_mongodb.odm.document_manager');
-
         $news = new News();
 
         $form = $this->createForm(new NewsType(), $news);

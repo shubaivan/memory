@@ -42,6 +42,11 @@ class News
     protected $image;
 
     /**
+     * @ODM\ReferenceMany(targetDocument="AppBundle\Document\Comments")
+     */
+    protected $comment;
+
+    /**
      * @ODM\ReferenceOne(targetDocument="UserBundle\Document\User")
      */
     protected $author;
@@ -169,5 +174,40 @@ class News
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    public function __construct()
+    {
+        $this->comment = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add comment
+     *
+     * @param \AppBundle\Document\Comments $comment
+     */
+    public function addComment(\AppBundle\Document\Comments $comment)
+    {
+        $this->comment[] = $comment;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param \AppBundle\Document\Comments $comment
+     */
+    public function removeComment(\AppBundle\Document\Comments $comment)
+    {
+        $this->comment->removeElement($comment);
+    }
+
+    /**
+     * Get comment
+     *
+     * @return \Doctrine\Common\Collections\Collection $comment
+     */
+    public function getComment()
+    {
+        return $this->comment;
     }
 }

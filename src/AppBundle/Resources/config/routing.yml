@@ -14,3 +14,6 @@ app_video:
 
 app_chord:
   resource: "@AppBundle/Resources/config/routings/chord_routing.yml"
+
+app_comments:
+  resource: "@AppBundle/Resources/config/routings/comments_routing.yml"

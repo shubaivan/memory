@@ -21,6 +21,14 @@
         Добавив: {{ news.author.username }}</br>
         {{ news.createdAt|date("m/d/Y") }}
     </div>
+    <a href="{{ path('app_add_comments', {'slug' : news.slug}) }}" class="btn btn-success btn-large"><i class="icon-white icon-star"></i> Додати новий comments</a></br>
+    <div class="col-sm-10">
+        {% for comments in news.comment %}
+
+        <li><small class="text-muted">{{ comments.text }}</small></li>
+
+        {% endfor %}
+    </div>
     <div class="col-sm-2">
         {#<a href="#" class="pull-right"><img src="{{ news.image }}" class="img-circle"></a>#}
     </div>

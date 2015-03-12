@@ -22,3 +22,8 @@ AppBundle\Document\News:
   news{1..5}:
     title: <word()>
     text: <realText()>
+
+AppBundle\Document\Comments:
+  comments{1..20}:
+    text: <word()>
+    news: @news*
