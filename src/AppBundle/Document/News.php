@@ -14,6 +14,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class News
 {
+    use Timestampable;
     /**
      * @ODM\Id
      */
@@ -28,12 +29,6 @@ class News
      * @ODM\Field(type="string")
      */
     protected $text;
-
-    /**
-     * @Gedmo\Timestampable(on="create")
-     * @ODM\Field(type="date")
-     */
-    protected $createdAt;
 
     /**
      * @Gedmo\Slug(fields={"title"})
@@ -105,29 +100,6 @@ class News
     public function getText()
     {
         return $this->text;
-    }
-
-    /**
-     * Set createdAt
-     *
-     * @param  date $createdAt
-     * @return self
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return date $createdAt
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
     }
 
     /**

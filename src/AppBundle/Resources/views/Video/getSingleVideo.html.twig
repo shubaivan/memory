@@ -19,7 +19,8 @@
             </div>
 
             <div class="col-lg-12">
-                Добавив: {{ video.author.username }}
+                Добавив: {{ video.author.username }}<br>
+                {{ video.createdAT|date("F jS \\a\\t g:ia") }}
             </div>
         </div>
 

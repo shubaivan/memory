@@ -13,6 +13,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class Chord extends AbstractChord
 {
+    use Timestampable;
     /**
      * @ODM\ReferenceOne(targetDocument="AppBundle\Document\Song")
      */
@@ -155,7 +156,7 @@ class Chord extends AbstractChord
     /**
      * Set author
      *
-     * @param  UserBundle\Document\User $author
+     * @param  \UserBundle\Document\User $author
      * @return self
      */
     public function setAuthor(\UserBundle\Document\User $author)
@@ -169,7 +170,7 @@ class Chord extends AbstractChord
     /**
      * Get author
      *
-     * @return UserBundle\Document\User $author
+     * @return \UserBundle\Document\User $author
      */
     public function getAuthor()
     {
