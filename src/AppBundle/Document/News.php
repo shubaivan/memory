@@ -14,6 +14,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class News
 {
+    use Timestampable;
     /**
      * @ODM\Id
      */
@@ -30,12 +31,6 @@ class News
     protected $text;
 
     /**
-     * @Gedmo\Timestampable(on="create")
-     * @ODM\Field(type="date")
-     */
-    protected $createdAt;
-
-    /**
      * @Gedmo\Slug(fields={"title"})
      * @ODM\Field(type="string")
      */
@@ -45,6 +40,11 @@ class News
      * @ODM\File()
      */
     protected $image;
+
+    /**
+     * @ODM\ReferenceMany(targetDocument="AppBundle\Document\Comments")
+     */
+    protected $comment;
 
     /**
      * @ODM\ReferenceOne(targetDocument="UserBundle\Document\User")
@@ -105,29 +105,6 @@ class News
     public function getText()
     {
         return $this->text;
-    }
-
-    /**
-     * Set createdAt
-     *
-     * @param  date $createdAt
-     * @return self
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return date $createdAt
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
     }
 
     /**
@@ -197,5 +174,40 @@ class News
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    public function __construct()
+    {
+        $this->comment = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add comment
+     *
+     * @param \AppBundle\Document\Comments $comment
+     */
+    public function addComment(\AppBundle\Document\Comments $comment)
+    {
+        $this->comment[] = $comment;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param \AppBundle\Document\Comments $comment
+     */
+    public function removeComment(\AppBundle\Document\Comments $comment)
+    {
+        $this->comment->removeElement($comment);
+    }
+
+    /**
+     * Get comment
+     *
+     * @return \Doctrine\Common\Collections\Collection $comment
+     */
+    public function getComment()
+    {
+        return $this->comment;
     }
 }

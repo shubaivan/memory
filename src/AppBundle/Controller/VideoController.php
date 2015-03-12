@@ -58,12 +58,11 @@ class VideoController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $em = $this->get('doctrine_mongodb.odm.document_manager');
+            $dm = $this->get('doctrine_mongodb.odm.document_manager');
+            $this->get('add_video.service')->addVideo($video, $song);
             $video->setAuthor($this->getUser());
-            $video->setSong($song);
-
-            $em->persist($video);
-            $em->flush();
+            $dm->persist($video);
+            $dm->flush();
 
             return $this->redirect($this->generateUrl(
                     'app_get_all_videos_in_song',

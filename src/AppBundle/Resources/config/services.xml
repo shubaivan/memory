@@ -6,6 +6,7 @@
 
     <parameters>
         <parameter key="app.example.class">AppBundle\Example</parameter>
+        <parameter key="add_video.class">AppBundle\Service\AddVideoService</parameter>
     </parameters>
 
     <services>
@@ -20,6 +21,12 @@
             </call>
             <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"  />
         </service>
+
+        <service id="add_video.service" class="%add_video.class%">
+            <!--<argument>%add_video.video%</argument>-->
+            <argument type="service" id="doctrine_mongodb.odm.document_manager" />
+        </service>
+
     </services>
 
 </container>
