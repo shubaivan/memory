@@ -237,39 +237,9 @@ class Video
     }
 
     /**
-     * Add user
-     *
-     * @param UserBundle\Document\User $user
-     */
-    public function addUser(\UserBundle\Document\User $user)
-    {
-        $this->users[] = $user;
-    }
-
-    /**
-     * Remove user
-     *
-     * @param UserBundle\Document\User $user
-     */
-    public function removeUser(\UserBundle\Document\User $user)
-    {
-        $this->users->removeElement($user);
-    }
-
-    /**
-     * Get users
-     *
-     * @return Doctrine\Common\Collections\Collection $users
-     */
-    public function getUsers()
-    {
-        return $this->users;
-    }
-
-    /**
      * Add usersWhoFavourite
      *
-     * @param UserBundle\Document\User $usersWhoFavourite
+     * @param \UserBundle\Document\User $usersWhoFavourite
      */
     public function addUsersWhoFavourite(\UserBundle\Document\User $usersWhoFavourite)
     {
@@ -279,7 +249,7 @@ class Video
     /**
      * Remove usersWhoFavourite
      *
-     * @param UserBundle\Document\User $usersWhoFavourite
+     * @param \UserBundle\Document\User $usersWhoFavourite
      */
     public function removeUsersWhoFavourite(\UserBundle\Document\User $usersWhoFavourite)
     {
@@ -289,7 +259,7 @@ class Video
     /**
      * Get usersWhoFavourite
      *
-     * @return Doctrine\Common\Collections\Collection $usersWhoFavourite
+     * @return \Doctrine\Common\Collections\Collection $usersWhoFavourite
      */
     public function getUsersWhoFavourite()
     {
