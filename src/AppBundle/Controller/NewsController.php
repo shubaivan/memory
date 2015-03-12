@@ -42,21 +42,22 @@ class NewsController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param  Request                                                  $request
      * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      *
      * @Template()
      */
     public function addNewsAction(Request $request)
     {
-        $dm = $this->get('doctrine_mongodb.odm.document_manager');
-
         $news = new News();
 
         $form = $this->createForm(new NewsType(), $news);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+            $dm = $this->get('doctrine_mongodb.odm.document_manager');
+            $news->setAuthor($this->getUser());
+
             $dm->persist($news);
             $dm->flush();
 

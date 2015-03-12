@@ -3,32 +3,56 @@
 {% block title %} AllChords {% endblock %}
 
 {% block content %}
+
+    <div class="col-sm-12" id="featured" xmlns="http://www.w3.org/1999/html">
+        <div class="page-header text-muted">
+            Chords
+        </div>
+    </div>
     {% if is_granted('ROLE_USER') %}
 
         <div>
-            <a href="{{ path('app_add_chord', {"slugChord" : song.album.slug, "slug" : song.slug}) }}">Добавить аккорды</a>
+            <a href="{{ path('app_add_chord', {"slugChord" : song.album.slug, "slug" : song.slug}) }}" class="btn btn-success btn-large"><i class="icon-white icon-star"></i>Add chords</a></br>
         </div>
 
     {% endif %}
 
 
-    <table>
 
-        <tr>
-                 <th>Акорды</th>
-        </tr>
-        <tr>
 
-            <td>
+    <!--/top story-->
+    <div class="row">
+        <div class="col-sm-10">
+
+            <h4><span class="label label-default">List chords</span></h4><h4>
                 {% for chord in song.chord %}
-                    <div class="col-lg-12">
-                        <div class="col-lg-12">
-                            <a href="{{ path('app_get_single_chord', {"slugAlbum" : song.album.slug, "slugSong" : song.slug, "slug" : chord.slug}) }}">{{ chord.title }}</a>
-                        </div>
-
-                    </div>
+                <li><small class="text-muted"><a href="{{ path('app_get_single_chord', {"slugAlbum" : song.album.slug, "slugSong" : song.slug, "slug" : chord.slug}) }}">{{ chord.title }}</a></small></li>
                 {% endfor %}
-            </td>
-        </tr>
-    </table>
+            </h4>
+        </div>
+        <div class="col-sm-2">
+            <a href="#" class="pull-right"><img src="http://amuzic.ru/common/images/artist/7572688069150/album_13403172119298_m.jpg" class="img-circle"></a>
+        </div>
+    </div>
+
+
+    {#<table>#}
+
+        {#<tr>#}
+                 {#<th>Акорды</th>#}
+        {#</tr>#}
+        {#<tr>#}
+
+            {#<td>#}
+                {#{% for chord in song.chord %}#}
+                    {#<div class="col-lg-12">#}
+                        {#<div class="col-lg-12">#}
+                            {#<a href="{{ path('app_get_single_chord', {"slugAlbum" : song.album.slug, "slugSong" : song.slug, "slug" : chord.slug}) }}">{{ chord.title }}</a>#}
+                        {#</div>#}
+
+                    {#</div>#}
+                {#{% endfor %}#}
+            {#</td>#}
+        {#</tr>#}
+    {#</table>#}
 {% endblock %}

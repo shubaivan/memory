@@ -1,0 +1,3 @@
+app_add_comments:
+  pattern: /news/{slug}/new
+  defaults: { _controller: AppBundle:Comments:addComments }

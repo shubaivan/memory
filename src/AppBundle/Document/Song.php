@@ -13,6 +13,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class Song
 {
+    use Timestampable;
     /**
      * @ODM\Id
      */
@@ -48,6 +49,11 @@ class Song
      * @ODM\Field(type="string")
      */
     protected $slug;
+
+    /**
+     * @ODM\ReferenceOne(targetDocument="UserBundle\Document\User")
+     */
+    protected $author;
 
     public function __construct()
     {
@@ -219,10 +225,25 @@ class Song
     }
 
     /**
+     * Set author
      *
+     * @param  \UserBundle\Document\User $author
+     * @return self
      */
-    public function __toString()
+    public function setAuthor(\UserBundle\Document\User $author)
     {
-       return $this->name;
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return \UserBundle\Document\User $author
+     */
+    public function getAuthor()
+    {
+        return $this->author;
     }
 }

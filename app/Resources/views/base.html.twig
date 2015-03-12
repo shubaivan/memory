@@ -1,9 +1,62 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8" />
-    <title>{% block title %}{% endblock %} | Memory</title>
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#<head>#}
+    {#<meta charset="UTF-8" />#}
+    {#<title>{% block title %}{% endblock %} | Memory</title>#}
 
+    {#<link href="{{ asset('bundles/app/css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">#}
+    {#<link href="{{ asset('bundles/app/css/style.css') }}" rel="stylesheet">#}
+    {#<link href="{{ asset('bundles/app/css/baner.css') }}" rel="stylesheet">#}
+
+
+    {#<script src="http://code.jquery.com/jquery-latest.min.js"></script>#}
+    {#<script src="http://unslider.com/unslider.min.js"></script>#}
+    {#<script src="{{ asset('bundles/app/js/baner.js') }}"></script>#}
+    {#{% block stylesheets %}{% endblock %}#}
+
+    {#<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />#}
+    {#{% block jsHead %}{% endblock %}#}
+{#</head>#}
+{#<body>#}
+
+{#{% block body %}#}
+    {#<div class="container">#}
+        {#{% include 'AppBundle::menu.html.twig' %}#}
+        {#{% include 'AppBundle::baner.html.twig' %}#}
+
+        {#<div class="col-lg-8 blog-main">#}
+            {#{% block content %}#}
+            {#{% endblock %}#}
+        {#</div>#}
+
+        {#{% include 'AppBundle::rightsidebar.html.twig' %}#}
+
+        {#<div class="blog-footer col-lg-12">#}
+            {#<p>#}
+                {#Site build by <a href="http://vk.com/id8572415">Shuba Ivan</a> and <a href="http://vk.com/valik.v1per">Valik Grinevich</a>#}
+            {#</p>#}
+            {#<p> <a href="#">Back to top</a> </p>#}
+        {#</div>#}
+    {#</div>#}
+{#{% endblock %}#}
+
+{#{% block jsAfterBody %}{% endblock %}#}
+{#</body>#}
+{#</html>#}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %} | Memory</title>
+    <meta name="generator" content="Bootply" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="{{ asset ('bundles/app/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="{{ asset ('bundles/app/css/styles.css') }}" rel="stylesheet">
     <link href="{{ asset('bundles/app/css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('bundles/app/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('bundles/app/css/baner.css') }}" rel="stylesheet">
@@ -16,30 +69,74 @@
 
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     {% block jsHead %}{% endblock %}
+
 </head>
 <body>
-
 {% block body %}
-    <div class="container">
-        {% include 'AppBundle::menu.html.twig' %}
-        {% include 'AppBundle::baner.html.twig' %}
 
-        <div class="col-lg-8 blog-main">
-            {% block content %}
-            {% endblock %}
-        </div>
+<div class="wrapper">
 
-        {% include 'AppBundle::rightsidebar.html.twig' %}
+    <div class="box">
+        <div class="row">
+            {% include 'AppBundle::rightsidebar.html.twig' %}
+            <!-- main -->
+            <div class="column col-sm-9" id="main">
+                <div class="padding">
+                    <div class="full col-sm-9">
 
-        <div class="blog-footer col-lg-12">
-            <p>
-                Site build by <a href="http://vk.com/id8572415">Shuba Ivan</a> and <a href="http://vk.com/valik.v1per">Valik Grinevich</a>
-            </p>
-            <p> <a href="#">Back to top</a> </p>
+                        {% block content %}
+                        {% endblock %}
+
+
+                        <div class="col-sm-12">
+                            <div class="page-header text-muted divider">
+                                Connect with Us
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <a href="#">Twitter</a> <small class="text-muted">|</small> <a href="#">Facebook</a> <small class="text-muted">|</small> <a href="#">Google+</a>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="row" id="footer">
+                            <div class="col-sm-6">
+
+                            </div>
+                            <div class="col-sm-6">
+                                <p>
+                                    <a href="https://github.com/shubaivan/memory" class="pull-right">github</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <h3 class="text-center">
+                            <p>
+                                Site build by <a href="http://vk.com/id8572415">Shuba Ivan</a> and <a href="http://vk.com/valik.v1per">Valik Grinevich</a>
+                            </p>
+                        </h3>
+
+                        <hr>
+
+
+                    </div><!-- /col-9 -->
+                </div><!-- /padding -->
+            </div>
+            <!-- /main -->
+
         </div>
     </div>
+</div>
+<!-- script references -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="{{ asset ('bundles/app/js/bootstrap.min.js') }}"></script>
 {% endblock %}
-
 {% block jsAfterBody %}{% endblock %}
+
 </body>
 </html>

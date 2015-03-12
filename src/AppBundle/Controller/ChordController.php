@@ -70,7 +70,7 @@ class ChordController extends Controller
             $dm->flush();
 
             return $this->redirect($this->generateUrl(
-                    'app_get_all_videos_in_song',
+                    'app_get_all_chords_in_song',
                     [
                         'slugAlbum' => $song->getAlbum()->getSlug(),
                         'slug' => $song->getSlug()

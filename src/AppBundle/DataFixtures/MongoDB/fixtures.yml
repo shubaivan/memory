@@ -1,5 +1,5 @@
 AppBundle\Document\Album:
-  albums{1..50}:
+  albums{1..5}:
     year: <numberBetween($min = 1990, $max = 2010)>
     name: <word()>
     text: <realText()>
@@ -19,6 +19,11 @@ AppBundle\Document\Video:
     song: @songs*
 
 AppBundle\Document\News:
-  news{1..50}:
+  news{1..5}:
     title: <word()>
     text: <realText()>
+
+AppBundle\Document\Comments:
+  comments{1..20}:
+    text: <word()>
+    news: @news*

@@ -14,6 +14,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class News
 {
+    use Timestampable;
     /**
      * @ODM\Id
      */
@@ -30,16 +31,25 @@ class News
     protected $text;
 
     /**
-     * @Gedmo\Timestampable(on="create")
-     * @ODM\Field(type="date")
-     */
-    protected $createdAt;
-
-    /**
      * @Gedmo\Slug(fields={"title"})
      * @ODM\Field(type="string")
      */
     protected $slug;
+
+    /**
+     * @ODM\File()
+     */
+    protected $image;
+
+    /**
+     * @ODM\ReferenceMany(targetDocument="AppBundle\Document\Comments")
+     */
+    protected $comment;
+
+    /**
+     * @ODM\ReferenceOne(targetDocument="UserBundle\Document\User")
+     */
+    protected $author;
 
     /**
      * Get id
@@ -98,29 +108,6 @@ class News
     }
 
     /**
-     * Set createdAt
-     *
-     * @param  date $createdAt
-     * @return self
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return date $createdAt
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
      * Set slug
      *
      * @param  string $slug
@@ -141,5 +128,86 @@ class News
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set image
+     *
+     * @param  file $image
+     * @return self
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return file $image
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set author
+     *
+     * @param  \UserBundle\Document\User $author
+     * @return self
+     */
+    public function setAuthor(\UserBundle\Document\User $author)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return \UserBundle\Document\User $author
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    public function __construct()
+    {
+        $this->comment = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add comment
+     *
+     * @param \AppBundle\Document\Comments $comment
+     */
+    public function addComment(\AppBundle\Document\Comments $comment)
+    {
+        $this->comment[] = $comment;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param \AppBundle\Document\Comments $comment
+     */
+    public function removeComment(\AppBundle\Document\Comments $comment)
+    {
+        $this->comment->removeElement($comment);
+    }
+
+    /**
+     * Get comment
+     *
+     * @return \Doctrine\Common\Collections\Collection $comment
+     */
+    public function getComment()
+    {
+        return $this->comment;
     }
 }

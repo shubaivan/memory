@@ -13,7 +13,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class Tab extends AbstractChord
 {
-
+    use Timestampable;
     /**
      * @ODM\Id
      */
