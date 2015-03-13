@@ -30,6 +30,23 @@ class VideoController extends Controller
     }
 
     /**
+     * Method that render all video
+     *
+     * @param
+     * @return Response
+     *
+     * @Template()
+     */
+    public function getListVideosAction()
+    {
+        $video = $this->get('doctrine_mongodb.odm.document_manager')->getRepository('AppBundle:Video')->findAll();
+
+        return [
+            'video' => $video
+        ];
+    }
+
+    /**
      * @param  Video $video
      * @return array
      *
