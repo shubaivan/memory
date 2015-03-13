@@ -180,7 +180,7 @@ class News
     {
         $this->comment = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Add comment
      *

@@ -3,7 +3,6 @@
 namespace AppBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
-use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Class
@@ -47,12 +46,14 @@ class Comments
     /**
      * Set author
      *
-     * @param \UserBundle\Document\User $author
+     * @param  \UserBundle\Document\User $author
      * @return self
      */
     public function setAuthor(\UserBundle\Document\User $author)
     {
         $this->author = $author;
+        $author->addComment($this);
+
         return $this;
     }
 
@@ -69,13 +70,14 @@ class Comments
     /**
      * Set news
      *
-     * @param \AppBundle\Document\News $news
+     * @param  \AppBundle\Document\News $news
      * @return self
      */
     public function setNews(\AppBundle\Document\News $news)
     {
         $this->news = $news;
         $news->addComment($this);
+
         return $this;
     }
 
@@ -92,12 +94,13 @@ class Comments
     /**
      * Set text
      *
-     * @param string $text
+     * @param  string $text
      * @return self
      */
     public function setText($text)
     {
         $this->text = $text;
+
         return $this;
     }
 

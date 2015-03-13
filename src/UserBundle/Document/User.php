@@ -71,6 +71,11 @@ class User extends BaseUser
     protected $chord;
 
     /**
+     * @ODM\ReferenceMany(targetDocument="AppBundle\Document\Comments")
+     */
+    protected $comments;
+
+    /**
      * @ODM\ReferenceMany(targetDocument="AppBundle\Document\Video")
      */
     protected $favouriteVideo;
@@ -317,7 +322,7 @@ class User extends BaseUser
     /**
      * Add favouriteVideo
      *
-     * @param AppBundle\Document\Video $favouriteVideo
+     * @param \AppBundle\Document\Video $favouriteVideo
      */
     public function addFavouriteVideo(\AppBundle\Document\Video $favouriteVideo)
     {
@@ -327,7 +332,7 @@ class User extends BaseUser
     /**
      * Remove favouriteVideo
      *
-     * @param AppBundle\Document\Video $favouriteVideo
+     * @param \AppBundle\Document\Video $favouriteVideo
      */
     public function removeFavouriteVideo(\AppBundle\Document\Video $favouriteVideo)
     {
@@ -337,7 +342,7 @@ class User extends BaseUser
     /**
      * Get favouriteVideo
      *
-     * @return Doctrine\Common\Collections\Collection $favouriteVideo
+     * @return \Doctrine\Common\Collections\Collection $favouriteVideo
      */
     public function getFavouriteVideo()
     {
@@ -347,7 +352,7 @@ class User extends BaseUser
     /**
      * Add chord
      *
-     * @param AppBundle\Document\Chord $chord
+     * @param \AppBundle\Document\Chord $chord
      */
     public function addChord(\AppBundle\Document\Chord $chord)
     {
@@ -357,7 +362,7 @@ class User extends BaseUser
     /**
      * Remove chord
      *
-     * @param AppBundle\Document\Chord $chord
+     * @param \AppBundle\Document\Chord $chord
      */
     public function removeChord(\AppBundle\Document\Chord $chord)
     {
@@ -367,10 +372,40 @@ class User extends BaseUser
     /**
      * Get chord
      *
-     * @return Doctrine\Common\Collections\Collection $chord
+     * @return \Doctrine\Common\Collections\Collection $chord
      */
     public function getChord()
     {
         return $this->chord;
+    }
+
+    /**
+     * Add comment
+     *
+     * @param AppBundle\Document\Comments $comment
+     */
+    public function addComment(\AppBundle\Document\Comments $comment)
+    {
+        $this->comments[] = $comment;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param AppBundle\Document\Comments $comment
+     */
+    public function removeComment(\AppBundle\Document\Comments $comment)
+    {
+        $this->comments->removeElement($comment);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return Doctrine\Common\Collections\Collection $comments
+     */
+    public function getComments()
+    {
+        return $this->comments;
     }
 }
