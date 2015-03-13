@@ -382,7 +382,7 @@ class User extends BaseUser
     /**
      * Add comment
      *
-     * @param AppBundle\Document\Comments $comment
+     * @param \AppBundle\Document\Comments $comment
      */
     public function addComment(\AppBundle\Document\Comments $comment)
     {
@@ -392,7 +392,7 @@ class User extends BaseUser
     /**
      * Remove comment
      *
-     * @param AppBundle\Document\Comments $comment
+     * @param \AppBundle\Document\Comments $comment
      */
     public function removeComment(\AppBundle\Document\Comments $comment)
     {
@@ -402,7 +402,7 @@ class User extends BaseUser
     /**
      * Get comments
      *
-     * @return Doctrine\Common\Collections\Collection $comments
+     * @return \Doctrine\Common\Collections\Collection $comments
      */
     public function getComments()
     {

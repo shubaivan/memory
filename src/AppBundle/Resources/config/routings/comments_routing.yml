@@ -2,8 +2,14 @@ app_add_comments:
   pattern: /news/{slug}/new
   defaults: { _controller: AppBundle:Comments:addComments }
 
-app_json_comment:
+app_news_json_comment:
     pattern: /{slug}/add
-    defaults: { _controller: AppBundle:Comments:createComment}
+    defaults: { _controller: AppBundle:Comments:newsComment}
+    requirements:
+            _method:  POST
+
+app_video_json_comment:
+    pattern: /album/{slugAlbum}/song/{slugSong}/video/{slug}/add
+    defaults: { _controller: AppBundle:Comments:videoComment}
     requirements:
             _method:  POST

@@ -50,7 +50,7 @@ class CommentsController extends Controller
         ];
     }
 
-    public function createCommentAction($slug, Request $request)
+    public function newsCommentAction($slug, Request $request)
     {
         $comment = new Comments();
 
@@ -67,6 +67,39 @@ class CommentsController extends Controller
             $dm->flush();
 
             $news = $this->get('doctrine_mongodb.odm.document_manager')->getRepository('AppBundle:News')->findBySlug($slug);
+
+            $comments = array();
+
+            for ($i = 0; $i < count($news[0]->getComment()); $i++) {
+
+                $comments[$i]["text"] = $news[0]->getComment()[$i]->getText();
+                $comments[$i]["createdAt"] = $news[0]->getComment()[$i]->getCreatedAt()->format("d.m.Y H:i:s");
+            }
+
+            return new JsonResponse($comments);
+        }
+
+        return new JsonResponse([], 500);
+
+    }
+
+    public function videoCommentAction($slug, Request $request)
+    {
+        $comment = new Comments();
+
+        $form = $this->createForm(new CommentsType(), $comment);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $comment->setAuthor($this->getUser());
+            $comment->setVideo($this->get('doctrine_mongodb.odm.document_manager')->getRepository('AppBundle:Video')->findOneBySlug($slug));
+
+            $dm = $this->get('doctrine_mongodb.odm.document_manager');
+            $dm->persist($comment);
+            $dm->flush();
+
+            $news = $this->get('doctrine_mongodb.odm.document_manager')->getRepository('AppBundle:Video')->findBySlug($slug);
 
             $comments = array();
 

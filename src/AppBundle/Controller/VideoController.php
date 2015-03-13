@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Document\Video;
 use AppBundle\Form\Type\VideoType;
+use AppBundle\Form\Type\CommentsType;
 
 class VideoController extends Controller
 {
@@ -36,8 +37,11 @@ class VideoController extends Controller
      */
     public function getSingleVideoAction(Video $video)
     {
+        $form = $this->createForm(new CommentsType());
+
         return [
-            "video" => $video
+            "video" => $video,
+            "form" => $form->createView()
         ];
     }
 

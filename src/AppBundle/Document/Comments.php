@@ -24,6 +24,11 @@ class Comments
     protected $news;
 
     /**
+     * @ODM\ReferenceOne(targetDocument="AppBundle\Document\Video")
+     */
+    protected $video;
+
+    /**
      * @ODM\Field(type="string")
      */
     protected $text;
@@ -112,5 +117,29 @@ class Comments
     public function getText()
     {
         return $this->text;
+    }
+
+    /**
+     * Set video
+     *
+     * @param  \AppBundle\Document\Video $video
+     * @return self
+     */
+    public function setVideo(\AppBundle\Document\Video $video)
+    {
+        $this->video = $video;
+        $video->addComment($this);
+
+        return $this;
+    }
+
+    /**
+     * Get video
+     *
+     * @return \AppBundle\Document\Video $video
+     */
+    public function getVideo()
+    {
+        return $this->video;
     }
 }
