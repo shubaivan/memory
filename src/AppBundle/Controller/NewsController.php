@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
+use AppBundle\Form\Type\CommentsType;
 
 class NewsController extends Controller
 {
@@ -36,8 +37,11 @@ class NewsController extends Controller
      */
     public function getSingleNewsAction(News $news)
     {
+        $form = $this->createForm(new CommentsType());
+
         return [
-            "news" => $news
+            "news" => $news,
+            "form" => $form->createView()
         ];
     }
 

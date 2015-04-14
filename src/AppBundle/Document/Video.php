@@ -51,6 +51,11 @@ class Video
     protected $song;
 
     /**
+     * @ODM\ReferenceMany(targetDocument="AppBundle\Document\Comments")
+     */
+    protected $comment;
+
+    /**
      * @ODM\ReferenceOne(targetDocument="UserBundle\Document\User")
      */
     protected $author;
@@ -265,5 +270,35 @@ class Video
     public function getUsersWhoFavourite()
     {
         return $this->usersWhoFavourite;
+    }
+
+    /**
+     * Add comment
+     *
+     * @param \AppBundle\Document\Comments $comment
+     */
+    public function addComment(\AppBundle\Document\Comments $comment)
+    {
+        $this->comment[] = $comment;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param \AppBundle\Document\Comments $comment
+     */
+    public function removeComment(\AppBundle\Document\Comments $comment)
+    {
+        $this->comment->removeElement($comment);
+    }
+
+    /**
+     * Get comment
+     *
+     * @return \Doctrine\Common\Collections\Collection $comment
+     */
+    public function getComment()
+    {
+        return $this->comment;
     }
 }

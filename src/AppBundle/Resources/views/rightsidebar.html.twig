@@ -1,4 +1,4 @@
-<div class="column col-sm-3" id="sidebar" xmlns="http://www.w3.org/1999/html">
+<div class="column col-sm-3" id="sidebar" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 
     <div class="sidebar-module">
         <h4>Увійти:</h4>
@@ -28,6 +28,17 @@
     <li>
         <a href="{{ path('app_get_all_albums') }}" class="btn btn-success btn-large"><i class="icon-white icon-star"></i> Album</a>
     </li>
+        </br>
+    <li>
+        <a href="{{ path('app_get_all_videos') }}" class="btn btn-success btn-large"><i class="icon-white icon-star"></i> All Videos</a>
+    </li>
+
+        <a href="{{ path('app_add_news') }}" class="add-dream">
+            <span class="icon-bg"></span>
+            Add News
+            <span class="icon-add"></span>
+        </a>
+
     </ul>
 
     <ul class="nav hidden-xs" id="sidebar-footer">

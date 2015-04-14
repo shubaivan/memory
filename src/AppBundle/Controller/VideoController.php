@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Document\Video;
 use AppBundle\Form\Type\VideoType;
+use AppBundle\Form\Type\CommentsType;
 
 class VideoController extends Controller
 {
@@ -29,6 +30,23 @@ class VideoController extends Controller
     }
 
     /**
+     * Method that render all video
+     *
+     * @param
+     * @return Response
+     *
+     * @Template()
+     */
+    public function getListVideosAction()
+    {
+        $video = $this->get('doctrine_mongodb.odm.document_manager')->getRepository('AppBundle:Video')->findAll();
+
+        return [
+            'video' => $video
+        ];
+    }
+
+    /**
      * @param  Video $video
      * @return array
      *
@@ -36,8 +54,11 @@ class VideoController extends Controller
      */
     public function getSingleVideoAction(Video $video)
     {
+        $form = $this->createForm(new CommentsType());
+
         return [
-            "video" => $video
+            "video" => $video,
+            "form" => $form->createView()
         ];
     }
 

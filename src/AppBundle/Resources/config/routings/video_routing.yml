@@ -9,3 +9,7 @@ app_add_video:
 app_get_single_video:
   pattern: /album/{slugAlbum}/song/{slugSong}/video/{slug}/view
   defaults: { _controller: AppBundle:Video:getSingleVideo }
+
+app_get_all_videos:
+  pattern: /videos
+  defaults: { _controller: AppBundle:Video:getListVideos }

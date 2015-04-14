@@ -3,7 +3,6 @@
 namespace AppBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
-use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Class
@@ -23,6 +22,11 @@ class Comments
      * @ODM\ReferenceOne(targetDocument="AppBundle\Document\News")
      */
     protected $news;
+
+    /**
+     * @ODM\ReferenceOne(targetDocument="AppBundle\Document\Video")
+     */
+    protected $video;
 
     /**
      * @ODM\Field(type="string")
@@ -47,12 +51,14 @@ class Comments
     /**
      * Set author
      *
-     * @param \UserBundle\Document\User $author
+     * @param  \UserBundle\Document\User $author
      * @return self
      */
     public function setAuthor(\UserBundle\Document\User $author)
     {
         $this->author = $author;
+        $author->addComment($this);
+
         return $this;
     }
 
@@ -69,13 +75,14 @@ class Comments
     /**
      * Set news
      *
-     * @param \AppBundle\Document\News $news
+     * @param  \AppBundle\Document\News $news
      * @return self
      */
     public function setNews(\AppBundle\Document\News $news)
     {
         $this->news = $news;
         $news->addComment($this);
+
         return $this;
     }
 
@@ -92,12 +99,13 @@ class Comments
     /**
      * Set text
      *
-     * @param string $text
+     * @param  string $text
      * @return self
      */
     public function setText($text)
     {
         $this->text = $text;
+
         return $this;
     }
 
@@ -109,5 +117,29 @@ class Comments
     public function getText()
     {
         return $this->text;
+    }
+
+    /**
+     * Set video
+     *
+     * @param  \AppBundle\Document\Video $video
+     * @return self
+     */
+    public function setVideo(\AppBundle\Document\Video $video)
+    {
+        $this->video = $video;
+        $video->addComment($this);
+
+        return $this;
+    }
+
+    /**
+     * Get video
+     *
+     * @return \AppBundle\Document\Video $video
+     */
+    public function getVideo()
+    {
+        return $this->video;
     }
 }

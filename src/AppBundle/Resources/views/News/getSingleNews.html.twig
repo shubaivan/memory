@@ -21,17 +21,47 @@
         Добавив: {{ news.author.username }}</br>
         {{ news.createdAt|date("m/d/Y") }}
     </div>
-    <a href="{{ path('app_add_comments', {'slug' : news.slug}) }}" class="btn btn-success btn-large"><i class="icon-white icon-star"></i> Додати новий comments</a></br>
-    <div class="col-sm-10">
-        {% for comments in news.comment %}
 
-        <li><small class="text-muted">{{ comments.text }}</small></li>
+    <div>
 
-        {% endfor %}
+        <div class="col-sm-10">
+
+            <form id="comment_add" role="form" action="{{ path("app_news_json_comment", {"slug" : news.slug}) }}" method="POST">
+
+
+                <div class="text">
+                    {{ form_row(form.text) }}
+                    <div id="clear"></div>
+                </div>
+
+                {{ form_rest(form) }}
+
+                <div>
+                    <input type="submit" class="btn btn-success btn-large" value="Добавить коментарий">
+                </div>
+            </form>
+        </div>
+
+        <div class="col-sm-10">
+
+            <h4><span id="category_list" class="label label-default"> Коментарии:</span></h4><h4>
+                {% for comments in news.comment|reverse %}
+                    <li><small class="text-muted">
+                            {{ comments.createdAt|date("d.m.Y H:i:s") }}</br>
+                            {{ comments.text }}</br>
+                        </small></li>
+                {% else %}
+                    <li><small class="text-muted"><b> В данный момент нет коментариев </b></small></li>
+                {% endfor %}
+            </h4>
+        </div>
+
     </div>
-    <div class="col-sm-2">
-        {#<a href="#" class="pull-right"><img src="{{ news.image }}" class="img-circle"></a>#}
-    </div>
+
+
+
+
+
 </div>
 
 {% endblock %}
