@@ -137,3 +137,51 @@ h1,h2,h3 {
 small.text-muted {
   font-family:courier,courier-new,monospace;
 }
+
+
+.add-dream .icon-bg,
+.add-dream .icon-add,
+.add-dream:before,
+
+.add-dream {
+    display: inline-block;
+    position: relative;
+    font-weight: bold;
+    color: #333;
+    padding: 28px 38px 0 0;
+    margin: 0 auto;
+}
+.add-dream .icon-bg {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: -11px;
+    top: 15px;
+    background: url(/images/sprite.png) -80px 0 no-repeat;
+}
+.add-dream:hover .icon-bg {
+    background: url(/images/sprite.png) -80px -40px;
+    width: 28px;
+    height: 28px;
+    right: -5px;
+    top: 21px;
+}
+.add-dream .icon-add {
+    width: 16px;
+    height: 16px;
+    background: url(/images/sprite.png) 0 -40px no-repeat;
+    position: absolute;
+    right: 1px;
+    top: 27px;
+}
+.add-dream:before {
+    content: '';
+    width: 259px;
+    height: 35px;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin: 0 0 0 -130px;
+    background: url(/images/header_bg.png) no-repeat;
+    z-index: -1;
+}
