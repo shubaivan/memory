@@ -6,13 +6,18 @@
     {% if is_granted('ROLE_USER') %}
 
     <div class="col-lg-12">
-        <a href="{{ path('app_add_news') }}" class="btn btn-success btn-large"><i class="icon-white icon-star"></i> Додати новину</a></br>
+        <a href="{{ path('app_add_news') }}" class="btn btn-success btn-large"><span class="glyphicon glyphicon-plus"></span> Додати новину</a></br>
     </div>
 
     {% endif %}
     <div class="col-sm-12" id="featured">
         <div class="page-header text-muted">
-            News
+
+            {#<a href="{{ path('app_add_news') }}" class="add -dream">#}
+                {#<span class="icon-bg"></span>#}
+                News
+                {#<span class="icon-add"></span>#}
+            {#</a>#}
         </div>
     </div>
 

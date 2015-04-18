@@ -17,7 +17,7 @@
 
     {% if is_granted('ROLE_USER') %}
         <div>
-            <a href="{{ path('app_add_video', {"slugVideo" : song.album.slug, "slug" : song.slug}) }}" class="btn btn-success btn-large"><i class="icon-white icon-star"></i>Добавить видео</a></br>
+            <a href="{{ path('app_add_video', {"slugVideo" : song.album.slug, "slug" : song.slug}) }}" class="btn btn-success btn-large"><span class="glyphicon glyphicon-plus"></span> Добавить видео</a></br>
         </div>
     {% endif %}
     <!--/top story-->
@@ -31,7 +31,7 @@
 
 
                 {% endfor %}
-            <a href="{{ path('app_get_all_albums')}}" class="btn btn-success btn-large"><i class="icon-white icon-star"></i> Back to tha all albums</a></br>
+            <a href="{{ path('app_get_all_albums')}}" class="btn btn-success btn-large"><i class="glyphicon glyphicon-backward"></i> Back to tha all albums</a></br>
         </div>
 
         <div class="col-sm-2">

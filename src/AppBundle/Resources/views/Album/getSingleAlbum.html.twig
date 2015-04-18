@@ -16,7 +16,7 @@
 
     {% endif %}
 
-    <a href="{{ path('app_add_song', {'slug' : album.slug}) }}" class="btn btn-success btn-large"><i class="icon-white icon-star"></i> Додати новий трек</a></br>
+    <a href="{{ path('app_add_song', {'slug' : album.slug}) }}" class="btn btn-success btn-large"><span class="glyphicon glyphicon-plus"></span>  Додати новий трек</a></br>
 
 <!--/top story-->
 <div class="row">
@@ -33,7 +33,7 @@
 
         {% endfor %}
 
-        <a href="{{ path('app_get_all_albums')}}" class="btn btn-success btn-large"><i class="icon-white icon-star"></i> Back to tha all albums</a></br>
+        <a href="{{ path('app_get_all_albums')}}" class="btn btn-success btn-large"><i class="glyphicon glyphicon-backward"></i> Back to tha all albums</a></br>
     </div>
     <div class="col-sm-2">
         <a href="{{ path('app_get_single_album', {"slug" : album.slug}) }}" class="pull-right"><img src="http://amuzic.ru/common/images/artist/7572688069150/album_60672545641341.jpg"></a>
