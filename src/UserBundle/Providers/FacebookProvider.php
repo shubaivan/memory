@@ -14,6 +14,7 @@ class FacebookProvider
 
         $user->setFirstName($responseArray['first_name']);
         $user->setSecondName($responseArray['last_name']);
+        dump($responseArray['last_name']);
         $user->setEmail('id'.$user->getFacebookId().'@example.com');
         $user->setUsername($username);
         $user->setPassword($username);
